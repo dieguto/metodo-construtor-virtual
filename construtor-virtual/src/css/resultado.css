@@ -1,0 +1,27 @@
+.total {
+  text-align: inherit;
+  margin-top: 50px;
+}
+
+.resultado-final {
+  font-size: 50px;
+}
+
+.btn {
+  margin-top: 15px;
+  background-color: white;
+  border: 2px solid #eb6607;
+  text-align: center;
+}
+
+.empurrar {
+  margin-top: 15px;
+}
+
+.fonte-resultado {
+  font-size: 20px;
+}
+
+.espaco {
+  height: 30px;
+}

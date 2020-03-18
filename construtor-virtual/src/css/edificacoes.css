@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.logo-metodo {
+  width: 200px;
+  height: 85px;
+  margin-left: 15px;
+}
+
+.itens-titulos {
+  height: 50px;
+  box-sizing: border-box;
+  padding-left: 30px;
+}
+
+.tarefa {
+  padding-left: 15px;
+}
+
+.espacamento {
+  height: 200px;
+}
+
+div.imagem-transitoria {
+  position: absolute;
+  top: 80px;
+  left: -90px;
+  width: 800px;
+  height: 500px;
+  /* background-color: khaki; */
+  background-image: url(../Assets/hidraulica.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: inherit;
+}
+
+div.itens-titulos:hover + div.imagem-transitoria {
+  /* background-image: url(../Assets/estruturas.png); */
+  background-color: lightcoral;
+}
+
+.box-rodape-icone {
+  width: 20%;
+}
+
+.box-rodape-icone:nth-child(3) {
+  width: 25%;
+}
+
+.box-rodape-icone2 {
+  width: 150px;
+}
+
+.box-rodape-icone3 {
+  width: 150px;
+}
+
+.box-rodape-icone4 {
+  width: 200px;
+}
+
+.box-rodape-palavras {
+  width: 16.5%;
+  box-sizing: border-box;
+  padding-top: 15px;
+  padding-bottom: 50px;
+}
+
+.div-progressbar {
+  width: 101%;
+  display: flex;
+  position: fixed;
+  bottom: 98px;
+}
+
+.div-rodape {
+  display: flex;
+  justify-content: space-between;
+  width: 101%;
+  background-color: #3c3c3c;
+  position: fixed;
+  bottom: 0;
+}
+
+.resumo {
+  width: 16%;
+  margin-left: 1%;
+}
+
+.menu-resumo {
+  background-color: #f2f2f2;
+}
+
+.metro-quadrado {
+  /* background-color: khaki; */
+  width: 215px;
+  height: 20px;
+  box-sizing: border-box;
+  padding-left: 25px;
+  font-size: 20px;
+  color: white;
+}
+
+.resultado {
+  /* background-color: lawngreen; */
+  height: 70px;
+  width: 215px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+}

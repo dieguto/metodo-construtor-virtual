@@ -1,0 +1,85 @@
+@font-face {
+  font-family: barlow;
+  src: url(../Utils/fontes/barlow/Barlow-Black.otf);
+}
+
+@font-face {
+  font-family: barlow-thin;
+  src: url(../Utils/fontes/barlow/Barlow-Thin.otf);
+}
+
+@font-face {
+  font-family: barlow-extrabold;
+  src: url(../Utils/fontes/barlow/Barlow-Extra-Bold.ttf);
+}
+
+@font-face {
+  font-family: semibold;
+  src: url(../Utils/fontes/barlow/Barlow-SemiBold.otf);
+}
+
+@font-face {
+  font-family: barlow-bold;
+  src: url(../Utils/fontes/barlow/Barlow-Bold.otf);
+}
+
+@font-face {
+  font-family: regular;
+  src: url(../Utils/fontes/barlow/Barlow-Regular.otf);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.progressbar {
+  width: 70%;
+  background-color: #eb6607 !important;
+}
+
+.barlow {
+  font-family: barlow;
+}
+
+.barlow-thin {
+  font-family: barlow-thin;
+}
+
+.barlow-extrabold {
+  font-family: barlow-extrabold;
+}
+
+.barlow-semibold {
+  font-family: semibold;
+}
+
+.barlow-bold {
+  font-family: barlow-bold;
+}
+
+.barlow-regular {
+  font-family: regular;
+}
+
+.cor-padrao-metodo {
+  color: #eb6607;
+}
+
+.construir-titulo {
+  font-size: 130px;
+  text-align: center;
+}
+
+.height {
+  height: 1000px;
+  /* text1align: center; */
+}
+
+.acinzentado-metodo {
+  color: #b9b9b9;
+}
+
+.preto-metodo {
+  color: #3c3c3c;
+}
