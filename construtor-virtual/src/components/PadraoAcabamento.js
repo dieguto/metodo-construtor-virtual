@@ -216,7 +216,7 @@ export default class PadraoAcabamento extends Component {
             <div className="col-10 ">
               <div className="progress">
                 <div
-                  className="progress-bar progressbar"
+                  className="progress-bar progressbar3"
                   role="progressbar"
                   aria-valuenow="75"
                   aria-valuemin="0"

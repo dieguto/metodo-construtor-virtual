@@ -24,7 +24,7 @@ body {
 }
 
 .espacamento {
-  height: 200px;
+  height: 160px;
 }
 
 div.imagem-transitoria {
@@ -74,10 +74,23 @@ div.itens-titulos:hover + div.imagem-transitoria {
 }
 
 .div-progressbar {
-  width: 101%;
+  width: 103%;
   display: flex;
   position: fixed;
   bottom: 98px;
+}
+
+.progressbar {
+  width: 25%;
+  background-color: #eb6607 !important;
+}
+.progressbar2 {
+  width: 50%;
+  background-color: #eb6607 !important;
+}
+.progressbar3 {
+  width: 75%;
+  background-color: #eb6607 !important;
 }
 
 .div-rodape {
