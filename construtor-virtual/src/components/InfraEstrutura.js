@@ -7,6 +7,7 @@ import "../css/edificacoes.css";
 
 import IconeUm from "../Assets/icons/icon_1.svg";
 import IconeDois from "../Assets/icons/icon_2.svg";
+import IconeBranco from "../Assets/icons/icon_2_branco.svg";
 import IconeTres from "../Assets/icons/icon_3.svg";
 import IconeRefresh from "../Assets/icons/icon_refresh.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
@@ -220,16 +221,18 @@ export default class InfraEstrutura extends Component {
                 <img className=" float-left tamanho-icone" src={IconeUm} />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">edificações</span>
+                <span className="texto-rodape barlow black">edificações</span>
               </div>
             </div>
 
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeDois} />
+                <img className=" float-left tamanho-icone" src={IconeBranco} />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">infraestrutura</span>
+                <span className="texto-rodape barlow branco-metodo">
+                  infraestrutura
+                </span>
               </div>
             </div>
 
@@ -239,7 +242,7 @@ export default class InfraEstrutura extends Component {
                 <img className=" float-left tamanho-icone" src={IconeTres} />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">
+                <span className="texto-rodape barlow black">
                   padrão de acabamento
                 </span>
               </div>

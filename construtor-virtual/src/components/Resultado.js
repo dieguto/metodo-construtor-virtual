@@ -24,14 +24,28 @@ export default class Resultado extends Component {
           <div className="col-3 ">
             <img className="logo-metodo" src={MetodoLogo}></img>
           </div>
-          <div className="col-9 ">
-            <h2 className="barlow-extrabold acinzentado-metodo construir-titulo">
+          <div className="col-2 ">
+            <h2 className="barlow-extrabold branco-metodo construir-titulo">
               construir
             </h2>
           </div>
 
           <div className="col-1 "></div>
           <div className="col-11 "></div>
+
+          <div className="col-2 ">
+            <h2 className="barlow-extrabold acinzentado-metodo"></h2>
+          </div>
+          <div className="col-4 ">
+            <h2 className="barlow-extrabold acinzentado-metodo"></h2>
+          </div>
+          <div className="col-4 ">
+            <div className="imagem-transitoria"></div>
+          </div>
+          <div className="col-2 ">
+            <h2 className="barlow-extrabold acinzentado-metodo "></h2>
+          </div>
+
           <div className="col-1 "></div>
           <div className="col-11 ">
             <h3 className="barlow-extrabold acinzentado-metodo">final</h3>
@@ -124,7 +138,7 @@ export default class Resultado extends Component {
                 <img className=" float-left tamanho-icone" src={IconeUm} />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">edificações</span>
+                <span className="texto-rodape barlow black">edificações</span>
               </div>
             </div>
 
@@ -133,7 +147,9 @@ export default class Resultado extends Component {
                 <img className=" float-left tamanho-icone" src={IconeDois} />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">infraestrutura</span>
+                <span className="texto-rodape barlow black">
+                  infraestrutura
+                </span>
               </div>
             </div>
 
@@ -143,7 +159,7 @@ export default class Resultado extends Component {
                 <img className=" float-left tamanho-icone" src={IconeTres} />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">
+                <span className="texto-rodape barlow black">
                   padrão de acabamento
                 </span>
               </div>

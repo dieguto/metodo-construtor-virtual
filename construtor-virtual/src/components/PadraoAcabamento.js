@@ -8,6 +8,7 @@ import "../css/edificacoes.css";
 import IconeUm from "../Assets/icons/icon_1.svg";
 import IconeDois from "../Assets/icons/icon_2.svg";
 import IconeTres from "../Assets/icons/icon_3.svg";
+import IconeTresBranco from "../Assets/icons/icon_3_branco.svg";
 import IconeRefresh from "../Assets/icons/icon_refresh.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import IconeContinuar from "../Assets/icons/icon_avancar.svg";
@@ -166,7 +167,6 @@ export default class PadraoAcabamento extends Component {
             <input name="entrada-energia" type="radio" /> unificação
           </div>
           <div className="col-2  regular">
-            {" "}
             <input name="entrada-energia" type="radio" /> cimentícia
           </div>
 
@@ -209,7 +209,7 @@ export default class PadraoAcabamento extends Component {
 
           <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
 
-          <div className="col-10 espacamento "></div>
+          <div className="col-10 espacamento"></div>
           <div className="col-2 espacamento  menu-resumo"></div>
 
           <div className="div-progressbar">
@@ -235,7 +235,7 @@ export default class PadraoAcabamento extends Component {
                 <img className=" float-left tamanho-icone" src={IconeUm} />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">edificações</span>
+                <span className="texto-rodape barlow black">edificações</span>
               </div>
             </div>
 
@@ -244,17 +244,22 @@ export default class PadraoAcabamento extends Component {
                 <img className=" float-left tamanho-icone" src={IconeDois} />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">infraestrutura</span>
+                <span className="texto-rodape barlow black">
+                  infraestrutura
+                </span>
               </div>
             </div>
 
             {/* <div className="col-1  box-rodape-palavras"></div> */}
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeTres} />
+                <img
+                  className=" float-left tamanho-icone"
+                  src={IconeTresBranco}
+                />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow">
+                <span className="texto-rodape barlow branco-metodo">
                   padrão de acabamento
                 </span>
               </div>

@@ -38,6 +38,7 @@ div.imagem-transitoria {
   background-size: contain;
   background-repeat: no-repeat;
   background-attachment: inherit;
+  opacity: 0.2;
 }
 
 div.itens-titulos:hover + div.imagem-transitoria {
