@@ -7,9 +7,7 @@ import "../css/edificacoes.css";
 
 import IconeUm from "../Assets/icons/icon_1.svg";
 import IconeDois from "../Assets/icons/icon_2.svg";
-import IconeTres from "../Assets/icons/icon_3.svg";
 import IconeTresBranco from "../Assets/icons/icon_3_branco.svg";
-import IconeRefresh from "../Assets/icons/icon_refresh.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import IconeContinuar from "../Assets/icons/icon_avancar.svg";
 
@@ -21,7 +19,11 @@ export default class PadraoAcabamento extends Component {
       <div className="">
         <div className="row">
           <div className="col-3 ">
-            <img className="logo-metodo" src={MetodoLogo}></img>
+            <img
+              className="logo-metodo"
+              src={MetodoLogo}
+              alt="logo da empresa"
+            ></img>
           </div>
           <div className="col-7  mt-4">
             <h2 className="barlow-extrabold preto-metodo">
@@ -50,164 +52,215 @@ export default class PadraoAcabamento extends Component {
 
           {/* Inicio da tabela */}
 
+          {/* revestimento piso */}
+
           <div className="col-2  barlow-bold itens-titulos">
             revestimento piso
           </div>
           <div className="col-2  regular">
-            <input type="radio" name="terraplanagem-rd" />
-            <span className="barlow-semibold"></span> limpeza de terreno
+            <input type="radio" name="revestimento-piso-rd" />
+            <span className="barlow-semibold"></span> 4000 A
           </div>
           <div className="col-2  regular">
-            <input type="radio" name="terraplanagem-rd" />
-            <span className="barlow-semibold"></span> movimentação Parcial(50%)
+            <input type="radio" name="revestimento-piso-rd" />
+            <span className="barlow-semibold"></span> 4000 B
           </div>
           <div className="col-2  regular">
-            <input type="radio" name="terraplanagem-rd" />
-            <span className="barlow-semibold"></span> corte e aterro
+            <input type="radio" name="revestimento-piso-rd" />
+            <span className="barlow-semibold"></span> 4000 C
           </div>
-          <div className="col-1  regular"></div>
-          <div className="col-1  regular"></div>
+          <div className="col-1  regular">
+            <input type="radio" name="revestimento-piso-rd" /> 4000 FLEX
+          </div>
+          <div className="col-1  regular">
+            <input type="radio" name="revestimento-piso-rd" /> 5000
+          </div>
 
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+
+          {/* revestimento-parede */}
 
           <div className="col-2  barlow-bold itens-titulos">
             revestimento parede
           </div>
           <div className="col-2  regular">
-            <input name="demolicao" type="radio" />
-            <span className=""> sim</span>
+            <input name="revestimento-parede-rd" type="radio" />
+            <span className=""> 4000 A</span>
           </div>
           <div className="col-2  regular">
-            <input name="demolicao" type="radio" />
-            <span className=""> não</span>
+            <input name="revestimento-parede-rd" type="radio" />
+            <span className=""> 4000 B</span>
           </div>
-          <div className="col-2  regular"></div>
-          <div className="col-1  regular"></div>
-          <div className="col-1  regular"></div>
+          <div className="col-2  regular">
+            <input name="revestimento-parede-rd" type="radio" />
+            <span className=""> 4000 C</span>
+          </div>
+          <div className="col-1  regular">
+            <input name="revestimento-parede-rd" type="radio" />
+            <span className=""> 4000 FLEX</span>
+          </div>
+          <div className="col-1  regular">
+            <input name="revestimento-parede-rd" type="radio" />
+            <span className=""> 5000 </span>
+          </div>
 
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+
+          {/* forro */}
 
           <div className="col-2  barlow-bold itens-titulos">forro</div>
           <div className="col-2  regular">
-            <input name="fundacao" type="radio" />
-            <span className="barlow-semibold"></span> raider
+            <input name="forro-rd" type="radio" />
+            <span className="barlow-semibold"></span> 4000 A
           </div>
           <div className="col-2  regular">
-            <input name="fundacao" type="radio" />
-            <span className="barlow-semibold"></span> sapata
+            <input name="forro-rd" type="radio" />
+            <span className="barlow-semibold"></span> 4000 B
           </div>
           <div className="col-2 ">
             {" "}
-            <input name="forro" type="radio" />
-            estaca
+            <input name="forro-rd" type="radio" />
+            4000 C
           </div>
 
-          <div className="col-2  regular"></div>
+          <div className="col-1  regular">
+            <input name="forro-rd" type="radio" />
+            <span className=""> 4000 FLEX</span>
+          </div>
+          <div className="col-1  regular">
+            <input name="forro-rd" type="radio" />
+            <span className=""> 5000 </span>
+          </div>
+
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+
+          {/* caixilhos */}
 
           <div className="col-2  barlow-bold itens-titulos">caixilhos</div>
           <div className="col-2  regular">
-            <input name="estruturas" type="radio" /> concreto
+            <input name="caixilhos-rd" type="radio" /> sim
           </div>
           <div className="col-2  regular">
-            <input name="estruturas" type="radio" /> prémoldado
+            <input name="caixilhos-rd" type="radio" /> não
           </div>
-          <div className="col-2  regular">
-            <input name="estruturas" type="radio" /> metálica
-          </div>
+          <div className="col-2  regular"></div>
           <div className="col-1  regular"></div>
           <div className="col-1  regular"></div>
 
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
 
+          {/* painel bdn */}
+
           <div className="col-2  barlow-bold itens-titulos">painel bdn</div>
           <div className="col-2  regular">
-            <input name="escadas" type="radio" /> forro + telhado
+            <input name="painel-bdn-rdo" type="radio" /> metálico 3000
           </div>
           <div className="col-2  regular">
-            <input name="escadas" type="radio" /> forro + laje
+            <input name="painel-bdn-rdo" type="radio" /> metálico 4000
           </div>
           <div className="col-2  regular">
-            <input name="escadas" type="radio" /> laje
+            <input name="painel-bdn-rdo" type="radio" /> 5000
           </div>
           <div className="col-2  regular">
-            <input name="escadas" type="radio" /> laje + telhado
+            <input name="painel-bdn-rdo" type="radio" /> drywall
           </div>
 
           <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* MOBILIARIO */}
+
+          <div className="col-2  barlow-bold itens-titulos">mobiliário</div>
+          <div className="col-2  regular">
+            <input name="mobiliario-rdo" type="radio" /> 4000
+          </div>
+          <div className="col-2  regular">
+            <input name="mobiliario-rdo" type="radio" /> 5000
+          </div>
+          <div className="col-2  regular"></div>
+          <div className="col-2  regular"></div>
+
+          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* persianas */}
 
           <div className="col-2  barlow-bold itens-titulos">persianas</div>
           <div className="col-2  regular">
-            <input name="cobertura" type="radio" /> 4000 A
+            <input name="persianas-rd" type="radio" /> 4000 A
           </div>
           <div className="col-2  regular">
-            <input name="cobertura" type="radio" /> 4000 B
+            <input name="persianas-rd" type="radio" /> 4000 B
           </div>
           <div className="col-2  regular">
-            <input name="cobertura" type="radio" /> 4000 C
+            <input name="persianas-rd" type="radio" /> 4000 C
           </div>
           <div className="col-1  regular">
-            <input name="cobertura" type="radio" /> 4000 FLEX
+            <input name="persianas-rd" type="radio" /> 4000 FLEX
           </div>
           <div className="col-1  regular">
-            <input name="cobertura" type="radio" /> 5000
+            <input name="persianas-rd" type="radio" /> 5000
           </div>
           <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* vedacoes-internas-rd */}
 
           <div className="col-2  barlow-bold itens-titulos">
             vedações internas
           </div>
           <div className="col-2  regular">
-            <input name="estacionamento" type="radio" /> alvenarias
+            <input name="vedacoes-internas-rd" type="radio" /> alvenarias
           </div>
           <div className="col-2  regular">
-            <input name="estacionamento" type="radio" /> drywall
+            <input name="vedacoes-internas-rd" type="radio" /> drywall
           </div>
           <div className="col-2  regular">
-            <input name="entrada-energia" type="radio" /> unificação
+            <input name="vedacoes-internas-rd" type="radio" /> unificação
           </div>
-          <div className="col-2  regular">
-            <input name="entrada-energia" type="radio" /> cimentícia
-          </div>
+          <div className="col-2  regular"></div>
 
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
 
+          {/* fachada-rd */}
+
           <div className="col-2  barlow-bold itens-titulos">fachada</div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> 4000 A
+            <input name="fachada-rd" type="radio" /> 4000 A
           </div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> 4000 B
+            <input name="fachada-rd" type="radio" /> 4000 B
           </div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> 4000 C
+            <input name="fachada-rd" type="radio" /> 4000 C
           </div>
           <div className="col-1  regular">
-            <input name="demolicao" type="radio" /> 4000 FLEX
+            <input name="fachada-rd" type="radio" /> 4000 FLEX
           </div>
           <div className="col-1  regular">
-            <input name="demolicao" type="radio" /> 5000
+            <input name="fachada-rd" type="radio" /> 5000
           </div>
 
           <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* comunicacao-visual-rd */}
 
           <div className="col-2  barlow-bold itens-titulos">
             comunicação visual ext.
           </div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> letreiro
+            <input name="comunicacao-visual-rd" type="radio" /> letreiro
           </div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> totem
+            <input name="comunicacao-visual-rd" type="radio" /> totem
           </div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> medalhão
+            <input name="comunicacao-visual-rd" type="radio" /> medalhão
           </div>
           <div className="col-2  regular">
-            <input name="demolicao" type="radio" /> bandeira
+            <input name="comunicacao-visual-rd" type="radio" /> bandeira
           </div>
 
           <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* ESPAÇAMENTO */}
 
           <div className="col-10 espacamento"></div>
           <div className="col-2 espacamento  menu-resumo"></div>
@@ -232,7 +285,11 @@ export default class PadraoAcabamento extends Component {
           <div className="div-rodape">
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeUm} />
+                <img
+                  className=" float-left tamanho-icone"
+                  alt="Icone numero um"
+                  src={IconeUm}
+                />
               </div>
               <div className="fonte-footer-pag ">
                 <span className="texto-rodape barlow black">edificações</span>
@@ -241,7 +298,11 @@ export default class PadraoAcabamento extends Component {
 
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeDois} />
+                <img
+                  className=" float-left tamanho-icone"
+                  alt="Icone numero dois"
+                  src={IconeDois}
+                />
               </div>
               <div className="fonte-footer-pag ">
                 <span className="texto-rodape barlow black">
@@ -256,6 +317,7 @@ export default class PadraoAcabamento extends Component {
                 <img
                   className=" float-left tamanho-icone"
                   src={IconeTresBranco}
+                  alt="Icone numero três"
                 />
               </div>
               <div className="fonte-footer-pag ">
@@ -268,7 +330,11 @@ export default class PadraoAcabamento extends Component {
             <div className="box-rodape-icone2">
               <Link to="/infraestrutura">
                 <div>
-                  <img className="tamanho-icone" src={IconeVoltar} />
+                  <img
+                    className="tamanho-icone"
+                    src={IconeVoltar}
+                    alt="Icone voltar "
+                  />
                 </div>
               </Link>
               voltar
@@ -277,7 +343,11 @@ export default class PadraoAcabamento extends Component {
             <div className="box-rodape-icone3">
               <Link to="/resultado">
                 <div>
-                  <img className="tamanho-icone" src={IconeContinuar} />
+                  <img
+                    className="tamanho-icone"
+                    src={IconeContinuar}
+                    alt="Icone continuar"
+                  />
                 </div>
               </Link>
               prosseguir

@@ -12,7 +12,6 @@ import IconeDois from "../Assets/icons/icon_2.svg";
 import IconeTres from "../Assets/icons/icon_3.svg";
 import IconeRefresh from "../Assets/icons/icon_refresh.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
-import IconeContinuar from "../Assets/icons/icon_avancar.svg";
 
 import MetodoLogo from "../Assets/icons/logo_mtdtech.svg";
 
@@ -22,7 +21,11 @@ export default class Resultado extends Component {
       <div className="">
         <div className="row">
           <div className="col-3 ">
-            <img className="logo-metodo" src={MetodoLogo}></img>
+            <img
+              className="logo-metodo"
+              src={MetodoLogo}
+              alt="logo da empresa"
+            ></img>
           </div>
           <div className="col-2 ">
             <h2 className="barlow-extrabold branco-metodo construir-titulo">
@@ -33,18 +36,12 @@ export default class Resultado extends Component {
           <div className="col-1 "></div>
           <div className="col-11 "></div>
 
-          <div className="col-2 ">
-            <h2 className="barlow-extrabold acinzentado-metodo"></h2>
-          </div>
-          <div className="col-4 ">
-            <h2 className="barlow-extrabold acinzentado-metodo"></h2>
-          </div>
+          <div className="col-2 "></div>
+          <div className="col-4 "></div>
           <div className="col-4 ">
             <div className="imagem-transitoria"></div>
           </div>
-          <div className="col-2 ">
-            <h2 className="barlow-extrabold acinzentado-metodo "></h2>
-          </div>
+          <div className="col-2 "></div>
 
           <div className="col-1 "></div>
           <div className="col-11 ">
@@ -66,13 +63,9 @@ export default class Resultado extends Component {
               R$ XXXXXXXX
             </h1>
           </div>
-          <div className="col-7 ">
-            <h1 className="barlow-extrabold acinzentado-metodo"></h1>
-          </div>
+          <div className="col-7 "></div>
 
-          <div className="col-1 ">
-            <h2 className="barlow-extrabold acinzentado-metodo"></h2>
-          </div>
+          <div className="col-1 "></div>
           <div className="col-2  empurrar">
             <h2 className="barlow-extrabold cor-padrao-metodo">R$ XXXXXX</h2>
             <span className="barlow-extrabold acinzentado-metodo fonte-resultado ">
@@ -88,19 +81,11 @@ export default class Resultado extends Component {
 
           <div className="col-7  empurrar"></div>
 
-          <div className="col-1  espaco">
-            <h2 className="barlow-extrabold acinzentado-metodo"></h2>
-          </div>
-          <div className="col-4 ">
-            <h1 className="barlow-extrabold acinzentado-metodo"></h1>
-          </div>
-          <div className="col-7  ">
-            <h1 className="barlow-extrabold acinzentado-metodo"></h1>
-          </div>
+          <div className="col-1  espaco"></div>
+          <div className="col-4 "></div>
+          <div className="col-7  "></div>
 
-          <div className="col-1 ">
-            <h2 className="barlow-extrabold acinzentado-metodo"></h2>
-          </div>
+          <div className="col-1 "></div>
           <div className="col-2 ">
             <h2 className="barlow-extrabold cor-padrao-metodo">XXXXXX</h2>
             <span className="barlow-extrabold acinzentado-metodo fonte-resultado ">
@@ -110,15 +95,13 @@ export default class Resultado extends Component {
           <div className="col-2 ">
             <h2 className="barlow-extrabold cor-padrao-metodo">XXXXXX</h2>
             <span className="barlow-extrabold acinzentado-metodo fonte-resultado ">
-              dias pra finalizar
+              prazo
             </span>
           </div>
 
           <div className="col-7 "></div>
 
-          <div className="col-1 ">
-            <h2 className="barlow-extrabold acinzentado-metodo"></h2>
-          </div>
+          <div className="col-1 "></div>
           <div className="col-2 ">
             <span className="barlow acinzentado-metodo">
               <input className="btn" type="button" value="enviar por e-mail" />
@@ -135,7 +118,11 @@ export default class Resultado extends Component {
           <div className="div-rodape">
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeUm} />
+                <img
+                  className=" float-left tamanho-icone"
+                  alt="icone numero um"
+                  src={IconeUm}
+                />
               </div>
               <div className="fonte-footer-pag ">
                 <span className="texto-rodape barlow black">edificações</span>
@@ -144,7 +131,11 @@ export default class Resultado extends Component {
 
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeDois} />
+                <img
+                  className=" float-left tamanho-icone"
+                  alt="icone numero dois"
+                  src={IconeDois}
+                />
               </div>
               <div className="fonte-footer-pag ">
                 <span className="texto-rodape barlow black">
@@ -156,7 +147,11 @@ export default class Resultado extends Component {
             {/* <div className="col-1  box-rodape-palavras"></div> */}
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeTres} />
+                <img
+                  className=" float-left tamanho-icone"
+                  alt="icone numero três"
+                  src={IconeTres}
+                />
               </div>
               <div className="fonte-footer-pag ">
                 <span className="texto-rodape barlow black">
@@ -168,7 +163,11 @@ export default class Resultado extends Component {
             <div className="box-rodape-icone2">
               <Link to="/padraoacabamento">
                 <div>
-                  <img className="tamanho-icone" src={IconeVoltar} />
+                  <img
+                    className="tamanho-icone"
+                    alt="icone voltar"
+                    src={IconeVoltar}
+                  />
                 </div>
               </Link>
               voltar
@@ -177,7 +176,11 @@ export default class Resultado extends Component {
             <div className="box-rodape-icone3">
               <Link to="/">
                 <div>
-                  <img className="tamanho-icone" src={IconeRefresh} />
+                  <img
+                    className="tamanho-icone"
+                    alt="icone reiniciar sistema"
+                    src={IconeRefresh}
+                  />
                 </div>
               </Link>
               reiniciar

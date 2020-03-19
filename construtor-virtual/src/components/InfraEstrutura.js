@@ -1,15 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router";
-import $ from "jquery";
 
 import "../css/rodape.css";
 import "../css/edificacoes.css";
 
 import IconeUm from "../Assets/icons/icon_1.svg";
-import IconeDois from "../Assets/icons/icon_2.svg";
 import IconeBranco from "../Assets/icons/icon_2_branco.svg";
 import IconeTres from "../Assets/icons/icon_3.svg";
-import IconeRefresh from "../Assets/icons/icon_refresh.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import IconeContinuar from "../Assets/icons/icon_avancar.svg";
 
@@ -21,7 +18,11 @@ export default class InfraEstrutura extends Component {
       <div className="">
         <div className="row">
           <div className="col-3 ">
-            <img className="logo-metodo" src={MetodoLogo}></img>
+            <img
+              className="logo-metodo"
+              src={MetodoLogo}
+              alt="logo da empresa"
+            />
           </div>
           <div className="col-7  mt-4">
             <h2 className="barlow-extrabold preto-metodo">
@@ -50,17 +51,19 @@ export default class InfraEstrutura extends Component {
 
           {/* iniciando a table */}
 
+          {/* CLIMATIZAÇÃO */}
+
           <div className="col-2  barlow-bold itens-titulos">climatização</div>
           <div className="col-2  regular">
-            <input type="radio" name="terraplanagem-rd" />
+            <input type="radio" name="climatizacao-rd" />
             <span className="barlow-semibold"></span> central
           </div>
           <div className="col-2  regular">
-            <input type="radio" name="terraplanagem-rd" />
+            <input type="radio" name="climatizacao-rd" />
             <span className="barlow-semibold"></span> split
           </div>
           <div className="col-2  regular">
-            <input type="radio" name="terraplanagem-rd" />
+            <input type="radio" name="climatizacao-rd" />
             <span className="barlow-semibold"></span> misto
           </div>
           <div className="col-1  regular"></div>
@@ -68,36 +71,40 @@ export default class InfraEstrutura extends Component {
 
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
 
+          {/* ELÉTRICA COMUM */}
+
           <div className="col-2  barlow-bold itens-titulos">elétrica comum</div>
           <div className="col-2  regular">
-            <input name="demolicao" type="radio" />
+            <input name="eletrica-rd" type="radio" />
             <span className=""> 4000 A</span>
           </div>
           <div className="col-2  regular">
-            <input name="demolicao" type="radio" />
+            <input name="eletrica-rd" type="radio" />
             <span className="barlow-semibold"></span> 4000 B
           </div>
           <div className="col-2  regular">
-            <input name="demolicao" type="radio" /> 4000 C
+            <input name="eletrica-rd" type="radio" /> 4000 C
           </div>
           <div className="col-1  regular">
-            <input name="demolicao" type="radio" />
+            <input name="eletrica-rd" type="radio" />
             4000 FLEX
           </div>
           <div className="col-1  regular">
-            <input name="demolicao" type="radio" />
+            <input name="eletrica-rd" type="radio" />
             5000
           </div>
 
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
 
+          {/* REDE LÓGICA */}
+
           <div className="col-2  barlow-bold itens-titulos">rede lógica</div>
           <div className="col-2  regular">
-            <input name="fundacao" type="radio" />
+            <input name="rede-rd" type="radio" />
             <span className="barlow-semibold"></span> cabeamento
           </div>
           <div className="col-2  regular">
-            <input name="fundacao" type="radio" />
+            <input name="rede-rd" type="radio" />
             <span className="barlow-semibold"></span> wi-fi
           </div>
           <div className="col-2 "></div>
@@ -105,98 +112,142 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
 
+          {/* DISTRIBUIÇÃO ELÉTRICA */}
+
           <div className="col-2  barlow-bold itens-titulos">
             distribuição elétrica
           </div>
           <div className="col-2  regular">
-            <input name="estruturas" type="radio" /> 4000 A
+            <input name="distribuica-rd" type="radio" /> 4000 A
           </div>
           <div className="col-2  regular">
-            <input name="estruturas" type="radio" /> 4000 B
+            <input name="distribuica-rd" type="radio" /> 4000 B
           </div>
           <div className="col-2  regular">
-            <input name="estruturas" type="radio" /> 4000 C
+            <input name="distribuica-rd" type="radio" /> 4000 C
           </div>
           <div className="col-1  regular">
-            <input name="estruturas" type="radio" /> 4000 FLEX
+            <input name="distribuica-rd" type="radio" /> 4000 FLEX
           </div>
           <div className="col-1  regular">
-            <input name="estruturas" type="radio" /> 5000
+            <input name="distribuica-rd" type="radio" /> 5000
           </div>
 
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
 
+          {/* TELEFONIA */}
+
           <div className="col-2  barlow-bold itens-titulos">telefonia</div>
           <div className="col-2  regular">
-            <input name="escadas" type="radio" /> 4000 A
+            <input name="telefonia-rd" type="radio" /> 4000 A
           </div>
           <div className="col-2  regular">
-            <input name="escadas" type="radio" /> 4000 B
+            <input name="telefonia-rd" type="radio" /> 4000 B
           </div>
           <div className="col-2  regular">
-            <input name="escadas" type="radio" /> 4000 C
+            <input name="telefonia-rd" type="radio" /> 4000 C
           </div>
           <div className="col-1  regular">
-            <input name="escadas" type="radio" /> 4000 FLEX
+            <input name="telefonia-rd" type="radio" /> 4000 FLEX
           </div>
           <div className="col-1  regular">
-            <input name="escadas" type="radio" /> 5000
+            <input name="telefonia-rd" type="radio" /> 5000
           </div>
 
           <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* ILUMINAÇÃO */}
 
           <div className="col-2  barlow-bold itens-titulos">iluminação</div>
           <div className="col-2  regular">
-            <input name="cobertura" type="radio" /> 4000 A
+            <input name="iluminacao-rd" type="radio" /> 4000 A
           </div>
           <div className="col-2  regular">
-            <input name="cobertura" type="radio" /> 4000 B
+            <input name="iluminacao-rd" type="radio" /> 4000 B
           </div>
           <div className="col-2  regular">
-            <input name="cobertura" type="radio" /> 4000 C
+            <input name="iluminacao-rd" type="radio" /> 4000 C
           </div>
           <div className="col-1  regular">
-            <input name="cobertura" type="radio" /> 4000 FLEX
+            <input name="iluminacao-rd" type="radio" /> 4000 FLEX
           </div>
           <div className="col-1  regular">
-            <input name="cobertura" type="radio" /> 5000
+            <input name="iluminacao-rd" type="radio" /> 5000
           </div>
           <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* ENTRADA DE ENERGIA */}
 
           <div className="col-2  barlow-bold itens-titulos">
             entrada de energia
           </div>
           <div className="col-2  regular">
-            <input name="estacionamento" type="radio" /> acréscimo de carga
+            <input name="entrada-rd" type="radio" /> acréscimo de carga
           </div>
           <div className="col-2  regular">
-            <input name="estacionamento" type="radio" /> substituição de quadros
+            <input name="entrada-rd" type="radio" /> substituição de quadros
           </div>
           <div className="col-2  regular">
-            <input name="entrada-energia" type="radio" /> unificação
+            <input name="entrada-rd" type="radio" /> unificação
           </div>
           <div className="col-2  regular">
             {" "}
-            <input name="entrada-energia" type="radio" /> desmembrar entrada
+            <input name="entrada-rd" type="radio" /> desmembrar entrada
           </div>
 
           <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
 
+          {/* BOMBEIROS */}
+
           <div className="col-2  barlow-bold itens-titulos">bombeiros</div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> hidrante
+            <input name="bombeiros-rd" type="radio" /> hidrante
           </div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> sprinkler
+            <input name="bombeiros-rd" type="radio" /> sprinkler
           </div>
           <div className="col-2  regular">
-            <input name="passeio" type="radio" /> extintores
+            <input name="bombeiros-rd" type="radio" /> extintores
+          </div>
+          <div className="col-2  regular"></div>
+          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* Rede Hidráulica */}
+
+          <div className="col-2  barlow-bold itens-titulos">
+            rede hidráulica
+          </div>
+          <div className="col-2  regular">
+            <input name="hidraulica-rd" type="radio" /> unificação
+          </div>
+          <div className="col-2  regular">
+            <input name="hidraulica-rd" type="radio" /> desmebrar entrada
+          </div>
+          <div className="col-2  regular">
+            <input name="hidraulica-rd" type="radio" /> nova alimentação
+          </div>
+          <div className="col-2  regular"></div>
+          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+
+          {/* ACESSIBILIDADE */}
+
+          <div className="col-2  barlow-bold itens-titulos">acessibilidade</div>
+          <div className="col-2  regular">
+            <input name="acessibilidade-rd" type="radio" /> elevador
+          </div>
+          <div className="col-2  regular">
+            <input name="acessibilidade-rd" type="radio" /> plataforma
+          </div>
+          <div className="col-2  regular">
+            <input name="acessibilidade-rd" type="radio" /> rampa
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
 
           <div className="col-10 espacamento "></div>
           <div className="col-2 espacamento  menu-resumo"></div>
+
+          {/* PROGRESSBAR */}
 
           <div className="div-progressbar">
             <div className="col-10 ">
@@ -218,7 +269,11 @@ export default class InfraEstrutura extends Component {
           <div className="div-rodape">
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeUm} />
+                <img
+                  className=" float-left tamanho-icone"
+                  src={IconeUm}
+                  alt="Icone numero um"
+                />
               </div>
               <div className="fonte-footer-pag ">
                 <span className="texto-rodape barlow black">edificações</span>
@@ -227,7 +282,11 @@ export default class InfraEstrutura extends Component {
 
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeBranco} />
+                <img
+                  className=" float-left tamanho-icone"
+                  src={IconeBranco}
+                  alt="Icone numero dois"
+                />
               </div>
               <div className="fonte-footer-pag ">
                 <span className="texto-rodape barlow branco-metodo">
@@ -239,7 +298,11 @@ export default class InfraEstrutura extends Component {
             {/* <div className="col-1  box-rodape-palavras"></div> */}
             <div className=" box-rodape-icone">
               <div className="">
-                <img className=" float-left tamanho-icone" src={IconeTres} />
+                <img
+                  className=" float-left tamanho-icone"
+                  src={IconeTres}
+                  alt="Icone numero três"
+                />
               </div>
               <div className="fonte-footer-pag ">
                 <span className="texto-rodape barlow black">
@@ -251,7 +314,11 @@ export default class InfraEstrutura extends Component {
             <div className="box-rodape-icone2">
               <Link to="/reforma">
                 <div>
-                  <img className="tamanho-icone" src={IconeVoltar} />
+                  <img
+                    className="tamanho-icone"
+                    src={IconeVoltar}
+                    alt="Icone voltar"
+                  />
                 </div>
               </Link>
               voltar
@@ -260,7 +327,11 @@ export default class InfraEstrutura extends Component {
             <div className="box-rodape-icone3">
               <Link to="/padraoacabamento">
                 <div>
-                  <img className="tamanho-icone" src={IconeContinuar} />
+                  <img
+                    className="tamanho-icone"
+                    src={IconeContinuar}
+                    alt="Icone prosseguir"
+                  />
                 </div>
               </Link>
               prosseguir
