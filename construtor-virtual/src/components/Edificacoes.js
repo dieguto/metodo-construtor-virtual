@@ -6,7 +6,7 @@ import "../css/bootstrap.min.css";
 import Collapse from "react-bootstrap/Collapse";
 import Button from "react-bootstrap/Button";
 
-import { Link } from "react-router";
+import { Link, browserHistory } from "react-router";
 import "../css/edificacoes.css";
 
 import MetodoLogo from "../Assets/icons/logo_mtdtech.svg";
@@ -57,7 +57,7 @@ export default class Edificacoes extends Component {
   constructor() {
     super();
     this.state = {
-      somaInt: 0,
+      somaEdificacoes: 0,
       item1: 0,
       item2: 0,
       item3: 0,
@@ -66,38 +66,105 @@ export default class Edificacoes extends Component {
       item6: 0,
       item7: 0,
       item8: 0,
-      item9: 0
+      item9: 0,
+      itens: []
+      // total: 0
     };
-    // this.SomarDados = this.SomarDados.bind(this);
-    this.mudarItem1 = this.mudarItem1.bind(this);
-    this.somar = this.somar.bind(this);
   }
 
-  somar() {
-    let resultado =
-      this.state.item1 +
-      this.state.item2 +
-      this.state.item3 +
-      this.state.item4 +
-      this.state.item5 +
-      this.state.item6 +
-      this.state.item7 +
-      this.state.item8 +
-      this.state.item9;
+  componentDidMount() {
+    this.pegarLista();
+  }
 
-    this.setState({ somaInt: resultado });
+  pegarLista() {
+    let lista = document.querySelectorAll("input[type='radio']");
+    let listaNames = [];
+    let listaSet = [];
 
+    lista = Array.from(lista);
+
+    for (let i = 0; i < lista.length - 1; i++) {
+      listaNames.push(lista[i].name);
+    }
+
+    listaSet = [...new Set(listaNames)];
+    console.log(listaSet);
+    this.setState({ itens: listaSet });
+    this.checkItens(listaSet);
+  }
+
+  checkItens(names) {
+    let itens = [];
+    let sum = 0;
+    let item;
+    names.map(name => {
+      item = JSON.parse(localStorage.getItem(name));
+      if (item !== null) itens.push(item.id);
+    });
+    console.log(itens);
+
+    itens.map(item => {
+      if (item !== "" && item !== null) {
+        document.getElementById(item).checked = true;
+        sum += parseInt(document.getElementById(item).value);
+      }
+    });
+
+    this.setState({ somaEdificacoes: sum });
     setTimeout(() => {
-      console.log(this.state.somaInt + " %%%%%%%%%%%");
+      localStorage.setItem("edificacoes", this.state.somaEdificacoes);
+      console.log(sum);
+      this.fillItens();
     }, 1000);
+  }
+  fillItens() {
+    let itens = this.state.itens;
+    let item;
+    let values = [];
+    itens.map(item => {
+      item = JSON.parse(localStorage.getItem(item));
+      if (item !== null) values.push(parseInt(item.value));
+    });
+
+    this.setState({ item1: values[0] || 0 });
+    this.setState({ item2: values[1] || 0 });
+    this.setState({ item3: values[2] || 0 });
+    this.setState({ item4: values[3] || 0 });
+    this.setState({ item5: values[4] || 0 });
+    this.setState({ item6: values[5] || 0 });
+    this.setState({ item7: values[6] || 0 });
+    this.setState({ item8: values[7] || 0 });
+    this.setState({ item9: values[8] || 0 });
+    this.setState({ somaEdificacoes: localStorage.getItem("edificacoes") });
+    // this.setState({ total: localStorage.getItem("total") });
+  }
+
+  salvarDadosLocal(e) {
+    e.preventDefault();
+    let total = parseInt(localStorage.getItem("total")) || 0; //  0 50  99
+    let newSomaEd = this.state.somaEdificacoes; //  50  48  54
+    let somaEd = parseInt(localStorage.getItem("edificacoes")) || 0; //  0  50  48
+
+    localStorage.setItem("edificacoes", this.state.somaEdificacoes); //  50 48  54
+
+    if (total === 0) {
+      // true  false   false
+      total = newSomaEd; //  50
+    } else {
+      total -= somaEd; //  50-50=0  99-48=51
+      total += newSomaEd; //  0+48=48   51+54=105
+    }
+    localStorage.setItem("total", total); //  50  48  105
+    // this.setState({ total: total });
+    browserHistory.push("/infraestrutura");
   }
 
   mudarItem1(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item1 = this.state.item1;
+    let itemValor;
 
-    console.log(item1, value);
     if (item1 !== value) {
       resultado -= item1;
       console.log(">> " + resultado);
@@ -106,21 +173,22 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item1: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
 
-    // this.somar();
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem2(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item2 = this.state.item2;
+    let itemValor;
 
-    console.log(item2, value);
     if (item2 !== value) {
       resultado -= item2;
       console.log(">> " + resultado);
@@ -129,19 +197,22 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item2: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
+
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem3(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item3 = this.state.item3;
+    let itemValor;
 
-    console.log(item3, value);
     if (item3 !== value) {
       resultado -= item3;
       console.log(">> " + resultado);
@@ -150,21 +221,22 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item3: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
 
-    // this.somar();
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem4(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item4 = this.state.item4;
+    let itemValor;
 
-    console.log(item4, value);
     if (item4 !== value) {
       resultado -= item4;
       console.log(">> " + resultado);
@@ -173,20 +245,22 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item4: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
-    // this.somar();
+
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem5(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item5 = this.state.item5;
+    let itemValor;
 
-    console.log(item5, value);
     if (item5 !== value) {
       resultado -= item5;
       console.log(">> " + resultado);
@@ -195,19 +269,22 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item5: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
+
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem6(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item6 = this.state.item6;
+    let itemValor;
 
-    console.log(item6, value);
     if (item6 !== value) {
       resultado -= item6;
       console.log(">> " + resultado);
@@ -216,19 +293,22 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item6: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
+
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem7(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item7 = this.state.item7;
+    let itemValor;
 
-    console.log(item7, value);
     if (item7 !== value) {
       resultado -= item7;
       console.log(">> " + resultado);
@@ -237,19 +317,22 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item7: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
+
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem8(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item8 = this.state.item8;
+    let itemValor;
 
-    console.log(item8, value);
     if (item8 !== value) {
       resultado -= item8;
       console.log(">> " + resultado);
@@ -258,19 +341,22 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item8: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
+
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem9(e) {
     let value = parseInt(e.target.value);
-    let resultado = this.state.somaInt;
+    let resultado = this.state.somaEdificacoes;
     let item9 = this.state.item9;
+    let itemValor;
 
-    console.log(item9, value);
     if (item9 !== value) {
       resultado -= item9;
       console.log(">> " + resultado);
@@ -279,11 +365,14 @@ export default class Edificacoes extends Component {
     }
     this.setState({ item9: value });
 
-    this.setState({ somaInt: resultado });
+    this.setState({ somaEdificacoes: resultado });
 
     setTimeout(() => {
-      console.log(this.state.somaInt);
+      console.log(this.state.somaEdificacoes);
     }, 1000);
+
+    itemValor = { id: e.target.id, value };
+    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   render() {
@@ -331,6 +420,7 @@ export default class Edificacoes extends Component {
               name="terraplanagem-rd"
               onClick={e => this.mudarItem1(e)}
               value="5"
+              id="limpeza-terreno"
             />
             <span className="barlow-semibold"></span> limpeza de terreno
             {/* teste */}
@@ -343,6 +433,7 @@ export default class Edificacoes extends Component {
               name="terraplanagem-rd"
               onClick={e => this.mudarItem1(e)}
               value="6"
+              id="movimentacao"
             />
             <span className="barlow-semibold"></span> movimentação Parcial(50%)
           </div>
@@ -352,6 +443,7 @@ export default class Edificacoes extends Component {
               name="terraplanagem-rd"
               onClick={e => this.mudarItem1(e)}
               value="7"
+              id="corte-e-aterro"
             />
             <span className="barlow-semibold"></span> corte e aterro
           </div>
@@ -370,6 +462,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem2(e)}
               value="5"
+              id="sim"
             />
             <span className=""> sim</span>
           </div>
@@ -378,13 +471,13 @@ export default class Edificacoes extends Component {
               name="demolicao-rd"
               type="radio"
               onClick={e => this.mudarItem2(e)}
-              value="6"
+              value="0"
             />
             <span className="barlow-semibold"></span> não
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">{this.state.item2}</div>
 
           {/* FUNDAÇÃO */}
 
@@ -395,6 +488,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem3(e)}
               value="5"
+              id="radier"
             />
             <span className="barlow-semibold"></span> radier
           </div>
@@ -404,6 +498,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem3(e)}
               value="6"
+              id="sapata"
             />
             <span className="barlow-semibold"></span> sapata
           </div>
@@ -413,6 +508,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem3(e)}
               value="7"
+              id="estaca"
             />
             <span className=""> estaca</span>{" "}
           </div>
@@ -428,6 +524,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem4(e)}
               value="5"
+              id="concreto-estrutura"
             />{" "}
             concreto
           </div>
@@ -437,6 +534,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem4(e)}
               value="6"
+              id="premoldado"
             />{" "}
             prémoldado
           </div>
@@ -446,6 +544,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem4(e)}
               value="7"
+              id="metalica-estruturas"
             />{" "}
             metálica
           </div>
@@ -461,6 +560,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem5(e)}
               value="6"
+              id="concreto-escada"
             />{" "}
             concreto
           </div>
@@ -470,6 +570,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem5(e)}
               value="7"
+              id="metalica-escadas"
             />{" "}
             metálica
           </div>
@@ -486,6 +587,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem6(e)}
               value="4"
+              id="forro-telhado"
             />{" "}
             forro + telhado
           </div>
@@ -495,6 +597,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem6(e)}
               value="5"
+              id="forro-laje"
             />{" "}
             forro + laje
           </div>
@@ -504,6 +607,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem6(e)}
               value="6"
+              id="laje"
             />{" "}
             laje
           </div>
@@ -513,6 +617,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem6(e)}
               value="7"
+              id="laje-telhado"
             />{" "}
             laje + telhado
           </div>
@@ -527,6 +632,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem7(e)}
               value="5"
+              id="proprio"
             />{" "}
             próprio
           </div>
@@ -536,6 +642,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem7(e)}
               value="6"
+              id="alugado"
             />{" "}
             alugado
           </div>
@@ -552,6 +659,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem8(e)}
               value="5"
+              id="manter"
             />{" "}
             manter
           </div>
@@ -561,6 +669,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem8(e)}
               value="6"
+              id="reformar"
             />{" "}
             reformar
           </div>
@@ -579,6 +688,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem9(e)}
               value="5"
+              id="1"
             />{" "}
             1
           </div>
@@ -588,6 +698,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem9(e)}
               value="6"
+              id="2"
             />{" "}
             2
           </div>
@@ -597,6 +708,7 @@ export default class Edificacoes extends Component {
               type="radio"
               onClick={e => this.mudarItem9(e)}
               value="7"
+              id="3"
             />{" "}
             3
           </div>
@@ -686,7 +798,10 @@ export default class Edificacoes extends Component {
             </div>
 
             <div className="box-rodape-icone3">
-              <Link to="/infraestrutura">
+              <Link
+                onClick={e => this.salvarDadosLocal(e)}
+                to="/infraestrutura"
+              >
                 <div>
                   <img
                     className="tamanho-icone"
@@ -700,7 +815,9 @@ export default class Edificacoes extends Component {
 
             <div className="box-rodape-palavras">
               <div className="metro-quadrado barlow-bold ">total m²</div>
-              <div className="resultado barlow-bold ">R$ XXXXXXX</div>
+              <div className="resultado barlow-bold ">
+                R$ {this.state.somaEdificacoes}
+              </div>
             </div>
           </div>
         </div>

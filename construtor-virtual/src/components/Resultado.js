@@ -60,20 +60,24 @@ export default class Resultado extends Component {
           <div className="col-1 "></div>
           <div className="col-4 ">
             <h1 className="barlow-extrabold cor-padrao-metodo resultado-final">
-              R$ XXXXXXXX
+              R$ {localStorage.getItem("total")}
             </h1>
           </div>
           <div className="col-7 "></div>
 
           <div className="col-1 "></div>
           <div className="col-2  empurrar">
-            <h2 className="barlow-extrabold cor-padrao-metodo">R$ XXXXXX</h2>
+            <h2 className="barlow-extrabold cor-padrao-metodo">
+              R$ {localStorage.getItem("edificacoes")}
+            </h2>
             <span className="barlow-extrabold acinzentado-metodo fonte-resultado ">
               edificações
             </span>
           </div>
           <div className="col-2  empurrar">
-            <h2 className="barlow-extrabold cor-padrao-metodo">R$ XXXXXX</h2>
+            <h2 className="barlow-extrabold cor-padrao-metodo">
+              R$ {localStorage.getItem("infraestrutura")}
+            </h2>
             <span className="barlow-extrabold acinzentado-metodo fonte-resultado ">
               infra estrutura
             </span>
