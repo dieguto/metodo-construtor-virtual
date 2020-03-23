@@ -938,7 +938,9 @@ export default class PadraoAcabamento extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">edificações</span>
+                <span className="texto-rodape barlow-padrao black">
+                  edificações
+                </span>
               </div>
             </div>
 
@@ -951,7 +953,7 @@ export default class PadraoAcabamento extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">
+                <span className="texto-rodape barlow-padrao black">
                   infraestrutura
                 </span>
               </div>
@@ -967,7 +969,7 @@ export default class PadraoAcabamento extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow branco-metodo">
+                <span className="texto-rodape barlow-padrao branco-metodo">
                   padrão de acabamento
                 </span>
               </div>

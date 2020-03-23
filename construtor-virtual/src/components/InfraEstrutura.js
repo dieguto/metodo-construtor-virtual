@@ -34,6 +34,7 @@ export default class InfraEstrutura extends Component {
 
   componentDidMount() {
     this.pegarLista();
+    // this.salvarDadosLocalVoltar();
   }
 
   pegarLista() {
@@ -119,6 +120,26 @@ export default class InfraEstrutura extends Component {
     // this.setState({ total: total });
     browserHistory.push("/padraoacabamento");
   }
+
+  // salvarDadosLocalVoltar() {
+  //   // e.preventDefault();
+  //   let total = parseInt(sessionStorage.getItem("total")) || 0; //  0 50  99
+  //   let newSomaEd = this.state.somaEdificacoes; //  50  48  54
+  //   let somaEd = parseInt(sessionStorage.getItem("edificacoes")) || 0; //  0  50  48
+
+  //   sessionStorage.setItem("edificacoes", this.state.somaEdificacoes); //  50 48  54
+
+  //   if (total === 0) {
+  //     // true  false   false
+  //     total = newSomaEd; //  50
+  //   } else {
+  //     total -= somaEd; //  50-50=0  99-48=51
+  //     total += newSomaEd; //  0+48=48   51+54=105
+  //   }
+  //   sessionStorage.setItem("total", total); //  50  48  105
+  //   // this.setState({ total: total });
+  //   // browserHistory.push("/construcao");
+  // }
 
   mudarItem1(e) {
     let value = parseInt(e.target.value);
@@ -910,7 +931,9 @@ export default class InfraEstrutura extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">edificações</span>
+                <span className="texto-rodape barlow-padrao black">
+                  edificações
+                </span>
               </div>
             </div>
 
@@ -923,7 +946,7 @@ export default class InfraEstrutura extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow branco-metodo">
+                <span className="texto-rodape barlow-padrao branco-metodo">
                   infraestrutura
                 </span>
               </div>
@@ -939,14 +962,14 @@ export default class InfraEstrutura extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">
+                <span className="texto-rodape barlow-padrao black">
                   padrão de acabamento
                 </span>
               </div>
             </div>
 
             <div className="box-rodape-icone2">
-              <Link to="/reforma">
+              <Link to="/construcao">
                 <div>
                   <img
                     className="tamanho-icone"

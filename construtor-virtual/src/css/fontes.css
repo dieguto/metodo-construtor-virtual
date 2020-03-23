@@ -1,5 +1,5 @@
 @font-face {
-  font-family: barlow;
+  font-family: barlow-padrao;
   src: url(../Utils/fontes/barlow/Barlow-Black.otf);
 }
 
@@ -24,7 +24,7 @@
 }
 
 @font-face {
-  font-family: regular;
+  font-family: barlow-regular;
   src: url(../Utils/fontes/barlow/Barlow-Regular.otf);
 }
 
@@ -33,8 +33,8 @@
   margin: 0;
 }
 
-.barlow {
-  font-family: barlow;
+.barlow-padrao {
+  font-family: barlow-padrao;
 }
 
 .barlow-thin {
@@ -54,7 +54,7 @@
 }
 
 .barlow-regular {
-  font-family: regular;
+  font-family: barlow-regular;
 }
 
 .cor-padrao-metodo {

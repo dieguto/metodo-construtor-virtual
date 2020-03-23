@@ -54,10 +54,6 @@ div.itens-titulos:hover + div.imagem-transitoria {
   width: 25%;
 }
 
-.box-rodape-icone2 {
-  width: 150px;
-}
-
 .box-rodape-icone3 {
   width: 150px;
 }
@@ -126,7 +122,8 @@ div.itens-titulos:hover + div.imagem-transitoria {
   height: 70px;
   width: 215px;
   margin-bottom: 50px;
-  text-align: center;
+  text-align: left;
+  margin-left: 15px;
   font-size: 30px;
   color: white;
 }

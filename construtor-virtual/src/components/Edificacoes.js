@@ -74,6 +74,7 @@ export default class Edificacoes extends Component {
 
   componentDidMount() {
     this.pegarLista();
+    // this.salvarDadosLocalVoltar();
   }
 
   pegarLista() {
@@ -158,6 +159,26 @@ export default class Edificacoes extends Component {
     // this.setState({ total: total });
     browserHistory.push("/infraestrutura");
   }
+
+  // salvarDadosLocalVoltar() {
+  //   // e.preventDefault();
+  //   let total = parseInt(sessionStorage.getItem("total")) || 0; //  0 50  99
+  //   let newSomaEd = this.state.somaEdificacoes; //  50  48  54
+  //   let somaEd = parseInt(sessionStorage.getItem("edificacoes")) || 0; //  0  50  48
+
+  //   sessionStorage.setItem("edificacoes", this.state.somaEdificacoes); //  50 48  54
+
+  //   if (total === 0) {
+  //     // true  false   false
+  //     total = newSomaEd; //  50
+  //   } else {
+  //     total -= somaEd; //  50-50=0  99-48=51
+  //     total += newSomaEd; //  0+48=48   51+54=105
+  //   }
+  //   sessionStorage.setItem("total", total); //  50  48  105
+  //   // this.setState({ total: total });
+  //   // browserHistory.push("/infraestrutura");
+  // }
 
   mudarItem1(e) {
     let value = parseInt(e.target.value);
@@ -422,7 +443,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="limpeza-terreno"
             />
-            <span className="barlow-semibold"></span> limpeza de terreno
+            <span className="barlow-regular">limpeza de terreno</span>
             {/* teste */}
             <Example></Example>
             {/* teste */}
@@ -435,7 +456,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="movimentacao"
             />
-            <span className="barlow-semibold"></span> movimentação Parcial(50%)
+            <span className="barlow-regular">movimentação Parcial(50%)</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -445,7 +466,7 @@ export default class Edificacoes extends Component {
               value="7"
               id="corte-e-aterro"
             />
-            <span className="barlow-semibold"></span> corte e aterro
+            <span className="barlow-regular">corte e aterro</span>
           </div>
           <div className="col-1  regular"></div>
           <div className="col-1  regular"></div>
@@ -467,7 +488,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="sim"
             />
-            <span className=""> sim</span>
+            <span className="barlow-regular"> sim</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -476,7 +497,7 @@ export default class Edificacoes extends Component {
               onClick={e => this.mudarItem2(e)}
               value="0"
             />
-            <span className="barlow-semibold"></span> não
+            <span className="barlow-regular">não</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
@@ -496,7 +517,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="radier"
             />
-            <span className="barlow-semibold"></span> radier
+            <span className="barlow-regular">radier</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -506,7 +527,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="sapata"
             />
-            <span className="barlow-semibold"></span> sapata
+            <span className="barlow-regular">sapata</span>
           </div>
           <div className="col-2 ">
             <input
@@ -516,7 +537,7 @@ export default class Edificacoes extends Component {
               value="7"
               id="estaca"
             />
-            <span className=""> estaca</span>{" "}
+            <span className="barlow-regular"> estaca</span>{" "}
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
@@ -535,7 +556,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="concreto-estrutura"
             />{" "}
-            concreto
+            <span className="barlow-regular">concreto</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -545,7 +566,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="premoldado"
             />{" "}
-            prémoldado
+            <span className="barlow-regular">prémoldado</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -555,7 +576,7 @@ export default class Edificacoes extends Component {
               value="7"
               id="metalica-estruturas"
             />{" "}
-            metálica
+            <span className="barlow-regular">metálica</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
@@ -573,7 +594,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="concreto-escada"
             />{" "}
-            concreto
+            <span className="barlow-regular">concreto</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -583,13 +604,13 @@ export default class Edificacoes extends Component {
               value="7"
               id="metalica-escadas"
             />{" "}
-            metálica
+            <span className="barlow-regular">metálica</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item5}
+            <span className="barlow-regular"></span>R$ {this.state.item5}
           </div>
 
           {/* COBERTURA */}
@@ -603,7 +624,7 @@ export default class Edificacoes extends Component {
               value="4"
               id="forro-telhado"
             />{" "}
-            forro + telhado
+            <span className="barlow-regular"></span>forro + telhado
           </div>
           <div className="col-2  regular">
             <input
@@ -613,7 +634,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="forro-laje"
             />{" "}
-            forro + laje
+            <span className="barlow-regular"></span>forro + laje
           </div>
           <div className="col-2  regular">
             <input
@@ -623,7 +644,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="laje"
             />{" "}
-            laje
+            <span className="barlow-regular"></span>laje
           </div>
           <div className="col-2  regular">
             <input
@@ -633,11 +654,11 @@ export default class Edificacoes extends Component {
               value="7"
               id="laje-telhado"
             />{" "}
-            laje + telhado
+            <span className="barlow-regular"></span>laje + telhado
           </div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item6}
+            <span className="barlow-regular"></span>R$ {this.state.item6}
           </div>
 
           {/* ESTACIONAMENTO */}
@@ -651,7 +672,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="proprio"
             />{" "}
-            próprio
+            <span className="barlow-regular"></span> próprio
           </div>
           <div className="col-2  regular">
             <input
@@ -661,12 +682,12 @@ export default class Edificacoes extends Component {
               value="6"
               id="alugado"
             />{" "}
-            alugado
+            <span className="barlow-regular"></span>alugado
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
-            R$ {this.state.item7}
+            <span className="barlow-regular"></span>R$ {this.state.item7}
           </div>
 
           {/* PASSEIO */}
@@ -680,7 +701,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="manter"
             />{" "}
-            manter
+            <span className="barlow-regular"></span>manter
           </div>
           <div className="col-2  regular">
             <input
@@ -690,7 +711,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="reformar"
             />{" "}
-            reformar
+            <span className="barlow-regular"></span>reformar
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
@@ -712,7 +733,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="1"
             />{" "}
-            1
+            <span className="barlow-regular">1</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -722,7 +743,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="2"
             />{" "}
-            2
+            <span className="barlow-regular">2</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -732,7 +753,7 @@ export default class Edificacoes extends Component {
               value="7"
               id="3"
             />{" "}
-            3
+            <span className="barlow-regular">3</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
@@ -772,7 +793,7 @@ export default class Edificacoes extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow branco-metodo">
+                <span className="texto-rodape barlow-padrao branco-metodo">
                   edificações
                 </span>
               </div>
@@ -787,7 +808,7 @@ export default class Edificacoes extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">
+                <span className="texto-rodape barlow-padrao black">
                   infraestrutura
                 </span>
               </div>
@@ -803,7 +824,7 @@ export default class Edificacoes extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">
+                <span className="texto-rodape barlow-padrao black">
                   padrão de acabamento
                 </span>
               </div>

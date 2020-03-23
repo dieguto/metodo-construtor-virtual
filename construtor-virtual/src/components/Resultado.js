@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from "react-router";
+import { Link, browserHistory } from "react-router";
 
 // import { Container } from './styles';
 
@@ -16,6 +16,17 @@ import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import MetodoLogo from "../Assets/icons/logo_mtdtech.svg";
 
 export default class Resultado extends Component {
+  componentDidMount() {
+    var total = sessionStorage.getItem("total");
+    var edificacoes = sessionStorage.getItem("edificacoes");
+    var infra = sessionStorage.getItem("infraestrutura");
+  }
+
+  resetarStorage() {
+    sessionStorage.clear();
+    browserHistory.push("/");
+  }
+
   render() {
     return (
       <div className="">
@@ -129,7 +140,9 @@ export default class Resultado extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">edificações</span>
+                <span className="texto-rodape barlow-padrao black">
+                  edificações
+                </span>
               </div>
             </div>
 
@@ -142,7 +155,7 @@ export default class Resultado extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">
+                <span className="texto-rodape barlow-padrao black">
                   infraestrutura
                 </span>
               </div>
@@ -158,7 +171,7 @@ export default class Resultado extends Component {
                 />
               </div>
               <div className="fonte-footer-pag ">
-                <span className="texto-rodape barlow black">
+                <span className="texto-rodape barlow-padrao black">
                   padrão de acabamento
                 </span>
               </div>
@@ -178,7 +191,7 @@ export default class Resultado extends Component {
             </div>
 
             <div className="box-rodape-icone3">
-              <Link to="/">
+              <Link onClick={e => this.resetarStorage(e)} to="/">
                 <div>
                   <img
                     className="tamanho-icone"
