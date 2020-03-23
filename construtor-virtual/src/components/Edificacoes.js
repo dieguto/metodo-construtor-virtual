@@ -98,7 +98,7 @@ export default class Edificacoes extends Component {
     let sum = 0;
     let item;
     names.map(name => {
-      item = JSON.parse(localStorage.getItem(name));
+      item = JSON.parse(sessionStorage.getItem(name));
       if (item !== null) itens.push(item.id);
     });
     console.log(itens);
@@ -112,7 +112,7 @@ export default class Edificacoes extends Component {
 
     this.setState({ somaEdificacoes: sum });
     setTimeout(() => {
-      localStorage.setItem("edificacoes", this.state.somaEdificacoes);
+      sessionStorage.setItem("edificacoes", this.state.somaEdificacoes);
       console.log(sum);
       this.fillItens();
     }, 1000);
@@ -122,7 +122,7 @@ export default class Edificacoes extends Component {
     let item;
     let values = [];
     itens.map(item => {
-      item = JSON.parse(localStorage.getItem(item));
+      item = JSON.parse(sessionStorage.getItem(item));
       if (item !== null) values.push(parseInt(item.value));
     });
 
@@ -135,17 +135,17 @@ export default class Edificacoes extends Component {
     this.setState({ item7: values[6] || 0 });
     this.setState({ item8: values[7] || 0 });
     this.setState({ item9: values[8] || 0 });
-    this.setState({ somaEdificacoes: localStorage.getItem("edificacoes") });
-    // this.setState({ total: localStorage.getItem("total") });
+    this.setState({ somaEdificacoes: sessionStorage.getItem("edificacoes") });
+    // this.setState({ total: sessionStorage.getItem("total") });
   }
 
   salvarDadosLocal(e) {
     e.preventDefault();
-    let total = parseInt(localStorage.getItem("total")) || 0; //  0 50  99
+    let total = parseInt(sessionStorage.getItem("total")) || 0; //  0 50  99
     let newSomaEd = this.state.somaEdificacoes; //  50  48  54
-    let somaEd = parseInt(localStorage.getItem("edificacoes")) || 0; //  0  50  48
+    let somaEd = parseInt(sessionStorage.getItem("edificacoes")) || 0; //  0  50  48
 
-    localStorage.setItem("edificacoes", this.state.somaEdificacoes); //  50 48  54
+    sessionStorage.setItem("edificacoes", this.state.somaEdificacoes); //  50 48  54
 
     if (total === 0) {
       // true  false   false
@@ -154,7 +154,7 @@ export default class Edificacoes extends Component {
       total -= somaEd; //  50-50=0  99-48=51
       total += newSomaEd; //  0+48=48   51+54=105
     }
-    localStorage.setItem("total", total); //  50  48  105
+    sessionStorage.setItem("total", total); //  50  48  105
     // this.setState({ total: total });
     browserHistory.push("/infraestrutura");
   }
@@ -180,7 +180,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem2(e) {
@@ -204,7 +204,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem3(e) {
@@ -228,7 +228,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem4(e) {
@@ -252,7 +252,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem5(e) {
@@ -276,7 +276,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem6(e) {
@@ -300,7 +300,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem7(e) {
@@ -324,7 +324,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem8(e) {
@@ -348,7 +348,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem9(e) {
@@ -372,7 +372,7 @@ export default class Edificacoes extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   render() {

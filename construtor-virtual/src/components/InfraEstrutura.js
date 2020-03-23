@@ -58,7 +58,7 @@ export default class InfraEstrutura extends Component {
     let sum = 0;
     let item;
     names.map(name => {
-      item = JSON.parse(localStorage.getItem(name));
+      item = JSON.parse(sessionStorage.getItem(name));
       if (item !== null) itens.push(item.id);
     });
     console.log(itens);
@@ -72,7 +72,7 @@ export default class InfraEstrutura extends Component {
 
     this.setState({ somaInfra: sum });
     setTimeout(() => {
-      localStorage.setItem("infraestrutura", this.state.somaInfra);
+      sessionStorage.setItem("infraestrutura", this.state.somaInfra);
       console.log(sum);
       this.fillItens();
     }, 1000);
@@ -82,7 +82,7 @@ export default class InfraEstrutura extends Component {
     let item;
     let values = [];
     itens.map(item => {
-      item = JSON.parse(localStorage.getItem(item));
+      item = JSON.parse(sessionStorage.getItem(item));
       if (item !== null) values.push(parseInt(item.value));
     });
 
@@ -96,17 +96,17 @@ export default class InfraEstrutura extends Component {
     this.setState({ item8: values[7] || 0 });
     this.setState({ item9: values[8] || 0 });
     this.setState({ item10: values[9] || 0 });
-    this.setState({ somaInfra: localStorage.getItem("infraestrutura") });
-    // this.setState({ total: localStorage.getItem("total") });
+    this.setState({ somaInfra: sessionStorage.getItem("infraestrutura") });
+    // this.setState({ total: sessionStorage.getItem("total") });
   }
 
   salvarDadosLocal(e) {
     e.preventDefault();
-    let total = parseInt(localStorage.getItem("total")) || 0; //  0 50  99
+    let total = parseInt(sessionStorage.getItem("total")) || 0; //  0 50  99
     let newSomaInf = this.state.somaInfra; //  50  48  54
-    let somaInf = parseInt(localStorage.getItem("infraestrutura")) || 0; //  0  50  48
+    let somaInf = parseInt(sessionStorage.getItem("infraestrutura")) || 0; //  0  50  48
 
-    localStorage.setItem("infraestrutura", this.state.somaInfra); //  50 48  54
+    sessionStorage.setItem("infraestrutura", this.state.somaInfra); //  50 48  54
 
     if (total === 0) {
       // true  false   false
@@ -115,7 +115,7 @@ export default class InfraEstrutura extends Component {
       total -= somaInf; //  50-50=0  99-48=51
       total += newSomaInf; //  0+48=48   51+54=105
     }
-    localStorage.setItem("total", total); //  50  48  105
+    sessionStorage.setItem("total", total); //  50  48  105
     // this.setState({ total: total });
     browserHistory.push("/padraoacabamento");
   }
@@ -141,7 +141,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem2(e) {
@@ -165,7 +165,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem3(e) {
@@ -189,7 +189,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem4(e) {
@@ -213,7 +213,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem5(e) {
@@ -237,7 +237,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem6(e) {
@@ -261,7 +261,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem7(e) {
@@ -285,7 +285,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem8(e) {
@@ -309,7 +309,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem9(e) {
@@ -333,7 +333,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   mudarItem10(e) {
@@ -357,7 +357,7 @@ export default class InfraEstrutura extends Component {
     }, 1000);
 
     itemValor = { id: e.target.id, value };
-    localStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
   render() {
