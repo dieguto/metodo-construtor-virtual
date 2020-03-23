@@ -455,7 +455,10 @@ export default class PadraoAcabamento extends Component {
             5000
           </div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item1}
+          </div>
 
           {/* revestimento-parede */}
 
@@ -513,7 +516,10 @@ export default class PadraoAcabamento extends Component {
             <span className=""> 5000 </span>
           </div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item2}
+          </div>
 
           {/* forro */}
 
@@ -571,7 +577,10 @@ export default class PadraoAcabamento extends Component {
             <span className=""> 5000 </span>
           </div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item3}
+          </div>
 
           {/* caixilhos */}
 
@@ -600,7 +609,10 @@ export default class PadraoAcabamento extends Component {
           <div className="col-1  regular"></div>
           <div className="col-1  regular"></div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item4}
+          </div>
 
           {/* painel bdn */}
 
@@ -646,7 +658,10 @@ export default class PadraoAcabamento extends Component {
             drywall
           </div>
 
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item5}
+          </div>
 
           {/* MOBILIARIO */}
 
@@ -674,7 +689,10 @@ export default class PadraoAcabamento extends Component {
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
 
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item6}
+          </div>
 
           {/* persianas */}
 
@@ -729,7 +747,10 @@ export default class PadraoAcabamento extends Component {
             />{" "}
             5000
           </div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item7}
+          </div>
 
           {/* vedacoes-internas-rd */}
 
@@ -768,7 +789,10 @@ export default class PadraoAcabamento extends Component {
           </div>
           <div className="col-2  regular"></div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item8}
+          </div>
 
           {/* fachada-rd */}
 
@@ -824,7 +848,10 @@ export default class PadraoAcabamento extends Component {
             5000
           </div>
 
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item9}
+          </div>
 
           {/* comunicacao-visual-rd */}
 
@@ -872,7 +899,10 @@ export default class PadraoAcabamento extends Component {
             bandeira
           </div>
 
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item10}
+          </div>
 
           {/* ESPAÇAMENTO */}
 

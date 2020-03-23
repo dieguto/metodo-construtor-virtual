@@ -434,7 +434,10 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular"></div>
           <div className="col-1  regular"></div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item1}
+          </div>
 
           {/* ELÉTRICA COMUM */}
 
@@ -490,7 +493,10 @@ export default class InfraEstrutura extends Component {
             5000
           </div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item2}
+          </div>
 
           {/* REDE LÓGICA */}
 
@@ -518,7 +524,10 @@ export default class InfraEstrutura extends Component {
           <div className="col-2 "></div>
 
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item3}
+          </div>
 
           {/* DISTRIBUIÇÃO ELÉTRICA */}
 
@@ -576,7 +585,10 @@ export default class InfraEstrutura extends Component {
             5000
           </div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item4}
+          </div>
 
           {/* TELEFONIA */}
 
@@ -632,7 +644,10 @@ export default class InfraEstrutura extends Component {
             5000
           </div>
 
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item5}
+          </div>
 
           {/* ILUMINAÇÃO */}
 
@@ -687,7 +702,10 @@ export default class InfraEstrutura extends Component {
             />{" "}
             5000
           </div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item6}
+          </div>
 
           {/* ENTRADA DE ENERGIA */}
 
@@ -736,7 +754,10 @@ export default class InfraEstrutura extends Component {
             desmembrar entrada
           </div>
 
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item7}
+          </div>
 
           {/* BOMBEIROS */}
 
@@ -772,7 +793,10 @@ export default class InfraEstrutura extends Component {
             extintores
           </div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item8}
+          </div>
 
           {/* Rede Hidráulica */}
 
@@ -810,7 +834,10 @@ export default class InfraEstrutura extends Component {
             nova alimentação
           </div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item9}
+          </div>
 
           {/* ACESSIBILIDADE */}
 
@@ -846,7 +873,10 @@ export default class InfraEstrutura extends Component {
             rampa
           </div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item10}
+          </div>
 
           <div className="col-10 espacamento "></div>
           <div className="col-2 espacamento  menu-resumo"></div>

@@ -449,7 +449,10 @@ export default class Edificacoes extends Component {
           </div>
           <div className="col-1  regular"></div>
           <div className="col-1  regular"></div>
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item1}
+          </div>
 
           {/* DEMOLIÇÕES DE TERRENO */}
 
@@ -477,7 +480,10 @@ export default class Edificacoes extends Component {
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo">{this.state.item2}</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item2}
+          </div>
 
           {/* FUNDAÇÃO */}
 
@@ -513,7 +519,10 @@ export default class Edificacoes extends Component {
             <span className=""> estaca</span>{" "}
           </div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item3}
+          </div>
 
           {/* ESTRUTURAS */}
 
@@ -549,7 +558,9 @@ export default class Edificacoes extends Component {
             metálica
           </div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            R$ {this.state.item4}
+          </div>
 
           {/* ESCADAS */}
 
@@ -576,7 +587,10 @@ export default class Edificacoes extends Component {
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item5}
+          </div>
 
           {/* COBERTURA */}
 
@@ -621,7 +635,10 @@ export default class Edificacoes extends Component {
             />{" "}
             laje + telhado
           </div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item6}
+          </div>
 
           {/* ESTACIONAMENTO */}
 
@@ -648,7 +665,9 @@ export default class Edificacoes extends Component {
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo">R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            R$ {this.state.item7}
+          </div>
 
           {/* PASSEIO */}
 
@@ -675,7 +694,10 @@ export default class Edificacoes extends Component {
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item8}
+          </div>
 
           {/* Numero de pavimentos */}
 
@@ -713,7 +735,10 @@ export default class Edificacoes extends Component {
             3
           </div>
           <div className="col-2  regular"></div>
-          <div className="col-2  regular menu-resumo"> R$ XXXXXX</div>
+          <div className="col-2  regular menu-resumo">
+            {" "}
+            R$ {this.state.item9}
+          </div>
 
           <div className="col-10 espacamento "></div>
           <div className="col-2 espacamento  menu-resumo"></div>
