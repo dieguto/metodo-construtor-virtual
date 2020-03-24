@@ -24,6 +24,7 @@ export default class Resultado extends Component {
 
   resetarStorage() {
     sessionStorage.clear();
+    localStorage.clear();
     browserHistory.push("/");
   }
 
@@ -102,15 +103,17 @@ export default class Resultado extends Component {
 
           <div className="col-1 "></div>
           <div className="col-2 ">
-            <h2 className="barlow-extrabold cor-padrao-metodo">XXXXXX</h2>
+            <h2 className="barlow-extrabold cor-padrao-metodo">
+              R$ {sessionStorage.getItem("padraoacabamento")}
+            </h2>
             <span className="barlow-extrabold acinzentado-metodo fonte-resultado ">
-              m² de obra
+              padrão de acabamento
             </span>
           </div>
           <div className="col-2 ">
-            <h2 className="barlow-extrabold cor-padrao-metodo">XXXXXX</h2>
+            <h2 className="barlow-extrabold cor-padrao-metodo">700 m²</h2>
             <span className="barlow-extrabold acinzentado-metodo fonte-resultado ">
-              prazo
+              m² de obra
             </span>
           </div>
 

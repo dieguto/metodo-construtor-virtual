@@ -443,9 +443,9 @@ export default class Edificacoes extends Component {
               value="5"
               id="limpeza-terreno"
             />
-            <span className="barlow-regular">limpeza de terreno</span>
+            <span className="barlow-regular"> limpeza de terreno</span>
             {/* teste */}
-            <Example></Example>
+            {/* <Example></Example> */}
             {/* teste */}
           </div>
           <div className="col-2  regular">
@@ -456,7 +456,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="movimentacao"
             />
-            <span className="barlow-regular">movimentação Parcial(50%)</span>
+            <span className="barlow-regular"> movimentação Parcial(50%)</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -466,7 +466,7 @@ export default class Edificacoes extends Component {
               value="7"
               id="corte-e-aterro"
             />
-            <span className="barlow-regular">corte e aterro</span>
+            <span className="barlow-regular"> corte e aterro</span>
           </div>
           <div className="col-1  regular"></div>
           <div className="col-1  regular"></div>
@@ -497,7 +497,7 @@ export default class Edificacoes extends Component {
               onClick={e => this.mudarItem2(e)}
               value="0"
             />
-            <span className="barlow-regular">não</span>
+            <span className="barlow-regular"> não</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
@@ -508,7 +508,7 @@ export default class Edificacoes extends Component {
 
           {/* FUNDAÇÃO */}
 
-          <div className="col-2  barlow-bold itens-titulos">fundação</div>
+          <div className="col-2  barlow-bold itens-titulos"> fundação</div>
           <div className="col-2  regular">
             <input
               name="fundacao-rd"
@@ -517,7 +517,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="radier"
             />
-            <span className="barlow-regular">radier</span>
+            <span className="barlow-regular"> radier</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -527,7 +527,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="sapata"
             />
-            <span className="barlow-regular">sapata</span>
+            <span className="barlow-regular"> sapata</span>
           </div>
           <div className="col-2 ">
             <input
@@ -547,7 +547,7 @@ export default class Edificacoes extends Component {
 
           {/* ESTRUTURAS */}
 
-          <div className="col-2  barlow-bold itens-titulos">estruturas</div>
+          <div className="col-2  barlow-bold itens-titulos"> estruturas</div>
           <div className="col-2  regular">
             <input
               name="estruturas-rd"
@@ -556,7 +556,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="concreto-estrutura"
             />{" "}
-            <span className="barlow-regular">concreto</span>
+            <span className="barlow-regular"> concreto</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -566,7 +566,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="premoldado"
             />{" "}
-            <span className="barlow-regular">prémoldado</span>
+            <span className="barlow-regular"> prémoldado</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -576,7 +576,7 @@ export default class Edificacoes extends Component {
               value="7"
               id="metalica-estruturas"
             />{" "}
-            <span className="barlow-regular">metálica</span>
+            <span className="barlow-regular"> metálica</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
@@ -585,7 +585,7 @@ export default class Edificacoes extends Component {
 
           {/* ESCADAS */}
 
-          <div className="col-2  barlow-bold itens-titulos">escadas</div>
+          <div className="col-2  barlow-bold itens-titulos"> escadas</div>
           <div className="col-2  regular">
             <input
               name="escadas-rd"
@@ -594,7 +594,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="concreto-escada"
             />{" "}
-            <span className="barlow-regular">concreto</span>
+            <span className="barlow-regular"> concreto</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -604,7 +604,7 @@ export default class Edificacoes extends Component {
               value="7"
               id="metalica-escadas"
             />{" "}
-            <span className="barlow-regular">metálica</span>
+            <span className="barlow-regular"> metálica</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
@@ -615,7 +615,7 @@ export default class Edificacoes extends Component {
 
           {/* COBERTURA */}
 
-          <div className="col-2  barlow-bold itens-titulos">cobertura</div>
+          <div className="col-2  barlow-bold itens-titulos"> cobertura</div>
           <div className="col-2  regular">
             <input
               name="cobertura-rd"
@@ -624,7 +624,7 @@ export default class Edificacoes extends Component {
               value="4"
               id="forro-telhado"
             />{" "}
-            <span className="barlow-regular"></span>forro + telhado
+            <span className="barlow-regular"></span> forro + telhado
           </div>
           <div className="col-2  regular">
             <input
@@ -634,7 +634,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="forro-laje"
             />{" "}
-            <span className="barlow-regular"></span>forro + laje
+            <span className="barlow-regular"></span> forro + laje
           </div>
           <div className="col-2  regular">
             <input
@@ -644,7 +644,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="laje"
             />{" "}
-            <span className="barlow-regular"></span>laje
+            <span className="barlow-regular"></span> laje
           </div>
           <div className="col-2  regular">
             <input
@@ -654,7 +654,7 @@ export default class Edificacoes extends Component {
               value="7"
               id="laje-telhado"
             />{" "}
-            <span className="barlow-regular"></span>laje + telhado
+            <span className="barlow-regular"></span> laje + telhado
           </div>
           <div className="col-2  regular menu-resumo">
             {" "}
@@ -663,7 +663,10 @@ export default class Edificacoes extends Component {
 
           {/* ESTACIONAMENTO */}
 
-          <div className="col-2  barlow-bold itens-titulos">estacionamento</div>
+          <div className="col-2  barlow-bold itens-titulos">
+            {" "}
+            estacionamento
+          </div>
           <div className="col-2  regular">
             <input
               name="estacionamento-rd"
@@ -672,7 +675,7 @@ export default class Edificacoes extends Component {
               value="5"
               id="proprio"
             />{" "}
-            <span className="barlow-regular"></span> próprio
+            <span className="barlow-regular"> próprio</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -682,7 +685,7 @@ export default class Edificacoes extends Component {
               value="6"
               id="alugado"
             />{" "}
-            <span className="barlow-regular"></span>alugado
+            <span className="barlow-regular"> alugado</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
