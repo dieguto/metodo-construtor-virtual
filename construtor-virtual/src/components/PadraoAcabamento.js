@@ -1,17 +1,88 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { Link, browserHistory } from "react-router";
 
 // import { Container } from './styles';
 import "../css/rodape.css";
 import "../css/edificacoes.css";
 
+import Collapse from "react-bootstrap/Collapse";
+import Button from "react-bootstrap/Button";
+
 import IconeUm from "../Assets/icons/icon_1.svg";
 import IconeDois from "../Assets/icons/icon_2.svg";
 import IconeTresBranco from "../Assets/icons/icon_3_branco.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import IconeContinuar from "../Assets/icons/icon_avancar.svg";
+import IconeSeta from "../Assets/icons/down-arrow.png";
 
 import MetodoLogo from "../Assets/icons/logo_mtdtech.svg";
+
+function DropDown() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <span
+        onClick={() => setOpen(!open)}
+        aria-controls="example-collapse-text"
+        aria-expanded={open}
+      >
+        <img className="icone-seta" src={IconeSeta}></img>
+      </span>
+      <Collapse in={open}>
+        <div className="celula-collapse  barlow-regular">
+          <div className="linha-dropdown d-flex">
+            <div className="regular menu-dropdown-op ">
+              <input
+                name="revestimento-parede-rd"
+                type="checkbox"
+                value="4"
+                id="4000-A-parede"
+              />
+              <span className="barlow-regular"> opção 1</span>
+            </div>
+            <div className="regular menu-dropdown-op ">
+              <input
+                name="revestimento-parede-rd"
+                type="checkbox"
+                value="5"
+                id="4000-B-parede"
+              />
+              <span className="barlow-regular"> opção 2</span>
+            </div>
+            <div className="menu-dropdown-op  regular ">
+              <input
+                name="revestimento-parede-rd"
+                type="checkbox"
+                value="6"
+                id="4000-C-parede"
+              />
+              <span className="barlow-regular"> opção 3</span>
+            </div>
+            <div className="menu-dropdown-op regular ">
+              <input
+                name="revestimento-parede-rd"
+                type="checkbox"
+                value="7"
+                id="4000-FLEX-parede"
+              />
+              <span className="barlow-regular"> opção 4</span>
+            </div>
+            <div className="menu-dropdown-op regular ">
+              <input
+                name="revestimento-parede-rd"
+                type="checkbox"
+                value="7"
+                id="4000-FLEX-parede"
+              />
+              <span className="barlow-regular"> opção 5</span>
+            </div>
+          </div>
+        </div>
+      </Collapse>
+    </>
+  );
+}
 
 export default class PadraoAcabamento extends Component {
   constructor() {
@@ -422,7 +493,10 @@ export default class PadraoAcabamento extends Component {
               name="revestimento-piso-rd"
               id="4000-A-piso"
             />
-            <span className="barlow-regular"> 4000 A</span>
+            <span className="barlow-regular"> 4000 A </span>
+            {/* teste */}
+            <DropDown></DropDown>
+            {/* teste */}
           </div>
           <div className="col-2  regular">
             <input

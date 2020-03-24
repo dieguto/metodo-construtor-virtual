@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.box-rodape-icone:nth-child(1) {
+  padding-left: 35px;
+}
+
 .box-rodape-icone {
   height: 100px;
   box-sizing: border-box;
@@ -10,12 +14,10 @@
   /* text-align: right; */
   box-sizing: border-box;
   padding-top: 30px;
-  padding-left: 35px;
 }
 
 .box-rodape-icone2 {
   height: 100px;
-  width: 150px;
   box-sizing: border-box;
   background-color: #3c3c3c;
   /* text-align: left; */

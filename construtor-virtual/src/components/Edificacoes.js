@@ -1,15 +1,14 @@
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import "../css/menu.css";
 import "../css/fontes.css";
 import "../css/bootstrap.min.css";
-
-import Collapse from "react-bootstrap/Collapse";
-import Button from "react-bootstrap/Button";
 
 import { Link, browserHistory } from "react-router";
 import "../css/edificacoes.css";
 
 import MetodoLogo from "../Assets/icons/logo_mtdtech.svg";
+import Terraplanagem from "../Assets/terraplanagem.png";
+import Default from "../Assets/default.png";
 
 // footer que ainda não foi componentizado
 
@@ -18,40 +17,8 @@ import IconeDois from "../Assets/icons/icon_2.svg";
 import IconeTres from "../Assets/icons/icon_3.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import IconeContinuar from "../Assets/icons/icon_avancar.svg";
-import IconeSeta from "../Assets/icons/down-arrow.png";
 
 import "../css/rodape.css";
-
-function Example() {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <span
-        onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open}
-      >
-        <img className="icone-seta" src={IconeSeta}></img>
-      </span>
-      <Collapse in={open}>
-        <div className="celula-collapse  regular">
-          <span className="barlow-semibold"></span> opção 1
-          <input type="checkbox" />
-          <br></br>
-          <span className="barlow-semibold"></span> opção 2
-          <input type="checkbox" />
-          <br></br>
-          <span className="barlow-semibold"></span> opção 3
-          <input type="checkbox" />
-          <br></br>
-          <span className="barlow-semibold"></span> opção 4
-          <input type="checkbox" />
-        </div>
-      </Collapse>
-    </>
-  );
-}
 
 export default class Edificacoes extends Component {
   constructor() {
@@ -75,6 +42,20 @@ export default class Edificacoes extends Component {
   componentDidMount() {
     this.pegarLista();
     // this.salvarDadosLocalVoltar();
+  }
+
+  mudarFoto(id, imagem) {
+    var elemento = document.querySelector(id);
+    var imagemTrans = document.querySelector(".imagem-transitoria");
+    var imagemPadrao = Default;
+
+    elemento.addEventListener("mouseover", function() {
+      imagemTrans.style.backgroundImage = `url(${imagem})`;
+    });
+
+    elemento.addEventListener("mouseout", function() {
+      imagemTrans.style.backgroundImage = `url(${imagemPadrao})`;
+    });
   }
 
   pegarLista() {
@@ -159,26 +140,6 @@ export default class Edificacoes extends Component {
     // this.setState({ total: total });
     browserHistory.push("/infraestrutura");
   }
-
-  // salvarDadosLocalVoltar() {
-  //   // e.preventDefault();
-  //   let total = parseInt(sessionStorage.getItem("total")) || 0; //  0 50  99
-  //   let newSomaEd = this.state.somaEdificacoes; //  50  48  54
-  //   let somaEd = parseInt(sessionStorage.getItem("edificacoes")) || 0; //  0  50  48
-
-  //   sessionStorage.setItem("edificacoes", this.state.somaEdificacoes); //  50 48  54
-
-  //   if (total === 0) {
-  //     // true  false   false
-  //     total = newSomaEd; //  50
-  //   } else {
-  //     total -= somaEd; //  50-50=0  99-48=51
-  //     total += newSomaEd; //  0+48=48   51+54=105
-  //   }
-  //   sessionStorage.setItem("total", total); //  50  48  105
-  //   // this.setState({ total: total });
-  //   // browserHistory.push("/infraestrutura");
-  // }
 
   mudarItem1(e) {
     let value = parseInt(e.target.value);
@@ -440,7 +401,13 @@ export default class Edificacoes extends Component {
 
           {/* TERRAPLANAGEM */}
 
-          <div className="col-2  barlow-bold itens-titulos">terraplanagem</div>
+          <div
+            onMouseOver={e => this.mudarFoto("#terraplanagem", Terraplanagem)}
+            id="terraplanagem"
+            className="col-2  barlow-bold itens-titulos"
+          >
+            terraplanagem
+          </div>
           <div className="col-2  regular">
             <input
               type="radio"
@@ -450,9 +417,6 @@ export default class Edificacoes extends Component {
               id="limpeza-terreno"
             />
             <span className="barlow-regular"> limpeza de terreno</span>
-            {/* teste */}
-            {/* <Example></Example> */}
-            {/* teste */}
           </div>
           <div className="col-2  regular">
             <input
