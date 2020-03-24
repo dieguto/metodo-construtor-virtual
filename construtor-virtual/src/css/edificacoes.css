@@ -63,7 +63,7 @@ div.itens-titulos:hover + div.imagem-transitoria {
 }
 
 .box-rodape-palavras {
-  width: 16.5%;
+  width: 16%;
   box-sizing: border-box;
   padding-top: 15px;
   padding-bottom: 50px;
@@ -112,7 +112,7 @@ div.itens-titulos:hover + div.imagem-transitoria {
   width: 215px;
   height: 20px;
   box-sizing: border-box;
-  padding-left: 25px;
+  padding-left: 15px;
   font-size: 20px;
   color: white;
 }
