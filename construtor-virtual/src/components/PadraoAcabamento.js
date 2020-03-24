@@ -374,7 +374,8 @@ export default class PadraoAcabamento extends Component {
               alt="logo da empresa"
             ></img>
           </div>
-          <div className="col-7  mt-4">
+
+          <div className="col-5  mt-4">
             <h2 className="barlow-extrabold preto-metodo">
               fase 3{" "}
               <span className="barlow-thin cor-padrao-metodo">
@@ -382,6 +383,13 @@ export default class PadraoAcabamento extends Component {
               </span>{" "}
             </h2>
           </div>
+
+          <div className="col-2 ">
+            <h2 className="barlow-extrabold branco-metodo construir-titulo-padrao">
+              construir
+            </h2>
+          </div>
+
           <div className="col-2  menu-resumo"></div>
 
           <div className="col-2 ">
@@ -414,7 +422,7 @@ export default class PadraoAcabamento extends Component {
               name="revestimento-piso-rd"
               id="4000-A-piso"
             />
-            <span className="barlow-semibold"></span> 4000 A
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -424,7 +432,7 @@ export default class PadraoAcabamento extends Component {
               name="revestimento-piso-rd"
               id="4000-B-piso"
             />
-            <span className="barlow-semibold"></span> 4000 B
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -434,7 +442,7 @@ export default class PadraoAcabamento extends Component {
               name="revestimento-piso-rd"
               id="4000-C-piso"
             />
-            <span className="barlow-semibold"></span> 4000 C
+            <span className="barlow-regular"> 4000 C</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -444,7 +452,7 @@ export default class PadraoAcabamento extends Component {
               name="revestimento-piso-rd"
               id="4000-FLEX-piso"
             />{" "}
-            4000 FLEX
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -454,12 +462,12 @@ export default class PadraoAcabamento extends Component {
               name="revestimento-piso-rd"
               id="5000-piso"
             />{" "}
-            5000
+            <span className="barlow-regular"> 5000</span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item1}
+            <span className="barlow-regular">R$ {this.state.item1}</span>
           </div>
 
           {/* revestimento-parede */}
@@ -475,7 +483,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem2(e)}
               id="4000-A-parede"
             />
-            <span className=""> 4000 A</span>
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -485,7 +493,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem2(e)}
               id="4000-B-parede"
             />
-            <span className=""> 4000 B</span>
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -495,7 +503,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem2(e)}
               id="4000-C-parede"
             />
-            <span className=""> 4000 C</span>
+            <span className="barlow-regular"> 4000 C</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -505,7 +513,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem2(e)}
               id="4000-FLEX-parede"
             />
-            <span className=""> 4000 FLEX</span>
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -515,12 +523,12 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem2(e)}
               id="5000-parede"
             />
-            <span className=""> 5000 </span>
+            <span className="barlow-regular"> 5000 </span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item2}
+            <span className="barlow-regular"> R$ {this.state.item2}</span>
           </div>
 
           {/* forro */}
@@ -534,7 +542,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem3(e)}
               id="4000-A-forro"
             />
-            <span className="barlow-semibold"></span> 4000 A
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -544,7 +552,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem3(e)}
               id="4000-B-forro"
             />
-            <span className="barlow-semibold"></span> 4000 B
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2 ">
             {" "}
@@ -555,7 +563,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem3(e)}
               id="4000-C-forro"
             />
-            4000 C
+            <span className="barlow-regular"> 4000 C</span>
           </div>
 
           <div className="col-1  regular">
@@ -566,7 +574,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem3(e)}
               id="4000-FLEX-forro"
             />
-            <span className=""> 4000 FLEX</span>
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -576,12 +584,12 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem3(e)}
               id="5000-forro"
             />
-            <span className=""> 5000 </span>
+            <span className="barlow-regular"> 5000 </span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item3}
+            <span className="barlow-regular"> R$ {this.state.item3}</span>
           </div>
 
           {/* caixilhos */}
@@ -595,7 +603,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem4(e)}
               id="sim-caixilhos"
             />{" "}
-            sim
+            <span className="barlow-regular"> sim</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -605,7 +613,7 @@ export default class PadraoAcabamento extends Component {
               id="nao-caixilhos"
               onClick={e => this.mudarItem4(e)}
             />{" "}
-            não
+            <span className="barlow-regular"> não</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-1  regular"></div>
@@ -613,7 +621,7 @@ export default class PadraoAcabamento extends Component {
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item4}
+            <span className="barlow-regular"> R$ {this.state.item4}</span>
           </div>
 
           {/* painel bdn */}
@@ -627,7 +635,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem5(e)}
               id="metalico-3000-painel"
             />{" "}
-            metálico 3000
+            <span className="barlow-regular"> metálico 3000</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -637,7 +645,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem5(e)}
               id="metalico-4000-painel"
             />{" "}
-            metálico 4000
+            <span className="barlow-regular"> metálico 4000</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -647,7 +655,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem5(e)}
               id="metalico-5000-painel"
             />{" "}
-            5000
+            <span className="barlow-regular"> 5000</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -657,12 +665,12 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem5(e)}
               id="metalico-drywall-painel"
             />{" "}
-            drywall
+            <span className="barlow-regular"> drywall</span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item5}
+            <span className="barlow-regular"> R$ {this.state.item5}</span>
           </div>
 
           {/* MOBILIARIO */}
@@ -676,7 +684,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem6(e)}
               id="4000-mobiliario"
             />{" "}
-            4000
+            <span className="barlow-regular"> 4000</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -686,14 +694,14 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem6(e)}
               id="5000-mobiliario"
             />{" "}
-            5000
+            <span className="barlow-regular"> 5000</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item6}
+            <span className="barlow-regular"> R$ {this.state.item6}</span>
           </div>
 
           {/* persianas */}
@@ -707,7 +715,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem7(e)}
               id="4000-A-persianas"
             />{" "}
-            4000 A
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -717,7 +725,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem7(e)}
               id="4000-B-distribuicao"
             />{" "}
-            4000 B
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -727,7 +735,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem7(e)}
               id="4000-C-distribuicao"
             />{" "}
-            4000 C
+            <span className="barlow-regular"> 4000 C</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -737,7 +745,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem7(e)}
               id="4000-FLEX-distribuicao"
             />{" "}
-            4000 FLEX
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -747,11 +755,11 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem7(e)}
               id="5000-distribuicao"
             />{" "}
-            5000
+            <span className="barlow-regular"> 5000</span>
           </div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item7}
+            <span className="barlow-regular"> R$ {this.state.item7}</span>
           </div>
 
           {/* vedacoes-internas-rd */}
@@ -767,7 +775,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem8(e)}
               id="alvenarias-vedacoes"
             />{" "}
-            alvenarias
+            <span className="barlow-regular"> alvenarias</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -777,7 +785,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem8(e)}
               id="drywall-vedacoes"
             />{" "}
-            drywall
+            <span className="barlow-regular"> drywall</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -787,13 +795,13 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem8(e)}
               id="unificacao-vedacoes"
             />{" "}
-            unificação
+            <span className="barlow-regular"> unificação</span>
           </div>
           <div className="col-2  regular"></div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item8}
+            <span className="barlow-regular"> R$ {this.state.item8}</span>
           </div>
 
           {/* fachada-rd */}
@@ -807,7 +815,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem9(e)}
               id="4000-A-fachada"
             />{" "}
-            4000 A
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -817,7 +825,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem9(e)}
               id="4000-B-fachada"
             />{" "}
-            4000 B
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -827,7 +835,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem9(e)}
               id="4000-C-fachada"
             />{" "}
-            4000 C
+            <span className="barlow-regular"> 4000 C</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -837,7 +845,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem9(e)}
               id="4000-FLEX-fachada"
             />{" "}
-            4000 FLEX
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -847,12 +855,12 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem9(e)}
               id="5000-A-fachada"
             />{" "}
-            5000
+            <span className="barlow-regular"> 5000</span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item9}
+            <span className="barlow-regular"> R$ {this.state.item9}</span>
           </div>
 
           {/* comunicacao-visual-rd */}
@@ -868,7 +876,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem10(e)}
               id="letreiro-comunicacao"
             />{" "}
-            letreiro
+            <span className="barlow-regular"> letreiro</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -878,7 +886,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem10(e)}
               id="totem-comunicacao"
             />{" "}
-            totem
+            <span className="barlow-regular"> totem</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -888,7 +896,7 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem10(e)}
               id="medalhao-comunicacao"
             />{" "}
-            medalhão
+            <span className="barlow-regular"> medalhão</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -898,12 +906,12 @@ export default class PadraoAcabamento extends Component {
               onClick={e => this.mudarItem10(e)}
               id="bandeira-comunicacao"
             />{" "}
-            bandeira
+            <span className="barlow-regular"> bandeira</span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item10}
+            <span className="barlow-regular"> R$ {this.state.item10}</span>
           </div>
 
           {/* ESPAÇAMENTO */}
@@ -975,7 +983,7 @@ export default class PadraoAcabamento extends Component {
               </div>
             </div>
 
-            <div className="box-rodape-icone2">
+            <div className="box-rodape-icone2 barlow-regular">
               <Link to="/infraestrutura">
                 <div>
                   <img
@@ -988,7 +996,7 @@ export default class PadraoAcabamento extends Component {
               voltar
             </div>
 
-            <div className="box-rodape-icone3">
+            <div className="box-rodape-icone3 barlow-regular">
               <Link to="/resultado">
                 <div>
                   <img

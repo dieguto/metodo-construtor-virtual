@@ -392,12 +392,17 @@ export default class InfraEstrutura extends Component {
               alt="logo da empresa"
             />
           </div>
-          <div className="col-7  mt-4">
+          <div className="col-5  mt-4">
             <h2 className="barlow-extrabold preto-metodo">
               fase 2{" "}
               <span className="barlow-thin cor-padrao-metodo">
                 /infra estrutura
               </span>{" "}
+            </h2>
+          </div>
+          <div className="col-2 ">
+            <h2 className="barlow-extrabold branco-metodo construir-titulo-padrao">
+              construir
             </h2>
           </div>
           <div className="col-2  menu-resumo"></div>
@@ -430,7 +435,7 @@ export default class InfraEstrutura extends Component {
               name="climatizacao-rd"
               id="central-clima"
             />
-            <span className="barlow-semibold"></span> central
+            <span className="barlow-regular"> central</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -440,7 +445,7 @@ export default class InfraEstrutura extends Component {
               name="climatizacao-rd"
               id="split-clima"
             />
-            <span className="barlow-semibold"></span> split
+            <span className="barlow-regular"> split</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -450,14 +455,14 @@ export default class InfraEstrutura extends Component {
               name="climatizacao-rd"
               id="misto-clima"
             />
-            <span className="barlow-semibold"></span> misto
+            <span className="barlow-regular"> misto</span>
           </div>
           <div className="col-1  regular"></div>
           <div className="col-1  regular"></div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item1}
+            <span className="barlow-regular"> R$ {this.state.item1}</span>
           </div>
 
           {/* ELÉTRICA COMUM */}
@@ -471,7 +476,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-A-eletrica"
             />
-            <span className=""> 4000 A</span>
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -481,7 +486,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-B-eletrica"
             />
-            <span className="barlow-semibold"></span> 4000 B
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -491,7 +496,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-C-eletrica"
             />{" "}
-            4000 C
+            <span className="barlow-regular"> 4000 C</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -501,7 +506,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-FLEX-eletrica"
             />
-            4000 FLEX
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -511,12 +516,12 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="5000-eletrica"
             />
-            5000
+            <span className="barlow-regular"> 5000 </span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item2}
+            <span className="barlow-regular">R$ {this.state.item2}</span>
           </div>
 
           {/* REDE LÓGICA */}
@@ -530,7 +535,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="cabeamento-rede"
             />
-            <span className="barlow-semibold"></span> cabeamento
+            <span className="barlow-regular"> cabeamento</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -540,14 +545,14 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="wi-fi-rede"
             />
-            <span className="barlow-semibold"></span> wi-fi
+            <span className="barlow-regular"> wi-fi</span>
           </div>
           <div className="col-2 "></div>
 
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item3}
+            <span className="barlow-regular"></span>R$ {this.state.item3}
           </div>
 
           {/* DISTRIBUIÇÃO ELÉTRICA */}
@@ -563,7 +568,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-A-distribuicao"
             />{" "}
-            4000 A
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -573,7 +578,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-B-distribuicao"
             />{" "}
-            4000 B
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -583,7 +588,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-C-distribuicao"
             />{" "}
-            4000 C
+            <span className="barlow-regular"> 4000 C</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -593,7 +598,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-FLEX-distribuicao"
             />{" "}
-            4000 FLEX
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -603,12 +608,12 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="5000-distribuicao"
             />{" "}
-            5000
+            <span className="barlow-regular"> 5000</span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item4}
+            <span className="barlow-regular"> R$ {this.state.item4}</span>
           </div>
 
           {/* TELEFONIA */}
@@ -622,7 +627,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-A-telefonia"
             />{" "}
-            4000 A
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -632,7 +637,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-B-telefonia"
             />{" "}
-            4000 B
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -642,7 +647,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-C-telefonia"
             />{" "}
-            4000 C
+            <span className="barlow-regular"> 4000 C</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -652,7 +657,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-FLEX-telefonia"
             />{" "}
-            4000 FLEX
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -662,12 +667,12 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="5000-telefonia"
             />{" "}
-            5000
+            <span className="barlow-regular"> 5000</span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item5}
+            <span className="barlow-regular"> R$ {this.state.item5}</span>
           </div>
 
           {/* ILUMINAÇÃO */}
@@ -681,7 +686,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-A-iluminacao"
             />{" "}
-            4000 A
+            <span className="barlow-regular"> 4000 A</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -691,7 +696,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-B-iluminacao"
             />{" "}
-            4000 B
+            <span className="barlow-regular"> 4000 B</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -701,7 +706,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-B-iluminacao"
             />{" "}
-            4000 C
+            <span className="barlow-regular"> 4000 C</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -711,7 +716,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="4000-FLEX-iluminacao"
             />{" "}
-            4000 FLEX
+            <span className="barlow-regular"> 4000 FLEX</span>
           </div>
           <div className="col-1  regular">
             <input
@@ -721,11 +726,11 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="5000-iluminacao"
             />{" "}
-            5000
+            <span className="barlow-regular"> 5000</span>
           </div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item6}
+            <span className="barlow-regular"> R$ {this.state.item6}</span>
           </div>
 
           {/* ENTRADA DE ENERGIA */}
@@ -741,7 +746,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="acrescimo-entrada"
             />{" "}
-            acréscimo de carga
+            <span className="barlow-regular"> acréscimo de carga</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -751,7 +756,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="substituicao-entrada"
             />{" "}
-            substituição de quadros
+            <span className="barlow-regular"> substituição de quadros</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -761,7 +766,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="unificacao-entrada"
             />{" "}
-            unificação
+            <span className="barlow-regular"> unificação</span>
           </div>
           <div className="col-2  regular">
             {" "}
@@ -772,12 +777,12 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="desmembrar-entrada"
             />{" "}
-            desmembrar entrada
+            <span className="barlow-regular"> desmembrar entrada</span>
           </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item7}
+            <span className="barlow-regular"> R$ {this.state.item7}</span>
           </div>
 
           {/* BOMBEIROS */}
@@ -791,7 +796,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="hidrante-bombeiros"
             />{" "}
-            hidrante
+            <span className="barlow-regular"> hidrante</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -801,7 +806,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="hidrante-bombeiros"
             />{" "}
-            sprinkler
+            <span className="barlow-regular"> sprinkler</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -811,12 +816,12 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="extintores-bombeiros"
             />{" "}
-            extintores
+            <span className="barlow-regular"> extintores</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item8}
+            <span className="barlow-regular">R$ {this.state.item8}</span>
           </div>
 
           {/* Rede Hidráulica */}
@@ -832,7 +837,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="unificacao-hidraulica"
             />{" "}
-            unificação
+            <span className="barlow-regular"> unificação</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -842,7 +847,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="desmebrar-hidraulica"
             />{" "}
-            desmebrar entrada
+            <span className="barlow-regular"> desmebrar entrada</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -852,12 +857,12 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="alimentacao-hidraulica"
             />{" "}
-            nova alimentação
+            <span className="barlow-regular"> nova alimentação</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item9}
+            <span className="barlow-regular">R$ {this.state.item9}</span>
           </div>
 
           {/* ACESSIBILIDADE */}
@@ -871,7 +876,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="elevador-acessibilidade"
             />{" "}
-            elevador
+            <span className="barlow-regular"> elevador</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -881,7 +886,7 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="plataforma-acessibilidade"
             />{" "}
-            plataforma
+            <span className="barlow-regular"> plataforma</span>
           </div>
           <div className="col-2  regular">
             <input
@@ -891,12 +896,12 @@ export default class InfraEstrutura extends Component {
               type="radio"
               id="rampa-acessibilidade"
             />{" "}
-            rampa
+            <span className="barlow-regular"> rampa</span>
           </div>
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            R$ {this.state.item10}
+            <span className="barlow-regular">R$ {this.state.item10}</span>
           </div>
 
           <div className="col-10 espacamento "></div>
@@ -968,7 +973,7 @@ export default class InfraEstrutura extends Component {
               </div>
             </div>
 
-            <div className="box-rodape-icone2">
+            <div className="box-rodape-icone2 barlow-regular">
               <Link to="/construcao">
                 <div>
                   <img
@@ -981,7 +986,7 @@ export default class InfraEstrutura extends Component {
               voltar
             </div>
 
-            <div className="box-rodape-icone3">
+            <div className="box-rodape-icone3 barlow-regular">
               <Link
                 onClick={e => this.salvarDadosLocal(e)}
                 to="/padraoacabamento"
