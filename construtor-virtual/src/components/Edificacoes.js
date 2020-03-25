@@ -8,6 +8,7 @@ import "../css/edificacoes.css";
 
 import MetodoLogo from "../Assets/icons/logo_mtdtech.svg";
 import Terraplanagem from "../Assets/terraplanagem.png";
+import Estrutura from "../Assets/estruturas.png";
 import Default from "../Assets/default.png";
 
 // footer que ainda não foi componentizado
@@ -41,6 +42,7 @@ export default class Edificacoes extends Component {
 
   componentDidMount() {
     this.pegarLista();
+    this.gerarTotal();
     // this.salvarDadosLocalVoltar();
   }
 
@@ -123,22 +125,30 @@ export default class Edificacoes extends Component {
 
   salvarDadosLocal(e) {
     e.preventDefault();
-    let total = parseInt(sessionStorage.getItem("total")) || 0; //  0 50  99
-    let newSomaEd = this.state.somaEdificacoes; //  50  48  54
-    let somaEd = parseInt(sessionStorage.getItem("edificacoes")) || 0; //  0  50  48
+    let total = parseInt(sessionStorage.getItem("total")) || 0; //  0 50
+    let newSomaEd = this.state.somaEdificacoes; //  50  48
+    let somaEd = parseInt(sessionStorage.getItem("edificacoes")) || 0; //  0  50
 
-    sessionStorage.setItem("edificacoes", this.state.somaEdificacoes); //  50 48  54
+    sessionStorage.setItem("edificacoes", this.state.somaEdificacoes); // 50  48
 
     if (total === 0) {
-      // true  false   false
-      total = newSomaEd; //  50
+      // true  false
+      total = newSomaEd; // 50
     } else {
-      total -= somaEd; //  50-50=0  99-48=51
-      total += newSomaEd; //  0+48=48   51+54=105
+      total -= somaEd; //  50-50=0
+      total += newSomaEd; //  0+48=48
     }
-    sessionStorage.setItem("total", total); //  50  48  105
-    // this.setState({ total: total });
-    browserHistory.push("/infraestrutura");
+    setTimeout(() => {
+      this.gerarTotal();
+    }, 800);
+    browserHistory.push("/infraestrutura"); //
+  }
+
+  gerarTotal() {
+    let soma = parseInt(sessionStorage.getItem("edificacoes")) || 0; // 50  48
+    soma += parseInt(sessionStorage.getItem("infraestrutura")) || 0; // 0 0
+    soma += parseInt(sessionStorage.getItem("padraoacabamento")) || 0; // 0 0
+    sessionStorage.setItem("total", soma); // 50  48
   }
 
   mudarItem1(e) {
@@ -517,7 +527,14 @@ export default class Edificacoes extends Component {
 
           {/* ESTRUTURAS */}
 
-          <div className="col-2  barlow-bold itens-titulos"> estruturas</div>
+          <div
+            onMouseOver={e => this.mudarFoto("#estrutura", Estrutura)}
+            id="estrutura"
+            className="col-2  barlow-bold itens-titulos"
+          >
+            {" "}
+            estruturas
+          </div>
           <div className="col-2  regular">
             <input
               name="estruturas-rd"

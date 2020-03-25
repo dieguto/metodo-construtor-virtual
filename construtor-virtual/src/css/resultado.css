@@ -1,3 +1,8 @@
+@font-face {
+  font-family: barlow-regular;
+  src: url(../Utils/fontes/barlow/Barlow-Regular.otf);
+}
+
 .total {
   text-align: inherit;
   margin-top: 20px;
@@ -12,6 +17,7 @@
   background-color: white;
   border: 2px solid #eb6607;
   text-align: center;
+  font-family: barlow-regular;
 }
 
 .empurrar {

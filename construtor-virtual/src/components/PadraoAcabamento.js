@@ -39,7 +39,7 @@ function DropDown() {
                 value="4"
                 id="4000-A-parede"
               />
-              <span className="barlow-regular"> opção 1</span>
+              <span className="barlow-regular branco-metodo "> opção 1</span>
             </div>
             <div className="regular menu-dropdown-op ">
               <input
@@ -48,7 +48,7 @@ function DropDown() {
                 value="5"
                 id="4000-B-parede"
               />
-              <span className="barlow-regular"> opção 2</span>
+              <span className="barlow-regular branco-metodo "> opção 2</span>
             </div>
             <div className="menu-dropdown-op  regular ">
               <input
@@ -57,7 +57,7 @@ function DropDown() {
                 value="6"
                 id="4000-C-parede"
               />
-              <span className="barlow-regular"> opção 3</span>
+              <span className="barlow-regular branco-metodo "> opção 3</span>
             </div>
             <div className="menu-dropdown-op regular ">
               <input
@@ -66,7 +66,7 @@ function DropDown() {
                 value="7"
                 id="4000-FLEX-parede"
               />
-              <span className="barlow-regular"> opção 4</span>
+              <span className="barlow-regular branco-metodo "> opção 4</span>
             </div>
             <div className="menu-dropdown-op regular ">
               <input
@@ -75,7 +75,7 @@ function DropDown() {
                 value="7"
                 id="4000-FLEX-parede"
               />
-              <span className="barlow-regular"> opção 5</span>
+              <span className="barlow-regular branco-metodo "> opção 5</span>
             </div>
           </div>
         </div>
@@ -109,7 +109,10 @@ export default class PadraoAcabamento extends Component {
   }
 
   pegarLista() {
-    let lista = document.querySelectorAll("input[type='radio']");
+    let lista = document.querySelectorAll([
+      "input[type='radio']",
+      "input[type='checkbox']"
+    ]);
     let listaNames = [];
     let listaSet = [];
 
@@ -129,11 +132,15 @@ export default class PadraoAcabamento extends Component {
     let itens = [];
     let sum = 0;
     let item;
+
     names.map(name => {
       item = JSON.parse(sessionStorage.getItem(name));
-      if (item !== null) itens.push(item.id);
+      if (item !== null) {
+        item.map(element => {
+          itens.push(element.id);
+        });
+      }
     });
-    console.log(itens);
 
     itens.map(item => {
       if (item !== "" && item !== null) {
@@ -149,6 +156,7 @@ export default class PadraoAcabamento extends Component {
       this.fillItens();
     }, 1000);
   }
+
   fillItens() {
     let itens = this.state.itens;
     let item;
@@ -177,21 +185,35 @@ export default class PadraoAcabamento extends Component {
   salvarDadosLocal(e) {
     e.preventDefault();
     let total = parseInt(sessionStorage.getItem("total")) || 0; //  0 50  99
-    let newSomaInf = this.state.somaAcabamento; //  50  48  54
-    let somaInf = parseInt(sessionStorage.getItem("padraoacabamento")) || 0; //  0  50  48
+    let newSomaPad = this.state.somaAcabamento; //  50  48  54
+    let somaPad = parseInt(sessionStorage.getItem("padraoacabamento")) || 0; //  0  50  48
 
     sessionStorage.setItem("padraoacabamento", this.state.somaAcabamento); //  50 48  54
 
     if (total === 0) {
       // true  false   false
-      total = newSomaInf; //  50
+      total = newSomaPad; //  50
     } else {
-      total -= somaInf; //  50-50=0  99-48=51
-      total += newSomaInf; //  0+48=48   51+54=105
+      total -= somaPad; //  50-50=0  99-48=51
+      total += newSomaPad; //  0+48=48   51+54=105
     }
-    sessionStorage.setItem("total", total); //  50  48  105
+    setTimeout(() => {
+      this.gerarTotal();
+      browserHistory.push("/resultado");
+    }, 800);
     // this.setState({ total: total });
-    browserHistory.push("/resultado");
+    // browserHistory.push("/resultado");
+  }
+  gerarTotal() {
+    let soma = parseInt(sessionStorage.getItem("edificacoes")) || 0; // 50  48
+    soma += parseInt(sessionStorage.getItem("infraestrutura")) || 0; // 0 0
+    soma += parseInt(sessionStorage.getItem("padraoacabamento")) || 0; // 0 0
+    sessionStorage.setItem("total", soma); // 50  48
+  }
+  salvarDadosLocalVoltar(e) {
+    e.preventDefault();
+    sessionStorage.setItem("padraoacabamento", this.state.somaAcabamento);
+    browserHistory.push("/infraestrutura");
   }
 
   mudarItem1(e) {
@@ -433,6 +455,457 @@ export default class PadraoAcabamento extends Component {
     itemValor = { id: e.target.id, value };
     sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
+
+  // mudarItem1(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item1 = this.state.item1;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item1 !== value) {
+  //     resultado -= item1;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item1: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem2(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item2 = this.state.item2;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item2 !== value) {
+  //     resultado -= item2;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item2: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem3(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item3 = this.state.item3;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item3 !== value) {
+  //     resultado -= item3;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item3: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem4(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item4 = this.state.item4;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item4 !== value) {
+  //     resultado -= item4;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item4: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem5(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item5 = this.state.item5;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item5 !== value) {
+  //     resultado -= item5;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item5: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem6(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item6 = this.state.item6;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item6 !== value) {
+  //     resultado -= item6;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item6: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem7(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item7 = this.state.item7;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item7 !== value) {
+  //     resultado -= item7;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item7: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem8(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item8 = this.state.item8;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item8 !== value) {
+  //     resultado -= item8;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item8: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem9(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item9 = this.state.item9;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item in itemValor) {
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item9 !== value) {
+  //     resultado -= item9;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item9: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
+
+  // mudarItem10(e) {
+  //   let value = parseInt(e.target.value);
+  //   let resultado = this.state.somaAcabamento;
+  //   let item10 = this.state.item10;
+  //   let itemValor = [];
+  //   let aux = 0;
+
+  //   if (e.target.checked === true) {
+  //     if (sessionStorage.getItem(e.target.name) === null) {
+  //       itemValor = [{ id: e.target.id, value }];
+  //     } else {
+  //       itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //       itemValor.push({ id: e.target.id, value });
+  //     }
+  //   } else {
+  //     itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //     aux = itemValor.findIndex(item => {
+  //       return item.id == e.target.id;
+  //     });
+  //     itemValor.splice(aux, 1);
+  //   }
+  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+
+  //   itemValor = JSON.parse(sessionStorage.getItem(e.target.name));
+  //   console.log(itemValor);
+
+  //   for (let item of itemValor) {
+  //     console.log("..", item);
+  //     resultado += parseInt(item.value);
+  //     // return totalItens;
+  //   }
+  //   console.log(resultado);
+
+  //   if (item10 !== value) {
+  //     resultado -= item10;
+  //     resultado += value;
+  //   }
+  //   this.setState({ item10: value });
+
+  //   this.setState({ somaAcabamento: resultado });
+
+  //   setTimeout(() => {
+  //     console.log(this.state.somaAcabamento);
+  //   }, 1000);
+  // }
 
   render() {
     return (
@@ -982,6 +1455,16 @@ export default class PadraoAcabamento extends Component {
             />{" "}
             <span className="barlow-regular"> bandeira</span>
           </div>
+          {/* <div className="col-1  regular">
+            <input
+              name="comunicacao-visual-rd"
+              type="checkbox"
+              value="7"
+              onClick={e => this.mudarItem10(e)}
+              id="todos-comunicacao"
+            />{" "}
+            <span className="barlow-regular"> todos</span>
+          </div> */}
 
           <div className="col-2  regular menu-resumo">
             {" "}
@@ -1058,7 +1541,7 @@ export default class PadraoAcabamento extends Component {
             </div>
 
             <div className="box-rodape-icone2 barlow-regular">
-              <Link to="/infraestrutura">
+              <Link onClick={e => this.salvarDadosLocalVoltar(e)}>
                 <div>
                   <img
                     className="tamanho-icone"

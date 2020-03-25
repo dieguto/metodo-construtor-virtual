@@ -147,6 +147,7 @@ div.itens-titulos:hover + div.imagem-transitoria {
   line-height: 50px;
   position: relative;
   z-index: 9999;
+  padding-left: 10px;
 }
 
 .menu-dropdown-op:nth-child(4) {
