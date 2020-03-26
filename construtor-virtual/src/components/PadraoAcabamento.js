@@ -108,11 +108,27 @@ export default class PadraoAcabamento extends Component {
     this.pegarLista();
   }
 
+  // pegarLista() {
+  //   let lista = document.querySelectorAll([
+  //     "input[type='radio']",
+  //     "input[type='checkbox']"
+  //   ]);
+  //   let listaNames = [];
+  //   let listaSet = [];
+
+  //   lista = Array.from(lista);
+
+  //   for (let i = 0; i < lista.length - 1; i++) {
+  //     listaNames.push(lista[i].name);
+  //   }
+
+  //   listaSet = [...new Set(listaNames)];
+  //   console.log(listaSet);
+  //   this.setState({ itens: listaSet });
+  //   this.checkItens(listaSet);
+  // }
   pegarLista() {
-    let lista = document.querySelectorAll([
-      "input[type='radio']",
-      "input[type='checkbox']"
-    ]);
+    let lista = document.querySelectorAll("input[type='radio']");
     let listaNames = [];
     let listaSet = [];
 
@@ -128,19 +144,43 @@ export default class PadraoAcabamento extends Component {
     this.checkItens(listaSet);
   }
 
+  // checkItens(names) {
+  //   let itens = [];
+  //   let sum = 0;
+  //   let item;
+
+  //   names.map(name => {
+  //     item = JSON.parse(sessionStorage.getItem(name));
+  //     if (item !== null) {
+  //       item.map(element => {
+  //         itens.push(element.id);
+  //       });
+  //     }
+  //   });
+
+  //   itens.map(item => {
+  //     if (item !== "" && item !== null) {
+  //       document.getElementById(item).checked = true;
+  //       sum += parseInt(document.getElementById(item).value);
+  //     }
+  //   });
+
+  //   this.setState({ somaAcabamento: sum });
+  //   setTimeout(() => {
+  //     sessionStorage.setItem("padraoacabamento", this.state.somaAcabamento);
+  //     console.log(sum);
+  //     this.fillItens();
+  //   }, 1000);
+  // }
   checkItens(names) {
     let itens = [];
     let sum = 0;
     let item;
-
     names.map(name => {
       item = JSON.parse(sessionStorage.getItem(name));
-      if (item !== null) {
-        item.map(element => {
-          itens.push(element.id);
-        });
-      }
+      if (item !== null) itens.push(item.id);
     });
+    console.log(itens);
 
     itens.map(item => {
       if (item !== "" && item !== null) {
@@ -204,16 +244,17 @@ export default class PadraoAcabamento extends Component {
     // this.setState({ total: total });
     // browserHistory.push("/resultado");
   }
+
+  salvarDadosLocalVoltar(e) {
+    e.preventDefault();
+    sessionStorage.setItem("padraoacabamento", this.state.somaAcabamento);
+    browserHistory.push("/infraestrutura");
+  }
   gerarTotal() {
     let soma = parseInt(sessionStorage.getItem("edificacoes")) || 0; // 50  48
     soma += parseInt(sessionStorage.getItem("infraestrutura")) || 0; // 0 0
     soma += parseInt(sessionStorage.getItem("padraoacabamento")) || 0; // 0 0
     sessionStorage.setItem("total", soma); // 50  48
-  }
-  salvarDadosLocalVoltar(e) {
-    e.preventDefault();
-    sessionStorage.setItem("padraoacabamento", this.state.somaAcabamento);
-    browserHistory.push("/infraestrutura");
   }
 
   mudarItem1(e) {
