@@ -149,11 +149,26 @@ div.itens-titulos:hover + div.imagem-transitoria {
   z-index: 9999;
   padding-left: 10px;
 }
+.menu-dropdown-op:nth-child(1) {
+  width: 16%;
+}
+
+.menu-dropdown-op:nth-child(2) {
+  width: 16%;
+}
+
+.menu-dropdown-op:nth-child(3) {
+  width: 16%;
+}
 
 .menu-dropdown-op:nth-child(4) {
-  width: 13%;
+  width: 16%;
 }
 
 .menu-dropdown-op:nth-child(5) {
-  width: 11%;
+  width: 13%;
+}
+
+.menu-dropdown-op:nth-child(6) {
+  width: 19%;
 }

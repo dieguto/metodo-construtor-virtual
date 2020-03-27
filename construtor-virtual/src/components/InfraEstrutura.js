@@ -17,28 +17,22 @@ export default class InfraEstrutura extends Component {
     super();
     this.state = {
       somaInfra: 0,
-      item1: 0,
-      item2: 0,
-      item3: 0,
-      item4: 0,
-      item5: 0,
-      item6: 0,
-      item7: 0,
-      item8: 0,
-      item9: 0,
-      item10: 0,
-      itens: []
-      // total: 0
+      itens: [],
+      itensInputs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
     };
   }
 
   componentDidMount() {
     this.pegarLista();
-    // this.salvarDadosLocalVoltar();
+    this.gerarTotal();
   }
 
   pegarLista() {
-    let lista = document.querySelectorAll("input[type='radio']");
+    let lista = document.querySelectorAll([
+      "input[type='radio']",
+      "input[type='checkbox']"
+    ]);
+
     let listaNames = [];
     let listaSet = [];
 
@@ -49,7 +43,7 @@ export default class InfraEstrutura extends Component {
     }
 
     listaSet = [...new Set(listaNames)];
-    console.log(listaSet);
+    console.log("listaSet", listaSet);
     this.setState({ itens: listaSet });
     this.checkItens(listaSet);
   }
@@ -60,9 +54,13 @@ export default class InfraEstrutura extends Component {
     let item;
     names.map(name => {
       item = JSON.parse(sessionStorage.getItem(name));
-      if (item !== null) itens.push(item.id);
+      if (item !== null) itens.push(item.map(valor => valor.id));
     });
-    console.log(itens);
+
+    itens.map((item, i) => {
+      if (i !== 0) itens = itens.concat(item);
+      else itens = [...item];
+    });
 
     itens.map(item => {
       if (item !== "" && item !== null) {
@@ -78,6 +76,7 @@ export default class InfraEstrutura extends Component {
       this.fillItens();
     }, 1000);
   }
+
   fillItens() {
     let itens = this.state.itens;
     let item;
@@ -87,18 +86,13 @@ export default class InfraEstrutura extends Component {
       if (item !== null) values.push(parseInt(item.value));
     });
 
-    this.setState({ item1: values[0] || 0 });
-    this.setState({ item2: values[1] || 0 });
-    this.setState({ item3: values[2] || 0 });
-    this.setState({ item4: values[3] || 0 });
-    this.setState({ item5: values[4] || 0 });
-    this.setState({ item6: values[5] || 0 });
-    this.setState({ item7: values[6] || 0 });
-    this.setState({ item8: values[7] || 0 });
-    this.setState({ item9: values[8] || 0 });
-    this.setState({ item10: values[9] || 0 });
+    this.state.itensInputs.map((item, indice) => {
+      this.state.itensInputs[indice] = item || 0;
+    });
+
+    this.setState({ itensInputs: this.state.itensInputs });
+
     this.setState({ somaInfra: sessionStorage.getItem("infraestrutura") });
-    // this.setState({ total: sessionStorage.getItem("total") });
   }
 
   salvarDadosLocal(e) {
@@ -123,11 +117,6 @@ export default class InfraEstrutura extends Component {
     browserHistory.push("/padraoacabamento");
   }
 
-  salvarDadosLocalVoltar(e) {
-    e.preventDefault();
-    sessionStorage.setItem("infraestrutura", this.state.somaInfra);
-    browserHistory.push("/construcao");
-  }
   gerarTotal() {
     let soma = parseInt(sessionStorage.getItem("edificacoes")) || 0; // 50  48
     soma += parseInt(sessionStorage.getItem("infraestrutura")) || 0; // 0 0
@@ -135,244 +124,82 @@ export default class InfraEstrutura extends Component {
     sessionStorage.setItem("total", soma); // 50  48
   }
 
-  mudarItem1(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item1 = this.state.item1;
-    let itemValor;
-
-    if (item1 !== value) {
-      resultado -= item1;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
-    }
-    this.setState({ item1: value });
-
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+  salvarDadosLocalVoltar(e) {
+    e.preventDefault();
+    sessionStorage.setItem("infraestrutura", this.state.somaInfra);
+    browserHistory.push("/construcao");
   }
 
-  mudarItem2(e) {
+  mudarItem(e, id) {
     let value = parseInt(e.target.value);
     let resultado = this.state.somaInfra;
-    let item2 = this.state.item2;
-    let itemValor;
+    let stateItens = this.state.itensInputs;
+    let itemArray = [];
+    let valorItem = 0;
+    let index = 0;
 
-    if (item2 !== value) {
-      resultado -= item2;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
+    itemArray = JSON.parse(sessionStorage.getItem(e.target.name));
+
+    resultado -= this.somarItem(itemArray);
+
+    if (e.target.checked === true) {
+      if (
+        sessionStorage.getItem(e.target.name) === null ||
+        e.target.type === "radio"
+      ) {
+        console.log("+++");
+        this.deleteItem(stateItens[id - 1], e.target.id);
+        itemArray = [{ id: e.target.id, value }];
+      } else {
+        itemArray = JSON.parse(sessionStorage.getItem(e.target.name));
+        itemArray.push({ id: e.target.id, value });
+      }
+    } else {
+      itemArray = JSON.parse(sessionStorage.getItem(e.target.name));
+      this.deleteItem(itemArray, e.target.id);
     }
-    this.setState({ item2: value });
+    sessionStorage.setItem(e.target.name, JSON.stringify(itemArray));
 
+    itemArray = JSON.parse(sessionStorage.getItem(e.target.name));
+
+    valorItem = this.somarItem(itemArray);
+    resultado += valorItem;
+
+    console.log("valorItem", valorItem);
+    console.log("resultado", resultado);
+
+    stateItens[id - 1] = valorItem;
+    this.setState({ itensInputs: stateItens });
     this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
-  mudarItem3(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item3 = this.state.item3;
-    let itemValor;
+  deleteItem(itemArray, id) {
+    let index = 0;
 
-    if (item3 !== value) {
-      resultado -= item3;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
+    if (itemArray !== null) {
+      if (itemArray.length >= 1) {
+        index = itemArray.findIndex(item => {
+          return item.id === id;
+        });
+        itemArray.splice(index, 1);
+      }
     }
-    this.setState({ item3: value });
-
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
   }
 
-  mudarItem4(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item4 = this.state.item4;
-    let itemValor;
+  somarItem(itemArray) {
+    let aux = 0;
 
-    if (item4 !== value) {
-      resultado -= item4;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
+    if (itemArray !== null) {
+      itemArray.map(item => console.log("%", item));
+      if (itemArray.length >= 1) {
+        aux = itemArray.reduce((totalItem, valor) => {
+          totalItem += parseInt(valor.value);
+          return totalItem;
+        }, 0);
+      }
     }
-    this.setState({ item4: value });
 
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
-  }
-
-  mudarItem5(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item5 = this.state.item5;
-    let itemValor;
-
-    if (item5 !== value) {
-      resultado -= item5;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
-    }
-    this.setState({ item5: value });
-
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
-  }
-
-  mudarItem6(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item6 = this.state.item6;
-    let itemValor;
-
-    if (item6 !== value) {
-      resultado -= item6;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
-    }
-    this.setState({ item6: value });
-
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
-  }
-
-  mudarItem7(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item7 = this.state.item7;
-    let itemValor;
-
-    if (item7 !== value) {
-      resultado -= item7;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
-    }
-    this.setState({ item7: value });
-
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
-  }
-
-  mudarItem8(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item8 = this.state.item8;
-    let itemValor;
-
-    if (item8 !== value) {
-      resultado -= item8;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
-    }
-    this.setState({ item8: value });
-
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
-  }
-
-  mudarItem9(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item9 = this.state.item9;
-    let itemValor;
-
-    if (item9 !== value) {
-      resultado -= item9;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
-    }
-    this.setState({ item9: value });
-
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
-  }
-
-  mudarItem10(e) {
-    let value = parseInt(e.target.value);
-    let resultado = this.state.somaInfra;
-    let item10 = this.state.item10;
-    let itemValor;
-
-    if (item10 !== value) {
-      resultado -= item10;
-      console.log(">> " + resultado);
-      resultado += value;
-      console.log(":: " + resultado);
-    }
-    this.setState({ item10: value });
-
-    this.setState({ somaInfra: resultado });
-
-    setTimeout(() => {
-      console.log(this.state.somaInfra);
-    }, 1000);
-
-    itemValor = { id: e.target.id, value };
-    sessionStorage.setItem(e.target.name, JSON.stringify(itemValor));
+    return aux;
   }
 
   render() {
@@ -423,7 +250,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  barlow-bold itens-titulos">climatização</div>
           <div className="col-2  regular">
             <input
-              onClick={e => this.mudarItem1(e)}
+              onClick={e => this.mudarItem(e, 1)}
               value="4"
               type="radio"
               name="climatizacao-rd"
@@ -433,7 +260,7 @@ export default class InfraEstrutura extends Component {
           </div>
           <div className="col-2  regular">
             <input
-              onClick={e => this.mudarItem1(e)}
+              onClick={e => this.mudarItem(e, 1)}
               value="5"
               type="radio"
               name="climatizacao-rd"
@@ -443,7 +270,7 @@ export default class InfraEstrutura extends Component {
           </div>
           <div className="col-2  regular">
             <input
-              onClick={e => this.mudarItem1(e)}
+              onClick={e => this.mudarItem(e, 1)}
               value="6"
               type="radio"
               name="climatizacao-rd"
@@ -456,7 +283,10 @@ export default class InfraEstrutura extends Component {
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular"> R$ {this.state.item1}</span>
+            <span className="barlow-regular">
+              {" "}
+              R$ {this.state.itensInputs[0]}
+            </span>
           </div>
 
           {/* ELÉTRICA COMUM */}
@@ -465,7 +295,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="eletrica-rd"
-              onClick={e => this.mudarItem2(e)}
+              onClick={e => this.mudarItem(e, 2)}
               value="4"
               type="radio"
               id="4000-A-eletrica"
@@ -475,7 +305,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="eletrica-rd"
-              onClick={e => this.mudarItem2(e)}
+              onClick={e => this.mudarItem(e, 2)}
               value="5"
               type="radio"
               id="4000-B-eletrica"
@@ -485,7 +315,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="eletrica-rd"
-              onClick={e => this.mudarItem2(e)}
+              onClick={e => this.mudarItem(e, 2)}
               value="6"
               type="radio"
               id="4000-C-eletrica"
@@ -495,7 +325,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular">
             <input
               name="eletrica-rd"
-              onClick={e => this.mudarItem2(e)}
+              onClick={e => this.mudarItem(e, 2)}
               value="7"
               type="radio"
               id="4000-FLEX-eletrica"
@@ -505,7 +335,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular">
             <input
               name="eletrica-rd"
-              onClick={e => this.mudarItem2(e)}
+              onClick={e => this.mudarItem(e, 2)}
               value="8"
               type="radio"
               id="5000-eletrica"
@@ -515,7 +345,9 @@ export default class InfraEstrutura extends Component {
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular">R$ {this.state.item2}</span>
+            <span className="barlow-regular">
+              R$ {this.state.itensInputs[1]}
+            </span>
           </div>
 
           {/* REDE LÓGICA */}
@@ -524,7 +356,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="rede-rd"
-              onClick={e => this.mudarItem3(e)}
+              onClick={e => this.mudarItem(e, 3)}
               value="4"
               type="radio"
               id="cabeamento-rede"
@@ -534,7 +366,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="rede-rd"
-              onClick={e => this.mudarItem3(e)}
+              onClick={e => this.mudarItem(e, 3)}
               value="5"
               type="radio"
               id="wi-fi-rede"
@@ -546,7 +378,8 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular"></span>R$ {this.state.item3}
+            <span className="barlow-regular"></span>R${" "}
+            {this.state.itensInputs[2]}
           </div>
 
           {/* DISTRIBUIÇÃO ELÉTRICA */}
@@ -557,7 +390,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="distribuica-rd"
-              onClick={e => this.mudarItem4(e)}
+              onClick={e => this.mudarItem(e, 4)}
               value="4"
               type="radio"
               id="4000-A-distribuicao"
@@ -567,7 +400,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="distribuica-rd"
-              onClick={e => this.mudarItem4(e)}
+              onClick={e => this.mudarItem(e, 4)}
               value="5"
               type="radio"
               id="4000-B-distribuicao"
@@ -577,7 +410,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="distribuica-rd"
-              onClick={e => this.mudarItem4(e)}
+              onClick={e => this.mudarItem(e, 4)}
               value="6"
               type="radio"
               id="4000-C-distribuicao"
@@ -587,7 +420,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular">
             <input
               name="distribuica-rd"
-              onClick={e => this.mudarItem4(e)}
+              onClick={e => this.mudarItem(e, 4)}
               value="7"
               type="radio"
               id="4000-FLEX-distribuicao"
@@ -597,7 +430,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular">
             <input
               name="distribuica-rd"
-              onClick={e => this.mudarItem4(e)}
+              onClick={e => this.mudarItem(e, 4)}
               value="8"
               type="radio"
               id="5000-distribuicao"
@@ -607,7 +440,10 @@ export default class InfraEstrutura extends Component {
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular"> R$ {this.state.item4}</span>
+            <span className="barlow-regular">
+              {" "}
+              R$ {this.state.itensInputs[3]}
+            </span>
           </div>
 
           {/* TELEFONIA */}
@@ -616,7 +452,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="telefonia-rd"
-              onClick={e => this.mudarItem5(e)}
+              onClick={e => this.mudarItem(e, 5)}
               value="4"
               type="radio"
               id="4000-A-telefonia"
@@ -626,7 +462,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="telefonia-rd"
-              onClick={e => this.mudarItem5(e)}
+              onClick={e => this.mudarItem(e, 5)}
               value="5"
               type="radio"
               id="4000-B-telefonia"
@@ -636,7 +472,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="telefonia-rd"
-              onClick={e => this.mudarItem5(e)}
+              onClick={e => this.mudarItem(e, 5)}
               value="6"
               type="radio"
               id="4000-C-telefonia"
@@ -646,7 +482,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular">
             <input
               name="telefonia-rd"
-              onClick={e => this.mudarItem5(e)}
+              onClick={e => this.mudarItem(e, 5)}
               value="7"
               type="radio"
               id="4000-FLEX-telefonia"
@@ -656,7 +492,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular">
             <input
               name="telefonia-rd"
-              onClick={e => this.mudarItem5(e)}
+              onClick={e => this.mudarItem(e, 5)}
               value="8"
               type="radio"
               id="5000-telefonia"
@@ -666,7 +502,10 @@ export default class InfraEstrutura extends Component {
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular"> R$ {this.state.item5}</span>
+            <span className="barlow-regular">
+              {" "}
+              R$ {this.state.itensInputs[4]}
+            </span>
           </div>
 
           {/* ILUMINAÇÃO */}
@@ -675,7 +514,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="iluminacao-rd"
-              onClick={e => this.mudarItem6(e)}
+              onClick={e => this.mudarItem(e, 6)}
               value="4"
               type="radio"
               id="4000-A-iluminacao"
@@ -685,7 +524,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="iluminacao-rd"
-              onClick={e => this.mudarItem6(e)}
+              onClick={e => this.mudarItem(e, 6)}
               value="5"
               type="radio"
               id="4000-B-iluminacao"
@@ -695,7 +534,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="iluminacao-rd"
-              onClick={e => this.mudarItem6(e)}
+              onClick={e => this.mudarItem(e, 6)}
               value="6"
               type="radio"
               id="4000-B-iluminacao"
@@ -705,7 +544,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular">
             <input
               name="iluminacao-rd"
-              onClick={e => this.mudarItem6(e)}
+              onClick={e => this.mudarItem(e, 6)}
               value="7"
               type="radio"
               id="4000-FLEX-iluminacao"
@@ -715,7 +554,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-1  regular">
             <input
               name="iluminacao-rd"
-              onClick={e => this.mudarItem6(e)}
+              onClick={e => this.mudarItem(e, 6)}
               value="8"
               type="radio"
               id="5000-iluminacao"
@@ -724,7 +563,10 @@ export default class InfraEstrutura extends Component {
           </div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular"> R$ {this.state.item6}</span>
+            <span className="barlow-regular">
+              {" "}
+              R$ {this.state.itensInputs[5]}
+            </span>
           </div>
 
           {/* ENTRADA DE ENERGIA */}
@@ -735,7 +577,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="entrada-rd"
-              onClick={e => this.mudarItem7(e)}
+              onClick={e => this.mudarItem(e, 7)}
               value="4"
               type="radio"
               id="acrescimo-entrada"
@@ -745,7 +587,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="entrada-rd"
-              onClick={e => this.mudarItem7(e)}
+              onClick={e => this.mudarItem(e, 7)}
               value="5"
               type="radio"
               id="substituicao-entrada"
@@ -755,7 +597,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="entrada-rd"
-              onClick={e => this.mudarItem7(e)}
+              onClick={e => this.mudarItem(e, 7)}
               value="6"
               type="radio"
               id="unificacao-entrada"
@@ -766,7 +608,7 @@ export default class InfraEstrutura extends Component {
             {" "}
             <input
               name="entrada-rd"
-              onClick={e => this.mudarItem7(e)}
+              onClick={e => this.mudarItem(e, 7)}
               value="7"
               type="radio"
               id="desmembrar-entrada"
@@ -776,7 +618,10 @@ export default class InfraEstrutura extends Component {
 
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular"> R$ {this.state.item7}</span>
+            <span className="barlow-regular">
+              {" "}
+              R$ {this.state.itensInputs[6]}
+            </span>
           </div>
 
           {/* BOMBEIROS */}
@@ -785,9 +630,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="bombeiros-rd"
-              onClick={e => this.mudarItem8(e)}
+              onClick={e => this.mudarItem(e, 8)}
               value="4"
-              type="radio"
+              type="checkbox"
               id="hidrante-bombeiros"
             />{" "}
             <span className="barlow-regular"> hidrante</span>
@@ -795,9 +640,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="bombeiros-rd"
-              onClick={e => this.mudarItem8(e)}
+              onClick={e => this.mudarItem(e, 8)}
               value="5"
-              type="radio"
+              type="checkbox"
               id="hidrante-bombeiros"
             />{" "}
             <span className="barlow-regular"> sprinkler</span>
@@ -805,9 +650,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="bombeiros-rd"
-              onClick={e => this.mudarItem8(e)}
+              onClick={e => this.mudarItem(e, 8)}
               value="6"
-              type="radio"
+              type="checkbox"
               id="extintores-bombeiros"
             />{" "}
             <span className="barlow-regular"> extintores</span>
@@ -815,7 +660,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular">R$ {this.state.item8}</span>
+            <span className="barlow-regular">
+              R$ {this.state.itensInputs[7]}
+            </span>
           </div>
 
           {/* Rede Hidráulica */}
@@ -826,7 +673,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="hidraulica-rd"
-              onClick={e => this.mudarItem9(e)}
+              onClick={e => this.mudarItem(e, 9)}
               value="4"
               type="radio"
               id="unificacao-hidraulica"
@@ -836,7 +683,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="hidraulica-rd"
-              onClick={e => this.mudarItem9(e)}
+              onClick={e => this.mudarItem(e, 9)}
               value="5"
               type="radio"
               id="desmebrar-hidraulica"
@@ -846,7 +693,7 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="hidraulica-rd"
-              onClick={e => this.mudarItem9(e)}
+              onClick={e => this.mudarItem(e, 9)}
               value="6"
               type="radio"
               id="alimentacao-hidraulica"
@@ -856,7 +703,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular">R$ {this.state.item9}</span>
+            <span className="barlow-regular">
+              R$ {this.state.itensInputs[8]}
+            </span>
           </div>
 
           {/* ACESSIBILIDADE */}
@@ -865,9 +714,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="acessibilidade-rd"
-              onClick={e => this.mudarItem10(e)}
+              onClick={e => this.mudarItem(e, 10)}
               value="4"
-              type="radio"
+              type="checkbox"
               id="elevador-acessibilidade"
             />{" "}
             <span className="barlow-regular"> elevador</span>
@@ -875,9 +724,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="acessibilidade-rd"
-              onClick={e => this.mudarItem10(e)}
+              onClick={e => this.mudarItem(e, 10)}
               value="5"
-              type="radio"
+              type="checkbox"
               id="plataforma-acessibilidade"
             />{" "}
             <span className="barlow-regular"> plataforma</span>
@@ -885,9 +734,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular">
             <input
               name="acessibilidade-rd"
-              onClick={e => this.mudarItem10(e)}
+              onClick={e => this.mudarItem(e, 10)}
               value="6"
-              type="radio"
+              type="checkbox"
               id="rampa-acessibilidade"
             />{" "}
             <span className="barlow-regular"> rampa</span>
@@ -895,7 +744,9 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
-            <span className="barlow-regular">R$ {this.state.item10}</span>
+            <span className="barlow-regular">
+              R$ {this.state.itensInputs[9]}
+            </span>
           </div>
 
           <div className="col-10 espacamento "></div>
