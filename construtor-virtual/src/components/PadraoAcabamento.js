@@ -13,100 +13,9 @@ import IconeTresBranco from "../Assets/icons/icon_3_branco.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import IconeContinuar from "../Assets/icons/icon_avancar.svg";
 import IconeSeta from "../Assets/icons/down-arrow.png";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import MetodoLogo from "../Assets/icons/logo_mtdtech.svg";
-
-function DropDown() {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <span
-        onClick={() => setOpen(!open)}
-        aria-controls="example-collapse-text"
-        aria-expanded={open}
-      >
-        <img className="icone-seta" src={IconeSeta}></img>
-      </span>
-      <Collapse in={open}>
-        <div className="celula-collapse  barlow-regular">
-          <div className="linha-dropdown d-flex">
-            <div className="regular menu-dropdown-op ">
-              <input
-                name="revestimento-parede-rd"
-                type="checkbox"
-                value="4"
-                id="4000-A-parede"
-                onClick={e => this.mudarItem(e, 1)}
-              />
-              <span className="barlow-regular branco-metodo ">
-                {" "}
-                auto atendimento
-              </span>
-            </div>
-            <div className="regular menu-dropdown-op ">
-              <input
-                name="revestimento-parede-rd"
-                type="checkbox"
-                value="5"
-                id="4000-B-parede"
-              />
-              <span className="barlow-regular branco-metodo ">
-                {" "}
-                área de público classic
-              </span>
-            </div>
-            <div className="menu-dropdown-op  regular ">
-              <input
-                name="revestimento-parede-rd"
-                type="checkbox"
-                value="6"
-                id="4000-C-parede"
-              />
-              <span className="barlow-regular branco-metodo ">
-                {" "}
-                espaço exclusive
-              </span>
-            </div>
-            <div className="menu-dropdown-op regular ">
-              <input
-                name="revestimento-parede-rd"
-                type="checkbox"
-                value="7"
-                id="4000-FLEX-parede"
-              />
-              <span className="barlow-regular branco-metodo ">
-                {" "}
-                espaço prime
-              </span>
-            </div>
-            <div className="menu-dropdown-op regular ">
-              <input
-                name="revestimento-parede-rd"
-                type="checkbox"
-                value="7"
-                id="4000-FLEX-parede"
-              />
-              <span className="barlow-regular branco-metodo "> retaguarda</span>
-            </div>
-            <div className="menu-dropdown-op regular ">
-              <input
-                name="revestimento-parede-rd"
-                type="checkbox"
-                value="7"
-                id="4000-FLEX-parede"
-              />
-              <span className="barlow-regular branco-metodo ">
-                {" "}
-                intervenções externas
-              </span>
-            </div>
-          </div>
-        </div>
-      </Collapse>
-    </>
-  );
-}
 
 export default class PadraoAcabamento extends Component {
   constructor() {
@@ -355,13 +264,103 @@ export default class PadraoAcabamento extends Component {
             <input
               type="radio"
               value="4"
-              onClick={e => this.mudarItem(e, 1)}
+              // onClick={e => this.mudarItem(e, 1)}
               name="revestimento-piso-rd"
               id="4000-A-piso"
+              data-toggle="collapse"
+              data-target="#collapse"
+              aria-expanded="false"
+              aria-controls="collapse"
             />
             <span className="barlow-regular"> 4000 A </span>
             {/* teste */}
-            <DropDown></DropDown>
+
+            <div
+              className="celula-collapse  barlow-regular collapse"
+              id="collapse"
+            >
+              <div className="linha-dropdown d-flex">
+                <div className="regular menu-dropdown-op ">
+                  <input
+                    name="revestimento-parede-rd"
+                    type="checkbox"
+                    value="4"
+                    id="4000-A-parede"
+                    onClick={e => this.mudarItem(e, 1)}
+                  />
+                  <span className="barlow-regular branco-metodo ">
+                    {" "}
+                    auto atendimento
+                  </span>
+                </div>
+                <div className="regular menu-dropdown-op ">
+                  <input
+                    name="revestimento-parede-rd"
+                    type="checkbox"
+                    value="5"
+                    id="4000-B-parede"
+                    onClick={e => this.mudarItem(e, 1)}
+                  />
+                  <span className="barlow-regular branco-metodo ">
+                    {" "}
+                    área de público classic
+                  </span>
+                </div>
+                <div className="menu-dropdown-op  regular ">
+                  <input
+                    name="revestimento-parede-rd"
+                    type="checkbox"
+                    value="6"
+                    id="4000-C-parede"
+                    onClick={e => this.mudarItem(e, 1)}
+                  />
+                  <span className="barlow-regular branco-metodo ">
+                    {" "}
+                    espaço exclusive
+                  </span>
+                </div>
+                <div className="menu-dropdown-op regular ">
+                  <input
+                    name="revestimento-parede-rd"
+                    type="checkbox"
+                    value="7"
+                    id="4000-FLEX-parede"
+                    onClick={e => this.mudarItem(e, 1)}
+                  />
+                  <span className="barlow-regular branco-metodo ">
+                    {" "}
+                    espaço prime
+                  </span>
+                </div>
+                <div className="menu-dropdown-op regular ">
+                  <input
+                    name="revestimento-parede-rd"
+                    type="checkbox"
+                    value="8"
+                    id="4000-FLEX-parede"
+                    onClick={e => this.mudarItem(e, 1)}
+                  />
+                  <span className="barlow-regular branco-metodo ">
+                    {" "}
+                    retaguarda
+                  </span>
+                </div>
+                <div className="menu-dropdown-op regular ">
+                  <input
+                    name="revestimento-parede-rd"
+                    type="checkbox"
+                    value="9"
+                    id="4000-FLEX-parede"
+                    onClick={e => this.mudarItem(e, 1)}
+                  />
+                  <span className="barlow-regular branco-metodo ">
+                    {" "}
+                    intervenções externas
+                  </span>
+                </div>
+              </div>
+            </div>
+
             {/* teste */}
           </div>
           <div className="col-2  regular">
