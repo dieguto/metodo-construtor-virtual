@@ -746,7 +746,7 @@ export default class PadraoAcabamento extends Component {
             />{" "}
             <span className="barlow-regular"> drywall</span>
           </div>
-          <div className="col-2  regular">
+          {/* <div className="col-2  regular">
             <input
               name="vedacoes-internas-rd"
               type="radio"
@@ -755,7 +755,8 @@ export default class PadraoAcabamento extends Component {
               id="unificacao-vedacoes"
             />{" "}
             <span className="barlow-regular"> unificação</span>
-          </div>
+          </div> */}
+          <div className="col-2  regular"></div>
           <div className="col-2  regular"></div>
 
           <div className="col-2  regular menu-resumo">
