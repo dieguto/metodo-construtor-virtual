@@ -172,3 +172,13 @@ div.itens-titulos:hover + div.imagem-transitoria {
 .menu-dropdown-op:nth-child(6) {
   width: 19%;
 }
+
+.col-padrao-celulas {
+  width: 20%;
+  height: 50px;
+  float: left;
+}
+
+.testefundo {
+  background-color: red;
+}

@@ -18,6 +18,7 @@ import IconeDois from "../Assets/icons/icon_2.svg";
 import IconeTres from "../Assets/icons/icon_3.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import IconeContinuar from "../Assets/icons/icon_avancar.svg";
+import IconeRefresh from "../Assets/icons/icon_refresh.svg";
 
 import "../css/rodape.css";
 
@@ -50,7 +51,7 @@ export default class Edificacoes extends Component {
     });
   }
 
-  pegarLista() {
+  pegarNames() {
     let lista = document.querySelectorAll([
       "input[type='radio']",
       "input[type='checkbox']"
@@ -65,27 +66,59 @@ export default class Edificacoes extends Component {
       listaNames.push(lista[i].name);
     }
 
+    //listaSet recebe um array listaNames filtrado
     listaSet = [...new Set(listaNames)];
     console.log("listaSet", listaSet);
+
+    return listaSet;
+  }
+
+  pegarLista() {
+    let listaSet = this.pegarNames();
+    // coloca o array de names (listaSet) dentro do itens
     this.setState({ itens: listaSet });
     this.checkItens(listaSet);
   }
 
+  resetAll() {
+    let lista = this.pegarNames();
+    let radios = Array.from(
+      document.querySelectorAll([
+        "input[type='radio']",
+        "input[type='checkbox']"
+      ])
+    );
+
+    this.setState({ somaEdificacoes: 0 });
+    this.setState({ itensInputs: [0, 0, 0, 0, 0, 0, 0, 0, 0] });
+
+    radios.map(radio => {
+      radio.checked = false;
+    });
+    lista.map(name => {
+      sessionStorage.removeItem(name);
+    });
+  }
+
   checkItens(names) {
-    let itens = [];
+    let checkedIds = [];
     let sum = 0;
-    let item;
+    let auxItem;
     names.map(name => {
-      item = JSON.parse(sessionStorage.getItem(name));
-      if (item !== null) itens.push(item.map(valor => valor.id));
+      auxItem = JSON.parse(sessionStorage.getItem(name));
+
+      if (auxItem !== null) {
+        checkedIds.push(auxItem.map(valor => valor.id)); // TODO FAZER PUSH DE STRINGS E NÃO VETORES
+      }
     });
 
-    itens.map((item, i) => {
-      if (i !== 0) itens = itens.concat(item);
-      else itens = [...item];
+    console.log("checkedIds", checkedIds);
+    checkedIds.map((item, i) => {
+      if (i !== 0) checkedIds = checkedIds.concat(item);
+      else checkedIds = [...item];
     });
 
-    itens.map(item => {
+    checkedIds.map(item => {
       if (item !== "" && item !== null) {
         document.getElementById(item).checked = true;
         sum += parseInt(document.getElementById(item).value);
@@ -102,20 +135,22 @@ export default class Edificacoes extends Component {
 
   fillItens() {
     let itens = this.state.itens;
-    let item;
     let values = [];
+    let itensValues = this.state.itensInputs;
     itens.map(item => {
-      item = JSON.parse(sessionStorage.getItem(item));
-      if (item !== null) values.push(parseInt(item.value));
+      item = sessionStorage.getItem(item);
+      if (item !== null) {
+        item = JSON.parse(item.replace(/[\[\]]/g, ""));
+        console.log("item", item);
+        values.push(parseInt(item.value));
+      }
     });
 
-    this.state.itensInputs.map((item, indice) => {
-      this.state.itensInputs[indice] = item || 0;
-    });
+    values.map((value, i) => (itensValues[i] = value));
 
-    this.setState({ itensInputs: this.state.itensInputs });
-
-    this.setState({ somaEdificacoes: sessionStorage.getItem("edificacoes") });
+    console.log("itensValues", itensValues);
+    this.setState({ itensInputs: itensValues });
+    // this.setState({ somaEdificacoes: sessionStorage.getItem("edificacoes") });
   }
 
   salvarDadosLocal(e) {
@@ -152,7 +187,6 @@ export default class Edificacoes extends Component {
     let stateItens = this.state.itensInputs;
     let itemArray = [];
     let valorItem = 0;
-    let index = 0;
 
     itemArray = JSON.parse(sessionStorage.getItem(e.target.name));
 
@@ -163,7 +197,7 @@ export default class Edificacoes extends Component {
         sessionStorage.getItem(e.target.name) === null ||
         e.target.type === "radio"
       ) {
-        console.log("+++");
+        console.log("STATE ITENS", e.target.id, id - 1, stateItens);
         this.deleteItem(stateItens[id - 1], e.target.id);
         itemArray = [{ id: e.target.id, value }];
       } else {
@@ -171,6 +205,7 @@ export default class Edificacoes extends Component {
         itemArray.push({ id: e.target.id, value });
       }
     } else {
+      console.log("18222222222222222222");
       itemArray = JSON.parse(sessionStorage.getItem(e.target.name));
       this.deleteItem(itemArray, e.target.id);
     }
@@ -217,39 +252,6 @@ export default class Edificacoes extends Component {
 
     return aux;
   }
-
-  // mudarCheckBox(e, id) {
-  //   let checked = true;
-  //   let value = parseInt(e.target.value);
-  //   let resultado = this.state.somaEdificacoes;
-
-  //   if (checked) {
-  //     if (item !== value) {
-  //       resultado -= item;
-  //       console.log(">> " + resultado);
-  //       resultado += value;
-  //       console.log(":: " + resultado);
-  //     }
-  //   } else {
-  //     resultado -= value;
-  //   }
-
-  //   let item = this.state.itensInputs[id - 1];
-  //   let itemArray;
-
-  //   this.state.itensInputs[id - 1] = value;
-
-  //   this.setState({ itensInputs: this.state.itensInputs });
-
-  //   this.setState({ somaEdificacoes: resultado });
-
-  //   setTimeout(() => {
-  //     console.log(this.state.somaEdificacoes);
-  //   }, 1000);
-
-  //   itemArray = { id: e.target.id, value };
-  //   sessionStorage.setItem(e.target.name, JSON.stringify(itemArray));
-  // }
 
   render() {
     return (
@@ -723,6 +725,19 @@ export default class Edificacoes extends Component {
               </div>
             </div>
 
+            <div
+              onClick={e => this.resetAll()}
+              className="box-rodape-icone2 barlow-regular"
+            >
+              <div>
+                <img
+                  className="tamanho-icone"
+                  src={IconeRefresh}
+                  alt="Icone reiniciar página"
+                />
+              </div>
+              <span className="pr-1">reiniciar</span>
+            </div>
             <div className="box-rodape-icone2 barlow-regular">
               <Link to="/">
                 <div>

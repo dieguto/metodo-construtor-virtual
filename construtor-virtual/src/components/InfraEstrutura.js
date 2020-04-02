@@ -9,6 +9,7 @@ import IconeBranco from "../Assets/icons/icon_2_branco.svg";
 import IconeTres from "../Assets/icons/icon_3.svg";
 import IconeVoltar from "../Assets/icons/icon_voltar.svg";
 import IconeContinuar from "../Assets/icons/icon_avancar.svg";
+import IconeRefresh from "../Assets/icons/icon_refresh.svg";
 
 import MetodoLogo from "../Assets/icons/logo_mtdtech.svg";
 
@@ -27,7 +28,7 @@ export default class InfraEstrutura extends Component {
     this.gerarTotal();
   }
 
-  pegarLista() {
+  pegarNames() {
     let lista = document.querySelectorAll([
       "input[type='radio']",
       "input[type='checkbox']"
@@ -42,27 +43,59 @@ export default class InfraEstrutura extends Component {
       listaNames.push(lista[i].name);
     }
 
+    //listaSet recebe um array listaNames filtrado
     listaSet = [...new Set(listaNames)];
     console.log("listaSet", listaSet);
+
+    return listaSet;
+  }
+
+  pegarLista() {
+    let listaSet = this.pegarNames();
+    // coloca o array de names (listaSet) dentro do itens
     this.setState({ itens: listaSet });
     this.checkItens(listaSet);
   }
 
+  resetAll() {
+    let lista = this.pegarNames();
+    let radios = Array.from(
+      document.querySelectorAll([
+        "input[type='radio']",
+        "input[type='checkbox']"
+      ])
+    );
+
+    this.setState({ somaInfra: 0 });
+    this.setState({ itensInputs: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0] });
+
+    radios.map(radio => {
+      radio.checked = false;
+    });
+    lista.map(name => {
+      sessionStorage.removeItem(name);
+    });
+  }
+
   checkItens(names) {
-    let itens = [];
+    let checkedIds = [];
     let sum = 0;
-    let item;
+    let auxItem;
     names.map(name => {
-      item = JSON.parse(sessionStorage.getItem(name));
-      if (item !== null) itens.push(item.map(valor => valor.id));
+      auxItem = JSON.parse(sessionStorage.getItem(name));
+
+      if (auxItem !== null) {
+        checkedIds.push(auxItem.map(valor => valor.id)); // TODO FAZER PUSH DE STRINGS E NÃO VETORES
+      }
     });
 
-    itens.map((item, i) => {
-      if (i !== 0) itens = itens.concat(item);
-      else itens = [...item];
+    console.log("checkedIds", checkedIds);
+    checkedIds.map((item, i) => {
+      if (i !== 0) checkedIds = checkedIds.concat(item);
+      else checkedIds = [...item];
     });
 
-    itens.map(item => {
+    checkedIds.map(item => {
       if (item !== "" && item !== null) {
         document.getElementById(item).checked = true;
         sum += parseInt(document.getElementById(item).value);
@@ -79,20 +112,22 @@ export default class InfraEstrutura extends Component {
 
   fillItens() {
     let itens = this.state.itens;
-    let item;
     let values = [];
+    let itensValues = this.state.itensInputs;
     itens.map(item => {
-      item = JSON.parse(sessionStorage.getItem(item));
-      if (item !== null) values.push(parseInt(item.value));
+      item = sessionStorage.getItem(item);
+      if (item !== null) {
+        item = JSON.parse(item.replace(/[\[\]]/g, ""));
+        console.log("item", item);
+        values.push(parseInt(item.value));
+      }
     });
 
-    this.state.itensInputs.map((item, indice) => {
-      this.state.itensInputs[indice] = item || 0;
-    });
+    values.map((value, i) => (itensValues[i] = value));
 
-    this.setState({ itensInputs: this.state.itensInputs });
-
-    this.setState({ somaInfra: sessionStorage.getItem("infraestrutura") });
+    console.log("itensValues", itensValues);
+    this.setState({ itensInputs: itensValues });
+    // this.setState({ somaEdificacoes: sessionStorage.getItem("edificacoes") });
   }
 
   salvarDadosLocal(e) {
@@ -147,7 +182,7 @@ export default class InfraEstrutura extends Component {
         sessionStorage.getItem(e.target.name) === null ||
         e.target.type === "radio"
       ) {
-        console.log("+++");
+        console.log("STATE ITENS", e.target.id, id - 1, stateItens);
         this.deleteItem(stateItens[id - 1], e.target.id);
         itemArray = [{ id: e.target.id, value }];
       } else {
@@ -155,6 +190,7 @@ export default class InfraEstrutura extends Component {
         itemArray.push({ id: e.target.id, value });
       }
     } else {
+      console.log("18222222222222222222");
       itemArray = JSON.parse(sessionStorage.getItem(e.target.name));
       this.deleteItem(itemArray, e.target.id);
     }
@@ -248,38 +284,40 @@ export default class InfraEstrutura extends Component {
           {/* CLIMATIZAÇÃO */}
 
           <div className="col-2  barlow-bold itens-titulos">climatização</div>
-          <div className="col-2  regular">
-            <input
-              onClick={e => this.mudarItem(e, 1)}
-              value="4"
-              type="radio"
-              name="climatizacao-rd"
-              id="central-clima"
-            />
-            <span className="barlow-regular"> central</span>
+          <div className="col-8 ">
+            <div className="col-padrao-celulas  regular">
+              <input
+                onClick={e => this.mudarItem(e, 1)}
+                value="4"
+                type="radio"
+                name="climatizacao-rd"
+                id="central-clima"
+              />
+              <span className="barlow-regular"> central</span>
+            </div>
+            <div className="col-padrao-celulas regular">
+              <input
+                onClick={e => this.mudarItem(e, 1)}
+                value="5"
+                type="radio"
+                name="climatizacao-rd"
+                id="split-clima"
+              />
+              <span className="barlow-regular"> split</span>
+            </div>
+            <div className="col-padrao-celulas regular">
+              <input
+                onClick={e => this.mudarItem(e, 1)}
+                value="6"
+                type="radio"
+                name="climatizacao-rd"
+                id="misto-clima"
+              />
+              <span className="barlow-regular"> misto</span>
+            </div>
+            <div className="col-padrao-celulas  regular"></div>
+            <div className="col-padrao-celulas  regular"></div>
           </div>
-          <div className="col-2  regular">
-            <input
-              onClick={e => this.mudarItem(e, 1)}
-              value="5"
-              type="radio"
-              name="climatizacao-rd"
-              id="split-clima"
-            />
-            <span className="barlow-regular"> split</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              onClick={e => this.mudarItem(e, 1)}
-              value="6"
-              type="radio"
-              name="climatizacao-rd"
-              id="misto-clima"
-            />
-            <span className="barlow-regular"> misto</span>
-          </div>
-          <div className="col-1  regular"></div>
-          <div className="col-1  regular"></div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
@@ -292,55 +330,57 @@ export default class InfraEstrutura extends Component {
           {/* ELÉTRICA COMUM */}
 
           <div className="col-2  barlow-bold itens-titulos">elétrica comum</div>
-          <div className="col-2  regular">
-            <input
-              name="eletrica-rd"
-              onClick={e => this.mudarItem(e, 2)}
-              value="4"
-              type="radio"
-              id="4000-A-eletrica"
-            />
-            <span className="barlow-regular"> 4000 A</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="eletrica-rd"
-              onClick={e => this.mudarItem(e, 2)}
-              value="5"
-              type="radio"
-              id="4000-B-eletrica"
-            />
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="eletrica-rd"
-              onClick={e => this.mudarItem(e, 2)}
-              value="6"
-              type="radio"
-              id="4000-C-eletrica"
-            />{" "}
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="eletrica-rd"
-              onClick={e => this.mudarItem(e, 2)}
-              value="7"
-              type="radio"
-              id="4000-FLEX-eletrica"
-            />
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="eletrica-rd"
-              onClick={e => this.mudarItem(e, 2)}
-              value="8"
-              type="radio"
-              id="5000-eletrica"
-            />
-            <span className="barlow-regular"> 5000 </span>
+          <div className="col-8 ">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="eletrica-rd"
+                onClick={e => this.mudarItem(e, 2)}
+                value="4"
+                type="radio"
+                id="4000-A-eletrica"
+              />
+              <span className="barlow-regular"> 4000 A</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="eletrica-rd"
+                onClick={e => this.mudarItem(e, 2)}
+                value="5"
+                type="radio"
+                id="4000-B-eletrica"
+              />
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="eletrica-rd"
+                onClick={e => this.mudarItem(e, 2)}
+                value="6"
+                type="radio"
+                id="4000-C-eletrica"
+              />{" "}
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="eletrica-rd"
+                onClick={e => this.mudarItem(e, 2)}
+                value="7"
+                type="radio"
+                id="4000-FLEX-eletrica"
+              />
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="eletrica-rd"
+                onClick={e => this.mudarItem(e, 2)}
+                value="8"
+                type="radio"
+                id="5000-eletrica"
+              />
+              <span className="barlow-regular"> 5000 </span>
+            </div>
           </div>
 
           <div className="col-2  regular menu-resumo">
@@ -353,29 +393,31 @@ export default class InfraEstrutura extends Component {
           {/* REDE LÓGICA */}
 
           <div className="col-2  barlow-bold itens-titulos">rede lógica</div>
-          <div className="col-2  regular">
-            <input
-              name="rede-rd"
-              onClick={e => this.mudarItem(e, 3)}
-              value="4"
-              type="radio"
-              id="cabeamento-rede"
-            />
-            <span className="barlow-regular"> cabeamento</span>
+          <div className="col-8 ">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="rede-rd"
+                onClick={e => this.mudarItem(e, 3)}
+                value="4"
+                type="radio"
+                id="cabeamento-rede"
+              />
+              <span className="barlow-regular"> cabeamento</span>
+            </div>
+            <div className="col-padrao-celulas regular">
+              <input
+                name="rede-rd"
+                onClick={e => this.mudarItem(e, 3)}
+                value="5"
+                type="radio"
+                id="wi-fi-rede"
+              />
+              <span className="barlow-regular"> wi-fi</span>
+            </div>
+            <div className=""></div>
+            <div className="  regular"></div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="rede-rd"
-              onClick={e => this.mudarItem(e, 3)}
-              value="5"
-              type="radio"
-              id="wi-fi-rede"
-            />
-            <span className="barlow-regular"> wi-fi</span>
-          </div>
-          <div className="col-2 "></div>
 
-          <div className="col-2  regular"></div>
           <div className="col-2  regular menu-resumo">
             {" "}
             <span className="barlow-regular"></span>R${" "}
@@ -387,55 +429,57 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  barlow-bold itens-titulos">
             distribuição elétrica
           </div>
-          <div className="col-2  regular">
-            <input
-              name="distribuica-rd"
-              onClick={e => this.mudarItem(e, 4)}
-              value="4"
-              type="radio"
-              id="4000-A-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 4000 A</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="distribuica-rd"
-              onClick={e => this.mudarItem(e, 4)}
-              value="5"
-              type="radio"
-              id="4000-B-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="distribuica-rd"
-              onClick={e => this.mudarItem(e, 4)}
-              value="6"
-              type="radio"
-              id="4000-C-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="distribuica-rd"
-              onClick={e => this.mudarItem(e, 4)}
-              value="7"
-              type="radio"
-              id="4000-FLEX-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="distribuica-rd"
-              onClick={e => this.mudarItem(e, 4)}
-              value="8"
-              type="radio"
-              id="5000-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 5000</span>
+          <div className="col-8 ">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="distribuica-rd"
+                onClick={e => this.mudarItem(e, 4)}
+                value="4"
+                type="radio"
+                id="4000-A-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 4000 A</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="distribuica-rd"
+                onClick={e => this.mudarItem(e, 4)}
+                value="5"
+                type="radio"
+                id="4000-B-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="distribuica-rd"
+                onClick={e => this.mudarItem(e, 4)}
+                value="6"
+                type="radio"
+                id="4000-C-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="distribuica-rd"
+                onClick={e => this.mudarItem(e, 4)}
+                value="7"
+                type="radio"
+                id="4000-FLEX-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas regular">
+              <input
+                name="distribuica-rd"
+                onClick={e => this.mudarItem(e, 4)}
+                value="8"
+                type="radio"
+                id="5000-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 5000</span>
+            </div>
           </div>
 
           <div className="col-2  regular menu-resumo">
@@ -449,55 +493,57 @@ export default class InfraEstrutura extends Component {
           {/* TELEFONIA */}
 
           <div className="col-2  barlow-bold itens-titulos">telefonia</div>
-          <div className="col-2  regular">
-            <input
-              name="telefonia-rd"
-              onClick={e => this.mudarItem(e, 5)}
-              value="4"
-              type="radio"
-              id="4000-A-telefonia"
-            />{" "}
-            <span className="barlow-regular"> 4000 A</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="telefonia-rd"
-              onClick={e => this.mudarItem(e, 5)}
-              value="5"
-              type="radio"
-              id="4000-B-telefonia"
-            />{" "}
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="telefonia-rd"
-              onClick={e => this.mudarItem(e, 5)}
-              value="6"
-              type="radio"
-              id="4000-C-telefonia"
-            />{" "}
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="telefonia-rd"
-              onClick={e => this.mudarItem(e, 5)}
-              value="7"
-              type="radio"
-              id="4000-FLEX-telefonia"
-            />{" "}
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="telefonia-rd"
-              onClick={e => this.mudarItem(e, 5)}
-              value="8"
-              type="radio"
-              id="5000-telefonia"
-            />{" "}
-            <span className="barlow-regular"> 5000</span>
+          <div className="col-8 ">
+            <div className="col-padrao-celulas regular">
+              <input
+                name="telefonia-rd"
+                onClick={e => this.mudarItem(e, 5)}
+                value="4"
+                type="radio"
+                id="4000-A-telefonia"
+              />{" "}
+              <span className="barlow-regular"> 4000 A</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="telefonia-rd"
+                onClick={e => this.mudarItem(e, 5)}
+                value="5"
+                type="radio"
+                id="4000-B-telefonia"
+              />{" "}
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="telefonia-rd"
+                onClick={e => this.mudarItem(e, 5)}
+                value="6"
+                type="radio"
+                id="4000-C-telefonia"
+              />{" "}
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="telefonia-rd"
+                onClick={e => this.mudarItem(e, 5)}
+                value="7"
+                type="radio"
+                id="4000-FLEX-telefonia"
+              />{" "}
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="telefonia-rd"
+                onClick={e => this.mudarItem(e, 5)}
+                value="8"
+                type="radio"
+                id="5000-telefonia"
+              />{" "}
+              <span className="barlow-regular"> 5000</span>
+            </div>
           </div>
 
           <div className="col-2  regular menu-resumo">
@@ -511,56 +557,59 @@ export default class InfraEstrutura extends Component {
           {/* ILUMINAÇÃO */}
 
           <div className="col-2  barlow-bold itens-titulos">iluminação</div>
-          <div className="col-2  regular">
-            <input
-              name="iluminacao-rd"
-              onClick={e => this.mudarItem(e, 6)}
-              value="4"
-              type="radio"
-              id="4000-A-iluminacao"
-            />{" "}
-            <span className="barlow-regular"> 4000 A</span>
+          <div className="col-8 ">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="iluminacao-rd"
+                onClick={e => this.mudarItem(e, 6)}
+                value="4"
+                type="radio"
+                id="4000-A-iluminacao"
+              />{" "}
+              <span className="barlow-regular"> 4000 A</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="iluminacao-rd"
+                onClick={e => this.mudarItem(e, 6)}
+                value="5"
+                type="radio"
+                id="4000-B-iluminacao"
+              />{" "}
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="iluminacao-rd"
+                onClick={e => this.mudarItem(e, 6)}
+                value="6"
+                type="radio"
+                id="4000-B-iluminacao"
+              />{" "}
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="iluminacao-rd"
+                onClick={e => this.mudarItem(e, 6)}
+                value="7"
+                type="radio"
+                id="4000-FLEX-iluminacao"
+              />{" "}
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="iluminacao-rd"
+                onClick={e => this.mudarItem(e, 6)}
+                value="8"
+                type="radio"
+                id="5000-iluminacao"
+              />{" "}
+              <span className="barlow-regular"> 5000</span>
+            </div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="iluminacao-rd"
-              onClick={e => this.mudarItem(e, 6)}
-              value="5"
-              type="radio"
-              id="4000-B-iluminacao"
-            />{" "}
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="iluminacao-rd"
-              onClick={e => this.mudarItem(e, 6)}
-              value="6"
-              type="radio"
-              id="4000-B-iluminacao"
-            />{" "}
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="iluminacao-rd"
-              onClick={e => this.mudarItem(e, 6)}
-              value="7"
-              type="radio"
-              id="4000-FLEX-iluminacao"
-            />{" "}
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="iluminacao-rd"
-              onClick={e => this.mudarItem(e, 6)}
-              value="8"
-              type="radio"
-              id="5000-iluminacao"
-            />{" "}
-            <span className="barlow-regular"> 5000</span>
-          </div>
+
           <div className="col-2  regular menu-resumo">
             {" "}
             <span className="barlow-regular">
@@ -574,46 +623,48 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  barlow-bold itens-titulos">
             entrada de energia
           </div>
-          <div className="col-2  regular">
-            <input
-              name="entrada-rd"
-              onClick={e => this.mudarItem(e, 7)}
-              value="4"
-              type="radio"
-              id="acrescimo-entrada"
-            />{" "}
-            <span className="barlow-regular"> acréscimo de carga</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="entrada-rd"
-              onClick={e => this.mudarItem(e, 7)}
-              value="5"
-              type="radio"
-              id="substituicao-entrada"
-            />{" "}
-            <span className="barlow-regular"> substituição de quadros</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="entrada-rd"
-              onClick={e => this.mudarItem(e, 7)}
-              value="6"
-              type="radio"
-              id="unificacao-entrada"
-            />{" "}
-            <span className="barlow-regular"> unificação</span>
-          </div>
-          <div className="col-2  regular">
-            {" "}
-            <input
-              name="entrada-rd"
-              onClick={e => this.mudarItem(e, 7)}
-              value="7"
-              type="radio"
-              id="desmembrar-entrada"
-            />{" "}
-            <span className="barlow-regular"> desmembrar entrada</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="entrada-rd"
+                onClick={e => this.mudarItem(e, 7)}
+                value="4"
+                type="radio"
+                id="acrescimo-entrada"
+              />{" "}
+              <span className="barlow-regular"> acréscimo de carga</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="entrada-rd"
+                onClick={e => this.mudarItem(e, 7)}
+                value="5"
+                type="radio"
+                id="substituicao-entrada"
+              />{" "}
+              <span className="barlow-regular"> substituição de quadros</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="entrada-rd"
+                onClick={e => this.mudarItem(e, 7)}
+                value="6"
+                type="radio"
+                id="unificacao-entrada"
+              />{" "}
+              <span className="barlow-regular"> unificação</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              {" "}
+              <input
+                name="entrada-rd"
+                onClick={e => this.mudarItem(e, 7)}
+                value="7"
+                type="radio"
+                id="desmembrar-entrada"
+              />{" "}
+              <span className="barlow-regular"> desmembrar entrada</span>
+            </div>
           </div>
 
           <div className="col-2  regular menu-resumo">
@@ -627,37 +678,40 @@ export default class InfraEstrutura extends Component {
           {/* BOMBEIROS */}
 
           <div className="col-2  barlow-bold itens-titulos">bombeiros</div>
-          <div className="col-2  regular">
-            <input
-              name="bombeiros-rd"
-              onClick={e => this.mudarItem(e, 8)}
-              value="4"
-              type="checkbox"
-              id="hidrante-bombeiros"
-            />{" "}
-            <span className="barlow-regular"> hidrante</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas regular">
+              <input
+                name="bombeiros-rd"
+                onClick={e => this.mudarItem(e, 8)}
+                value="4"
+                type="checkbox"
+                id="hidrante-bombeiros"
+              />{" "}
+              <span className="barlow-regular"> hidrante</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="bombeiros-rd"
+                onClick={e => this.mudarItem(e, 8)}
+                value="5"
+                type="checkbox"
+                id="hidrante-bombeiros"
+              />{" "}
+              <span className="barlow-regular"> sprinkler</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="bombeiros-rd"
+                onClick={e => this.mudarItem(e, 8)}
+                value="6"
+                type="checkbox"
+                id="extintores-bombeiros"
+              />{" "}
+              <span className="barlow-regular"> extintores</span>
+            </div>
+            <div className="col-padrao-celulas  regular"></div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="bombeiros-rd"
-              onClick={e => this.mudarItem(e, 8)}
-              value="5"
-              type="checkbox"
-              id="hidrante-bombeiros"
-            />{" "}
-            <span className="barlow-regular"> sprinkler</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="bombeiros-rd"
-              onClick={e => this.mudarItem(e, 8)}
-              value="6"
-              type="checkbox"
-              id="extintores-bombeiros"
-            />{" "}
-            <span className="barlow-regular"> extintores</span>
-          </div>
-          <div className="col-2  regular"></div>
+
           <div className="col-2  regular menu-resumo">
             {" "}
             <span className="barlow-regular">
@@ -670,37 +724,40 @@ export default class InfraEstrutura extends Component {
           <div className="col-2  barlow-bold itens-titulos">
             rede hidráulica
           </div>
-          <div className="col-2  regular">
-            <input
-              name="hidraulica-rd"
-              onClick={e => this.mudarItem(e, 9)}
-              value="4"
-              type="radio"
-              id="unificacao-hidraulica"
-            />{" "}
-            <span className="barlow-regular"> unificação</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas regular">
+              <input
+                name="hidraulica-rd"
+                onClick={e => this.mudarItem(e, 9)}
+                value="4"
+                type="radio"
+                id="unificacao-hidraulica"
+              />{" "}
+              <span className="barlow-regular"> unificação</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="hidraulica-rd"
+                onClick={e => this.mudarItem(e, 9)}
+                value="5"
+                type="radio"
+                id="desmebrar-hidraulica"
+              />{" "}
+              <span className="barlow-regular"> desmebrar entrada</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="hidraulica-rd"
+                onClick={e => this.mudarItem(e, 9)}
+                value="6"
+                type="radio"
+                id="alimentacao-hidraulica"
+              />{" "}
+              <span className="barlow-regular"> nova alimentação</span>
+            </div>
+            <div className="col-padrao-celulas  regular"></div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="hidraulica-rd"
-              onClick={e => this.mudarItem(e, 9)}
-              value="5"
-              type="radio"
-              id="desmebrar-hidraulica"
-            />{" "}
-            <span className="barlow-regular"> desmebrar entrada</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="hidraulica-rd"
-              onClick={e => this.mudarItem(e, 9)}
-              value="6"
-              type="radio"
-              id="alimentacao-hidraulica"
-            />{" "}
-            <span className="barlow-regular"> nova alimentação</span>
-          </div>
-          <div className="col-2  regular"></div>
+
           <div className="col-2  regular menu-resumo">
             {" "}
             <span className="barlow-regular">
@@ -711,37 +768,40 @@ export default class InfraEstrutura extends Component {
           {/* ACESSIBILIDADE */}
 
           <div className="col-2  barlow-bold itens-titulos">acessibilidade</div>
-          <div className="col-2  regular">
-            <input
-              name="acessibilidade-rd"
-              onClick={e => this.mudarItem(e, 10)}
-              value="4"
-              type="checkbox"
-              id="elevador-acessibilidade"
-            />{" "}
-            <span className="barlow-regular"> elevador</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="acessibilidade-rd"
+                onClick={e => this.mudarItem(e, 10)}
+                value="4"
+                type="checkbox"
+                id="elevador-acessibilidade"
+              />{" "}
+              <span className="barlow-regular"> elevador</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="acessibilidade-rd"
+                onClick={e => this.mudarItem(e, 10)}
+                value="5"
+                type="checkbox"
+                id="plataforma-acessibilidade"
+              />{" "}
+              <span className="barlow-regular"> plataforma</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="acessibilidade-rd"
+                onClick={e => this.mudarItem(e, 10)}
+                value="6"
+                type="checkbox"
+                id="rampa-acessibilidade"
+              />{" "}
+              <span className="barlow-regular"> rampa</span>
+            </div>
+            <div className="col-padrao-celulas  regular"></div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="acessibilidade-rd"
-              onClick={e => this.mudarItem(e, 10)}
-              value="5"
-              type="checkbox"
-              id="plataforma-acessibilidade"
-            />{" "}
-            <span className="barlow-regular"> plataforma</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="acessibilidade-rd"
-              onClick={e => this.mudarItem(e, 10)}
-              value="6"
-              type="checkbox"
-              id="rampa-acessibilidade"
-            />{" "}
-            <span className="barlow-regular"> rampa</span>
-          </div>
-          <div className="col-2  regular"></div>
+
           <div className="col-2  regular menu-resumo">
             {" "}
             <span className="barlow-regular">
@@ -818,6 +878,19 @@ export default class InfraEstrutura extends Component {
               </div>
             </div>
 
+            <div
+              onClick={e => this.resetAll()}
+              className="box-rodape-icone2 barlow-regular"
+            >
+              <div>
+                <img
+                  className="tamanho-icone"
+                  src={IconeRefresh}
+                  alt="Icone reiniciar página"
+                />
+              </div>
+              <span className="pr-1">reiniciar</span>
+            </div>
             <div className="box-rodape-icone2 barlow-regular">
               <Link onClick={e => this.salvarDadosLocalVoltar(e)}>
                 <div>
