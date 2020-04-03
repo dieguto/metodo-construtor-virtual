@@ -295,150 +295,151 @@ export default class PadraoAcabamento extends Component {
           <div className="col-2  barlow-bold itens-titulos">
             revestimento piso
           </div>
-          <div className="col-2  regular">
-            <input
-              type="radio"
-              value="4"
-              // onClick={e => this.mudarItem(e, 1)}
-              name="revestimento-piso-rd"
-              id="4000-A-piso"
-              data-toggle="collapse"
-              data-target="#collapse"
-              aria-expanded="false"
-              aria-controls="collapse"
-            />
-            <span className="barlow-regular"> 4000 A </span>
-            {/* teste */}
+          <div className="col-8">
+            <div className="col-padrao-celulas-com-menu  regular">
+              <input
+                type="radio"
+                value="4"
+                // onClick={e => this.mudarItem(e, 1)}
+                name="revestimento-piso-rd"
+                id="4000-A-piso"
+                data-toggle="collapse"
+                data-target="#collapse"
+                aria-expanded="false"
+                aria-controls="collapse"
+              />
+              <span className="barlow-regular"> 4000 A </span>
+              {/* teste */}
 
-            <div
-              className="celula-collapse  barlow-regular collapse"
-              id="collapse"
-            >
-              <div className="linha-dropdown d-flex">
-                <div className="regular menu-dropdown-op ">
-                  <input
-                    name="revestimento-parede-rd"
-                    type="checkbox"
-                    value="4"
-                    id="4000-A-parede"
-                    onClick={e => this.mudarItem(e, 1)}
-                  />
-                  <span className="barlow-regular branco-metodo ">
-                    {" "}
-                    auto atendimento
-                  </span>
-                </div>
-                <div className="regular menu-dropdown-op ">
-                  <input
-                    name="revestimento-parede-rd"
-                    type="checkbox"
-                    value="5"
-                    id="4000-B-parede"
-                    onClick={e => this.mudarItem(e, 1)}
-                  />
-                  <span className="barlow-regular branco-metodo ">
-                    {" "}
-                    área de público classic
-                  </span>
-                </div>
-                <div className="menu-dropdown-op  regular ">
-                  <input
-                    name="revestimento-parede-rd"
-                    type="checkbox"
-                    value="6"
-                    id="4000-C-parede"
-                    onClick={e => this.mudarItem(e, 1)}
-                  />
-                  <span className="barlow-regular branco-metodo ">
-                    {" "}
-                    espaço exclusive
-                  </span>
-                </div>
-                <div className="menu-dropdown-op regular ">
-                  <input
-                    name="revestimento-parede-rd"
-                    type="checkbox"
-                    value="7"
-                    id="4000-FLEX-parede"
-                    onClick={e => this.mudarItem(e, 1)}
-                  />
-                  <span className="barlow-regular branco-metodo ">
-                    {" "}
-                    espaço prime
-                  </span>
-                </div>
-                <div className="menu-dropdown-op regular ">
-                  <input
-                    name="revestimento-parede-rd"
-                    type="checkbox"
-                    value="8"
-                    id="4000-FLEX-parede"
-                    onClick={e => this.mudarItem(e, 1)}
-                  />
-                  <span className="barlow-regular branco-metodo ">
-                    {" "}
-                    retaguarda
-                  </span>
-                </div>
-                <div className="menu-dropdown-op regular ">
-                  <input
-                    name="revestimento-parede-rd"
-                    type="checkbox"
-                    value="9"
-                    id="4000-FLEX-parede"
-                    onClick={e => this.mudarItem(e, 1)}
-                  />
-                  <span className="barlow-regular branco-metodo ">
-                    {" "}
-                    intervenções externas
-                  </span>
+              <div
+                id="collapse"
+                className="celula-collapse  barlow-regular collapse"
+              >
+                <div className="linha-dropdown d-flex">
+                  <div className="regular menu-dropdown-op ">
+                    <input
+                      name="revestimento-piso-rd"
+                      type="checkbox"
+                      value="4"
+                      id="4000-A-parede"
+                      onClick={e => this.mudarItem(e, 1)}
+                    />
+                    <span className="barlow-regular branco-metodo ">
+                      {" "}
+                      auto atendimento
+                    </span>
+                  </div>
+                  <div className="regular menu-dropdown-op ">
+                    <input
+                      name="revestimento-piso-rd"
+                      type="checkbox"
+                      value="5"
+                      id="4000-B-parede"
+                      onClick={e => this.mudarItem(e, 1)}
+                    />
+                    <span className="barlow-regular branco-metodo ">
+                      {" "}
+                      área de público classic
+                    </span>
+                  </div>
+                  <div className="menu-dropdown-op  regular ">
+                    <input
+                      name="revestimento-piso-rd"
+                      type="checkbox"
+                      value="6"
+                      id="4000-C-parede"
+                      onClick={e => this.mudarItem(e, 1)}
+                    />
+                    <span className="barlow-regular branco-metodo ">
+                      {" "}
+                      espaço exclusive
+                    </span>
+                  </div>
+                  <div className="menu-dropdown-op regular ">
+                    <input
+                      name="revestimento-piso-rd"
+                      type="checkbox"
+                      value="7"
+                      id="4000-FLEX-parede"
+                      onClick={e => this.mudarItem(e, 1)}
+                    />
+                    <span className="barlow-regular branco-metodo ">
+                      {" "}
+                      espaço prime
+                    </span>
+                  </div>
+                  <div className="menu-dropdown-op regular ">
+                    <input
+                      name="revestimento-piso-rd"
+                      type="checkbox"
+                      value="8"
+                      id="4000-FLEX-parede"
+                      onClick={e => this.mudarItem(e, 1)}
+                    />
+                    <span className="barlow-regular branco-metodo ">
+                      {" "}
+                      retaguarda
+                    </span>
+                  </div>
+                  <div className="menu-dropdown-op regular ">
+                    <input
+                      name="revestimento-piso-rd"
+                      type="checkbox"
+                      value="9"
+                      id="4000-FLEX-parede"
+                      onClick={e => this.mudarItem(e, 1)}
+                    />
+                    <span className="barlow-regular branco-metodo ">
+                      {" "}
+                      intervenções externas
+                    </span>
+                  </div>
                 </div>
               </div>
+
+              {/* teste */}
             </div>
-
-            {/* teste */}
+            <div className="col-padrao-celulas  regular">
+              <input
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 1)}
+                name="revestimento-piso-rd"
+                id="4000-B-piso"
+              />
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                type="radio"
+                value="6"
+                onClick={e => this.mudarItem(e, 1)}
+                name="revestimento-piso-rd"
+                id="4000-C-piso"
+              />
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                type="radio"
+                value="7"
+                onClick={e => this.mudarItem(e, 1)}
+                name="revestimento-piso-rd"
+                id="4000-FLEX-piso"
+              />{" "}
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                type="radio"
+                value="8"
+                onClick={e => this.mudarItem(e, 1)}
+                name="revestimento-piso-rd"
+                id="5000-piso"
+              />{" "}
+              <span className="barlow-regular"> 5000</span>
+            </div>
           </div>
-          <div className="col-2  regular">
-            <input
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 1)}
-              name="revestimento-piso-rd"
-              id="4000-B-piso"
-            />
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              type="radio"
-              value="6"
-              onClick={e => this.mudarItem(e, 1)}
-              name="revestimento-piso-rd"
-              id="4000-C-piso"
-            />
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              type="radio"
-              value="7"
-              onClick={e => this.mudarItem(e, 1)}
-              name="revestimento-piso-rd"
-              id="4000-FLEX-piso"
-            />{" "}
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              type="radio"
-              value="8"
-              onClick={e => this.mudarItem(e, 1)}
-              name="revestimento-piso-rd"
-              id="5000-piso"
-            />{" "}
-            <span className="barlow-regular"> 5000</span>
-          </div>
-
           <div className="col-2  regular menu-resumo">
             {" "}
             <span className="barlow-regular">
@@ -451,55 +452,57 @@ export default class PadraoAcabamento extends Component {
           <div className="col-2  barlow-bold itens-titulos">
             revestimento parede
           </div>
-          <div className="col-2  regular">
-            <input
-              name="revestimento-parede-rd"
-              type="radio"
-              value="4"
-              onClick={e => this.mudarItem(e, 2)}
-              id="4000-A-parede"
-            />
-            <span className="barlow-regular"> 4000 A</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="revestimento-parede-rd"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 2)}
-              id="4000-B-parede"
-            />
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="revestimento-parede-rd"
-              type="radio"
-              value="6"
-              onClick={e => this.mudarItem(e, 2)}
-              id="4000-C-parede"
-            />
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="revestimento-parede-rd"
-              type="radio"
-              value="7"
-              onClick={e => this.mudarItem(e, 2)}
-              id="4000-FLEX-parede"
-            />
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="revestimento-parede-rd"
-              type="radio"
-              value="8"
-              onClick={e => this.mudarItem(e, 2)}
-              id="5000-parede"
-            />
-            <span className="barlow-regular"> 5000 </span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="revestimento-parede-rd"
+                type="radio"
+                value="4"
+                onClick={e => this.mudarItem(e, 2)}
+                id="4000-A-parede"
+              />
+              <span className="barlow-regular"> 4000 A</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="revestimento-parede-rd"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 2)}
+                id="4000-B-parede"
+              />
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="revestimento-parede-rd"
+                type="radio"
+                value="6"
+                onClick={e => this.mudarItem(e, 2)}
+                id="4000-C-parede"
+              />
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="revestimento-parede-rd"
+                type="radio"
+                value="7"
+                onClick={e => this.mudarItem(e, 2)}
+                id="4000-FLEX-parede"
+              />
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="revestimento-parede-rd"
+                type="radio"
+                value="8"
+                onClick={e => this.mudarItem(e, 2)}
+                id="5000-parede"
+              />
+              <span className="barlow-regular"> 5000 </span>
+            </div>
           </div>
 
           <div className="col-2  regular menu-resumo">
@@ -513,57 +516,59 @@ export default class PadraoAcabamento extends Component {
           {/* forro */}
 
           <div className="col-2  barlow-bold itens-titulos">forro</div>
-          <div className="col-2  regular">
-            <input
-              name="forro-rd"
-              type="radio"
-              value="4"
-              onClick={e => this.mudarItem(e, 3)}
-              id="4000-A-forro"
-            />
-            <span className="barlow-regular"> 4000 A</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="forro-rd"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 3)}
-              id="4000-B-forro"
-            />
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2 ">
-            {" "}
-            <input
-              name="forro-rd"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 3)}
-              id="4000-C-forro"
-            />
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="forro-rd"
+                type="radio"
+                value="4"
+                onClick={e => this.mudarItem(e, 3)}
+                id="4000-A-forro"
+              />
+              <span className="barlow-regular"> 4000 A</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="forro-rd"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 3)}
+                id="4000-B-forro"
+              />
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas ">
+              {" "}
+              <input
+                name="forro-rd"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 3)}
+                id="4000-C-forro"
+              />
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
 
-          <div className="col-1  regular">
-            <input
-              name="forro-rd"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 3)}
-              id="4000-FLEX-forro"
-            />
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="forro-rd"
-              type="radio"
-              value="6"
-              onClick={e => this.mudarItem(e, 3)}
-              id="5000-forro"
-            />
-            <span className="barlow-regular"> 5000 </span>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="forro-rd"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 3)}
+                id="4000-FLEX-forro"
+              />
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas regular">
+              <input
+                name="forro-rd"
+                type="radio"
+                value="6"
+                onClick={e => this.mudarItem(e, 3)}
+                id="5000-forro"
+              />
+              <span className="barlow-regular"> 5000 </span>
+            </div>
           </div>
 
           <div className="col-2  regular menu-resumo">
@@ -577,29 +582,31 @@ export default class PadraoAcabamento extends Component {
           {/* caixilhos */}
 
           <div className="col-2  barlow-bold itens-titulos">caixilhos</div>
-          <div className="col-2  regular">
-            <input
-              name="caixilhos-rd"
-              type="radio"
-              value="4"
-              onClick={e => this.mudarItem(e, 4)}
-              id="sim-caixilhos"
-            />{" "}
-            <span className="barlow-regular"> sim</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="caixilhos-rd"
+                type="radio"
+                value="4"
+                onClick={e => this.mudarItem(e, 4)}
+                id="sim-caixilhos"
+              />{" "}
+              <span className="barlow-regular"> sim</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="caixilhos-rd"
+                type="radio"
+                value="0"
+                id="nao-caixilhos"
+                onClick={e => this.mudarItem(e, 4)}
+              />{" "}
+              <span className="barlow-regular"> não</span>
+            </div>
+            <div className="col-padrao-celulas  regular"></div>
+            <div className="col-padrao-celulas  regular"></div>
+            <div className="col-padrao-celulas  regular"></div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="caixilhos-rd"
-              type="radio"
-              value="0"
-              id="nao-caixilhos"
-              onClick={e => this.mudarItem(e, 4)}
-            />{" "}
-            <span className="barlow-regular"> não</span>
-          </div>
-          <div className="col-2  regular"></div>
-          <div className="col-1  regular"></div>
-          <div className="col-1  regular"></div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
@@ -612,45 +619,47 @@ export default class PadraoAcabamento extends Component {
           {/* painel bdn */}
 
           <div className="col-2  barlow-bold itens-titulos">painel bdn</div>
-          <div className="col-2  regular">
-            <input
-              name="painel-bdn-rdo"
-              type="radio"
-              value="4"
-              onClick={e => this.mudarItem(e, 5)}
-              id="metalico-3000-painel"
-            />{" "}
-            <span className="barlow-regular"> metálico 3000</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="painel-bdn-rdo"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 5)}
-              id="metalico-4000-painel"
-            />{" "}
-            <span className="barlow-regular"> metálico 4000</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="painel-bdn-rdo"
-              type="radio"
-              value="6"
-              onClick={e => this.mudarItem(e, 5)}
-              id="metalico-5000-painel"
-            />{" "}
-            <span className="barlow-regular"> 5000</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="painel-bdn-rdo"
-              type="radio"
-              value="7"
-              onClick={e => this.mudarItem(e, 5)}
-              id="metalico-drywall-painel"
-            />{" "}
-            <span className="barlow-regular"> drywall</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="painel-bdn-rdo"
+                type="radio"
+                value="4"
+                onClick={e => this.mudarItem(e, 5)}
+                id="metalico-3000-painel"
+              />{" "}
+              <span className="barlow-regular"> metálico 3000</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="painel-bdn-rdo"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 5)}
+                id="metalico-4000-painel"
+              />{" "}
+              <span className="barlow-regular"> metálico 4000</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="painel-bdn-rdo"
+                type="radio"
+                value="6"
+                onClick={e => this.mudarItem(e, 5)}
+                id="metalico-5000-painel"
+              />{" "}
+              <span className="barlow-regular"> 5000</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="painel-bdn-rdo"
+                type="radio"
+                value="7"
+                onClick={e => this.mudarItem(e, 5)}
+                id="metalico-drywall-painel"
+              />{" "}
+              <span className="barlow-regular"> drywall</span>
+            </div>
           </div>
 
           <div className="col-2  regular menu-resumo">
@@ -664,28 +673,30 @@ export default class PadraoAcabamento extends Component {
           {/* MOBILIARIO */}
 
           <div className="col-2  barlow-bold itens-titulos">mobiliário</div>
-          <div className="col-2  regular">
-            <input
-              name="mobiliario-rdo"
-              type="radio"
-              value="4"
-              onClick={e => this.mudarItem(e, 6)}
-              id="4000-mobiliario"
-            />{" "}
-            <span className="barlow-regular"> 4000</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="mobiliario-rdo"
+                type="radio"
+                value="4"
+                onClick={e => this.mudarItem(e, 6)}
+                id="4000-mobiliario"
+              />{" "}
+              <span className="barlow-regular"> 4000</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="mobiliario-rdo"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 6)}
+                id="5000-mobiliario"
+              />{" "}
+              <span className="barlow-regular"> 5000</span>
+            </div>
+            <div className="col-padrao-celulas  regular"></div>
+            <div className="col-padrao-celulas  regular"></div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="mobiliario-rdo"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 6)}
-              id="5000-mobiliario"
-            />{" "}
-            <span className="barlow-regular"> 5000</span>
-          </div>
-          <div className="col-2  regular"></div>
-          <div className="col-2  regular"></div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
@@ -698,56 +709,59 @@ export default class PadraoAcabamento extends Component {
           {/* persianas */}
 
           <div className="col-2  barlow-bold itens-titulos">persianas</div>
-          <div className="col-2  regular">
-            <input
-              name="persianas-rd"
-              type="radio"
-              value="4"
-              onClick={e => this.mudarItem(e, 7)}
-              id="4000-A-persianas"
-            />{" "}
-            <span className="barlow-regular"> 4000 A</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="persianas-rd"
+                type="radio"
+                value="4"
+                onClick={e => this.mudarItem(e, 7)}
+                id="4000-A-persianas"
+              />{" "}
+              <span className="barlow-regular"> 4000 A</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="persianas-rd"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 7)}
+                id="4000-B-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="persianas-rd"
+                type="radio"
+                value="6"
+                onClick={e => this.mudarItem(e, 7)}
+                id="4000-C-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="persianas-rd"
+                type="radio"
+                value="7"
+                onClick={e => this.mudarItem(e, 7)}
+                id="4000-FLEX-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="persianas-rd"
+                type="radio"
+                value="8"
+                onClick={e => this.mudarItem(e, 7)}
+                id="5000-distribuicao"
+              />{" "}
+              <span className="barlow-regular"> 5000</span>
+            </div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="persianas-rd"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 7)}
-              id="4000-B-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="persianas-rd"
-              type="radio"
-              value="6"
-              onClick={e => this.mudarItem(e, 7)}
-              id="4000-C-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="persianas-rd"
-              type="radio"
-              value="7"
-              onClick={e => this.mudarItem(e, 7)}
-              id="4000-FLEX-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="persianas-rd"
-              type="radio"
-              value="8"
-              onClick={e => this.mudarItem(e, 7)}
-              id="5000-distribuicao"
-            />{" "}
-            <span className="barlow-regular"> 5000</span>
-          </div>
+
           <div className="col-2  regular menu-resumo">
             {" "}
             <span className="barlow-regular">
@@ -761,27 +775,28 @@ export default class PadraoAcabamento extends Component {
           <div className="col-2  barlow-bold itens-titulos">
             vedações internas
           </div>
-          <div className="col-2  regular">
-            <input
-              name="vedacoes-internas-rd"
-              type="radio"
-              value="4"
-              onClick={e => this.mudarItem(e, 8)}
-              id="alvenarias-vedacoes"
-            />{" "}
-            <span className="barlow-regular"> alvenarias</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="vedacoes-internas-rd"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 8)}
-              id="drywall-vedacoes"
-            />{" "}
-            <span className="barlow-regular"> drywall</span>
-          </div>
-          {/* <div className="col-2  regular">
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="vedacoes-internas-rd"
+                type="radio"
+                value="4"
+                onClick={e => this.mudarItem(e, 8)}
+                id="alvenarias-vedacoes"
+              />{" "}
+              <span className="barlow-regular"> alvenarias</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="vedacoes-internas-rd"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 8)}
+                id="drywall-vedacoes"
+              />{" "}
+              <span className="barlow-regular"> drywall</span>
+            </div>
+            {/* <div className="col-2  regular">
             <input
               name="vedacoes-internas-rd"
               type="radio"
@@ -791,8 +806,9 @@ export default class PadraoAcabamento extends Component {
             />{" "}
             <span className="barlow-regular"> unificação</span>
           </div> */}
-          <div className="col-2  regular"></div>
-          <div className="col-2  regular"></div>
+            <div className="col-padrao-celulas  regular"></div>
+            <div className="col-padrao-celulas  regular"></div>
+          </div>
 
           <div className="col-2  regular menu-resumo">
             {" "}
@@ -805,55 +821,57 @@ export default class PadraoAcabamento extends Component {
           {/* fachada-rd */}
 
           <div className="col-2  barlow-bold itens-titulos">fachada</div>
-          <div className="col-2  regular">
-            <input
-              name="fachada-rd"
-              type="radio"
-              value="4"
-              onClick={e => this.mudarItem(e, 9)}
-              id="4000-A-fachada"
-            />{" "}
-            <span className="barlow-regular"> 4000 A</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="fachada-rd"
-              type="radio"
-              value="5"
-              onClick={e => this.mudarItem(e, 9)}
-              id="4000-B-fachada"
-            />{" "}
-            <span className="barlow-regular"> 4000 B</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="fachada-rd"
-              type="radio"
-              value="6"
-              onClick={e => this.mudarItem(e, 9)}
-              id="4000-C-fachada"
-            />{" "}
-            <span className="barlow-regular"> 4000 C</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="fachada-rd"
-              type="radio"
-              value="7"
-              onClick={e => this.mudarItem(e, 9)}
-              id="4000-FLEX-fachada"
-            />{" "}
-            <span className="barlow-regular"> 4000 FLEX</span>
-          </div>
-          <div className="col-1  regular">
-            <input
-              name="fachada-rd"
-              type="radio"
-              value="8"
-              onClick={e => this.mudarItem(e, 9)}
-              id="5000-A-fachada"
-            />{" "}
-            <span className="barlow-regular"> 5000</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="fachada-rd"
+                type="radio"
+                value="4"
+                onClick={e => this.mudarItem(e, 9)}
+                id="4000-A-fachada"
+              />{" "}
+              <span className="barlow-regular"> 4000 A</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="fachada-rd"
+                type="radio"
+                value="5"
+                onClick={e => this.mudarItem(e, 9)}
+                id="4000-B-fachada"
+              />{" "}
+              <span className="barlow-regular"> 4000 B</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="fachada-rd"
+                type="radio"
+                value="6"
+                onClick={e => this.mudarItem(e, 9)}
+                id="4000-C-fachada"
+              />{" "}
+              <span className="barlow-regular"> 4000 C</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="fachada-rd"
+                type="radio"
+                value="7"
+                onClick={e => this.mudarItem(e, 9)}
+                id="4000-FLEX-fachada"
+              />{" "}
+              <span className="barlow-regular"> 4000 FLEX</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="fachada-rd"
+                type="radio"
+                value="8"
+                onClick={e => this.mudarItem(e, 9)}
+                id="5000-A-fachada"
+              />{" "}
+              <span className="barlow-regular"> 5000</span>
+            </div>
           </div>
 
           <div className="col-2  regular menu-resumo">
@@ -869,56 +887,48 @@ export default class PadraoAcabamento extends Component {
           <div className="col-2  barlow-bold itens-titulos">
             comunicação visual ext.
           </div>
-          <div className="col-2  regular">
-            <input
-              name="comunicacao-visual-rd"
-              type="checkbox"
-              value="4"
-              onClick={e => this.mudarItem(e, 10)}
-              id="letreiro-comunicacao"
-            />{" "}
-            <span className="barlow-regular"> letreiro</span>
+          <div className="col-8">
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="comunicacao-visual-rd"
+                type="checkbox"
+                value="4"
+                onClick={e => this.mudarItem(e, 10)}
+                id="letreiro-comunicacao"
+              />{" "}
+              <span className="barlow-regular"> letreiro</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="comunicacao-visual-rd"
+                type="checkbox"
+                value="5"
+                onClick={e => this.mudarItem(e, 10)}
+                id="totem-comunicacao"
+              />{" "}
+              <span className="barlow-regular"> totem</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="comunicacao-visual-rd"
+                type="checkbox"
+                value="6"
+                onClick={e => this.mudarItem(e, 10)}
+                id="medalhao-comunicacao"
+              />{" "}
+              <span className="barlow-regular"> medalhão</span>
+            </div>
+            <div className="col-padrao-celulas  regular">
+              <input
+                name="comunicacao-visual-rd"
+                type="checkbox"
+                value="7"
+                onClick={e => this.mudarItem(e, 10)}
+                id="bandeira-comunicacao"
+              />{" "}
+              <span className="barlow-regular"> bandeira</span>
+            </div>
           </div>
-          <div className="col-2  regular">
-            <input
-              name="comunicacao-visual-rd"
-              type="checkbox"
-              value="5"
-              onClick={e => this.mudarItem(e, 10)}
-              id="totem-comunicacao"
-            />{" "}
-            <span className="barlow-regular"> totem</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="comunicacao-visual-rd"
-              type="checkbox"
-              value="6"
-              onClick={e => this.mudarItem(e, 10)}
-              id="medalhao-comunicacao"
-            />{" "}
-            <span className="barlow-regular"> medalhão</span>
-          </div>
-          <div className="col-2  regular">
-            <input
-              name="comunicacao-visual-rd"
-              type="checkbox"
-              value="7"
-              onClick={e => this.mudarItem(e, 10)}
-              id="bandeira-comunicacao"
-            />{" "}
-            <span className="barlow-regular"> bandeira</span>
-          </div>
-          {/* <div className="col-1  regular">
-            <input
-              name="comunicacao-visual-rd"
-              type="checkbox"
-              value="7"
-              onClick={e => this.mudarItem(e, 10)}
-              id="todos-comunicacao"
-            />{" "}
-            <span className="barlow-regular"> todos</span>
-          </div> */}
 
           <div className="col-2  regular menu-resumo">
             {" "}

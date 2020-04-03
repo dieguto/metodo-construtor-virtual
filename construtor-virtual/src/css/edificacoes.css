@@ -137,7 +137,7 @@ div.itens-titulos:hover + div.imagem-transitoria {
 
 .linha-dropdown {
   height: 50px;
-  width: 354%;
+  width: 1035px;
   background-color: #eb6607;
 }
 
@@ -175,6 +175,18 @@ div.itens-titulos:hover + div.imagem-transitoria {
 
 .col-padrao-celulas {
   width: 20%;
+  height: 50px;
+  float: left;
+}
+.col-padrao-celulas-com-menu {
+  width: 20%;
+  min-height: 50px;
+  height: auto;
+  float: left;
+}
+
+.col-padrao-edificacoes {
+  width: 25%;
   height: 50px;
   float: left;
 }

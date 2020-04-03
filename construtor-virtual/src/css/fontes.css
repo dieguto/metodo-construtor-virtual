@@ -28,6 +28,11 @@
   src: url(../Utils/fontes/barlow/Barlow-Regular.otf);
 }
 
+@font-face {
+  font-family: barlow-light;
+  src: url(../Utils/fontes/barlow/Barlow-Light.otf);
+}
+
 * {
   padding: 0;
   margin: 0;
@@ -35,6 +40,10 @@
 
 .barlow-padrao {
   font-family: barlow-padrao;
+}
+
+.barlow-light {
+  font-family: barlow-light;
 }
 
 .barlow-thin {
