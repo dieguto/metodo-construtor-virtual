@@ -299,7 +299,7 @@ export default class PadraoAcabamento extends Component {
             <div className="col-padrao-celulas-com-menu  regular">
               <input
                 type="radio"
-                value="4"
+                value="4000"
                 // onClick={e => this.mudarItem(e, 1)}
                 name="revestimento-piso-rd"
                 id="4000-A-piso"
@@ -320,7 +320,7 @@ export default class PadraoAcabamento extends Component {
                     <input
                       name="revestimento-piso-rd"
                       type="checkbox"
-                      value="4"
+                      value="4000"
                       id="4000-A-parede"
                       onClick={e => this.mudarItem(e, 1)}
                     />
@@ -333,7 +333,7 @@ export default class PadraoAcabamento extends Component {
                     <input
                       name="revestimento-piso-rd"
                       type="checkbox"
-                      value="5"
+                      value="5000"
                       id="4000-B-parede"
                       onClick={e => this.mudarItem(e, 1)}
                     />
@@ -346,7 +346,7 @@ export default class PadraoAcabamento extends Component {
                     <input
                       name="revestimento-piso-rd"
                       type="checkbox"
-                      value="6"
+                      value="6000"
                       id="4000-C-parede"
                       onClick={e => this.mudarItem(e, 1)}
                     />
@@ -359,7 +359,7 @@ export default class PadraoAcabamento extends Component {
                     <input
                       name="revestimento-piso-rd"
                       type="checkbox"
-                      value="7"
+                      value="7000"
                       id="4000-FLEX-parede"
                       onClick={e => this.mudarItem(e, 1)}
                     />
@@ -372,7 +372,7 @@ export default class PadraoAcabamento extends Component {
                     <input
                       name="revestimento-piso-rd"
                       type="checkbox"
-                      value="8"
+                      value="8000"
                       id="4000-FLEX-parede"
                       onClick={e => this.mudarItem(e, 1)}
                     />
@@ -385,7 +385,7 @@ export default class PadraoAcabamento extends Component {
                     <input
                       name="revestimento-piso-rd"
                       type="checkbox"
-                      value="9"
+                      value="9000"
                       id="4000-FLEX-parede"
                       onClick={e => this.mudarItem(e, 1)}
                     />
@@ -402,7 +402,7 @@ export default class PadraoAcabamento extends Component {
             <div className="col-padrao-celulas  regular">
               <input
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 1)}
                 name="revestimento-piso-rd"
                 id="4000-B-piso"
@@ -412,7 +412,7 @@ export default class PadraoAcabamento extends Component {
             <div className="col-padrao-celulas  regular">
               <input
                 type="radio"
-                value="6"
+                value="6000"
                 onClick={e => this.mudarItem(e, 1)}
                 name="revestimento-piso-rd"
                 id="4000-C-piso"
@@ -422,7 +422,7 @@ export default class PadraoAcabamento extends Component {
             <div className="col-padrao-celulas  regular">
               <input
                 type="radio"
-                value="7"
+                value="7000"
                 onClick={e => this.mudarItem(e, 1)}
                 name="revestimento-piso-rd"
                 id="4000-FLEX-piso"
@@ -432,7 +432,7 @@ export default class PadraoAcabamento extends Component {
             <div className="col-padrao-celulas  regular">
               <input
                 type="radio"
-                value="8"
+                value="8000"
                 onClick={e => this.mudarItem(e, 1)}
                 name="revestimento-piso-rd"
                 id="5000-piso"
@@ -457,7 +457,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="revestimento-parede-rd"
                 type="radio"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 2)}
                 id="4000-A-parede"
               />
@@ -467,7 +467,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="revestimento-parede-rd"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 2)}
                 id="4000-B-parede"
               />
@@ -477,7 +477,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="revestimento-parede-rd"
                 type="radio"
-                value="6"
+                value="6000"
                 onClick={e => this.mudarItem(e, 2)}
                 id="4000-C-parede"
               />
@@ -487,7 +487,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="revestimento-parede-rd"
                 type="radio"
-                value="7"
+                value="7000"
                 onClick={e => this.mudarItem(e, 2)}
                 id="4000-FLEX-parede"
               />
@@ -497,7 +497,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="revestimento-parede-rd"
                 type="radio"
-                value="8"
+                value="8000"
                 onClick={e => this.mudarItem(e, 2)}
                 id="5000-parede"
               />
@@ -521,7 +521,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="forro-rd"
                 type="radio"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 3)}
                 id="4000-A-forro"
               />
@@ -531,7 +531,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="forro-rd"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 3)}
                 id="4000-B-forro"
               />
@@ -542,7 +542,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="forro-rd"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 3)}
                 id="4000-C-forro"
               />
@@ -553,7 +553,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="forro-rd"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 3)}
                 id="4000-FLEX-forro"
               />
@@ -563,7 +563,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="forro-rd"
                 type="radio"
-                value="6"
+                value="6000"
                 onClick={e => this.mudarItem(e, 3)}
                 id="5000-forro"
               />
@@ -587,7 +587,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="caixilhos-rd"
                 type="radio"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 4)}
                 id="sim-caixilhos"
               />{" "}
@@ -597,7 +597,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="caixilhos-rd"
                 type="radio"
-                value="0"
+                value="0000"
                 id="nao-caixilhos"
                 onClick={e => this.mudarItem(e, 4)}
               />{" "}
@@ -624,7 +624,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="painel-bdn-rdo"
                 type="radio"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 5)}
                 id="metalico-3000-painel"
               />{" "}
@@ -634,7 +634,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="painel-bdn-rdo"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 5)}
                 id="metalico-4000-painel"
               />{" "}
@@ -644,7 +644,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="painel-bdn-rdo"
                 type="radio"
-                value="6"
+                value="6000"
                 onClick={e => this.mudarItem(e, 5)}
                 id="metalico-5000-painel"
               />{" "}
@@ -654,7 +654,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="painel-bdn-rdo"
                 type="radio"
-                value="7"
+                value="7000"
                 onClick={e => this.mudarItem(e, 5)}
                 id="metalico-drywall-painel"
               />{" "}
@@ -678,7 +678,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="mobiliario-rdo"
                 type="radio"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 6)}
                 id="4000-mobiliario"
               />{" "}
@@ -688,7 +688,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="mobiliario-rdo"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 6)}
                 id="5000-mobiliario"
               />{" "}
@@ -714,7 +714,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="persianas-rd"
                 type="radio"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 7)}
                 id="4000-A-persianas"
               />{" "}
@@ -724,7 +724,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="persianas-rd"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 7)}
                 id="4000-B-distribuicao"
               />{" "}
@@ -734,7 +734,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="persianas-rd"
                 type="radio"
-                value="6"
+                value="6000"
                 onClick={e => this.mudarItem(e, 7)}
                 id="4000-C-distribuicao"
               />{" "}
@@ -744,7 +744,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="persianas-rd"
                 type="radio"
-                value="7"
+                value="7000"
                 onClick={e => this.mudarItem(e, 7)}
                 id="4000-FLEX-distribuicao"
               />{" "}
@@ -754,7 +754,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="persianas-rd"
                 type="radio"
-                value="8"
+                value="8000"
                 onClick={e => this.mudarItem(e, 7)}
                 id="5000-distribuicao"
               />{" "}
@@ -780,7 +780,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="vedacoes-internas-rd"
                 type="radio"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 8)}
                 id="alvenarias-vedacoes"
               />{" "}
@@ -790,7 +790,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="vedacoes-internas-rd"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 8)}
                 id="drywall-vedacoes"
               />{" "}
@@ -800,7 +800,7 @@ export default class PadraoAcabamento extends Component {
             <input
               name="vedacoes-internas-rd"
               type="radio"
-              value="5"
+              value="5000"
               onClick={e => this.mudarItem(e, 8)}
               id="unificacao-vedacoes"
             />{" "}
@@ -826,7 +826,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="fachada-rd"
                 type="radio"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 9)}
                 id="4000-A-fachada"
               />{" "}
@@ -836,7 +836,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="fachada-rd"
                 type="radio"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 9)}
                 id="4000-B-fachada"
               />{" "}
@@ -846,7 +846,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="fachada-rd"
                 type="radio"
-                value="6"
+                value="6000"
                 onClick={e => this.mudarItem(e, 9)}
                 id="4000-C-fachada"
               />{" "}
@@ -856,7 +856,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="fachada-rd"
                 type="radio"
-                value="7"
+                value="7000"
                 onClick={e => this.mudarItem(e, 9)}
                 id="4000-FLEX-fachada"
               />{" "}
@@ -866,7 +866,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="fachada-rd"
                 type="radio"
-                value="8"
+                value="8000"
                 onClick={e => this.mudarItem(e, 9)}
                 id="5000-A-fachada"
               />{" "}
@@ -892,7 +892,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="comunicacao-visual-rd"
                 type="checkbox"
-                value="4"
+                value="4000"
                 onClick={e => this.mudarItem(e, 10)}
                 id="letreiro-comunicacao"
               />{" "}
@@ -902,7 +902,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="comunicacao-visual-rd"
                 type="checkbox"
-                value="5"
+                value="5000"
                 onClick={e => this.mudarItem(e, 10)}
                 id="totem-comunicacao"
               />{" "}
@@ -912,7 +912,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="comunicacao-visual-rd"
                 type="checkbox"
-                value="6"
+                value="6000"
                 onClick={e => this.mudarItem(e, 10)}
                 id="medalhao-comunicacao"
               />{" "}
@@ -922,7 +922,7 @@ export default class PadraoAcabamento extends Component {
               <input
                 name="comunicacao-visual-rd"
                 type="checkbox"
-                value="7"
+                value="7000"
                 onClick={e => this.mudarItem(e, 10)}
                 id="bandeira-comunicacao"
               />{" "}

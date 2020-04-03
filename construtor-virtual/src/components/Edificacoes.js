@@ -310,7 +310,7 @@ export default class Edificacoes extends Component {
                 type="radio"
                 name="terraplanagem-rd"
                 onClick={e => this.mudarItem(e, 1)}
-                value="5"
+                value="5000"
                 id="limpeza-terreno"
               />
               <span className="barlow-regular"> limpeza de terreno</span>
@@ -320,7 +320,7 @@ export default class Edificacoes extends Component {
                 type="radio"
                 name="terraplanagem-rd"
                 onClick={e => this.mudarItem(e, 1)}
-                value="6"
+                value="6000"
                 id="movimentacao"
               />
               <span className="barlow-regular"> movimentação Parcial(50%)</span>
@@ -330,7 +330,7 @@ export default class Edificacoes extends Component {
                 type="radio"
                 name="terraplanagem-rd"
                 onClick={e => this.mudarItem(e, 1)}
-                value="7"
+                value="7000"
                 id="corte-e-aterro"
               />
               <span className="barlow-regular"> corte e aterro</span>
@@ -356,7 +356,7 @@ export default class Edificacoes extends Component {
                 name="demolicao-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 2)}
-                value="5"
+                value="5000"
                 id="sim"
               />
               <span className="barlow-regular"> sim</span>
@@ -366,7 +366,7 @@ export default class Edificacoes extends Component {
                 name="demolicao-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 2)}
-                value="0"
+                value="0000"
               />
               <span className="barlow-regular"> não</span>
             </div>
@@ -390,7 +390,7 @@ export default class Edificacoes extends Component {
                 name="fundacao-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 3)}
-                value="5"
+                value="5000"
                 id="radier"
               />
               <span className="barlow-regular"> radier</span>
@@ -400,7 +400,7 @@ export default class Edificacoes extends Component {
                 name="fundacao-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 3)}
-                value="6"
+                value="6000"
                 id="sapata"
               />
               <span className="barlow-regular"> sapata</span>
@@ -410,7 +410,7 @@ export default class Edificacoes extends Component {
                 name="fundacao-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 3)}
-                value="7"
+                value="7000"
                 id="estaca"
               />
               <span className="barlow-regular"> estaca</span>{" "}
@@ -441,7 +441,7 @@ export default class Edificacoes extends Component {
                 name="estruturas-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 4)}
-                value="5"
+                value="5000"
                 id="concreto-estrutura"
               />{" "}
               <span className="barlow-regular"> concreto</span>
@@ -451,7 +451,7 @@ export default class Edificacoes extends Component {
                 name="estruturas-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 4)}
-                value="6"
+                value="6000"
                 id="premoldado"
               />{" "}
               <span className="barlow-regular"> prémoldado</span>
@@ -461,7 +461,7 @@ export default class Edificacoes extends Component {
                 name="estruturas-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 4)}
-                value="7"
+                value="7000"
                 id="metalica-estruturas"
               />{" "}
               <span className="barlow-regular"> metálica</span>
@@ -485,7 +485,7 @@ export default class Edificacoes extends Component {
                 name="escadas-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 5)}
-                value="6"
+                value="6000"
                 id="concreto-escada"
               />{" "}
               <span className="barlow-regular"> concreto</span>
@@ -495,7 +495,7 @@ export default class Edificacoes extends Component {
                 name="escadas-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 5)}
-                value="7"
+                value="7000"
                 id="metalica-escadas"
               />{" "}
               <span className="barlow-regular"> metálica</span>
@@ -520,7 +520,7 @@ export default class Edificacoes extends Component {
                 name="cobertura-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 6)}
-                value="4"
+                value="4000"
                 id="forro-telhado"
               />{" "}
               <span className="barlow-regular"> forro + telhado</span>
@@ -530,7 +530,7 @@ export default class Edificacoes extends Component {
                 name="cobertura-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 6)}
-                value="5"
+                value="5000"
                 id="forro-laje"
               />{" "}
               <span className="barlow-regular"> forro + laje</span>
@@ -540,7 +540,7 @@ export default class Edificacoes extends Component {
                 name="cobertura-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 6)}
-                value="6"
+                value="6000"
                 id="laje"
               />{" "}
               <span className="barlow-regular"> laje</span>
@@ -550,7 +550,7 @@ export default class Edificacoes extends Component {
                 name="cobertura-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 6)}
-                value="7"
+                value="7000"
                 id="laje-telhado"
               />{" "}
               <span className="barlow-regular"> laje + telhado</span>
@@ -576,7 +576,7 @@ export default class Edificacoes extends Component {
                 name="estacionamento-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 7)}
-                value="5"
+                value="5000"
                 id="proprio"
               />{" "}
               <span className="barlow-regular"> próprio</span>
@@ -586,7 +586,7 @@ export default class Edificacoes extends Component {
                 name="estacionamento-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 7)}
-                value="6"
+                value="6000"
                 id="alugado"
               />{" "}
               <span className="barlow-regular"> alugado</span>
@@ -610,7 +610,7 @@ export default class Edificacoes extends Component {
                 name="passeio-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 8)}
-                value="5"
+                value="5000"
                 id="manter"
               />{" "}
               <span className="barlow-regular"> manter</span>
@@ -620,7 +620,7 @@ export default class Edificacoes extends Component {
                 name="passeio-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 8)}
-                value="6"
+                value="6000"
                 id="reformar"
               />{" "}
               <span className="barlow-regular"> reformar</span>
@@ -647,7 +647,7 @@ export default class Edificacoes extends Component {
                 name="pavimentos-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 9)}
-                value="5"
+                value="5000"
                 id="1"
               />{" "}
               <span className="barlow-regular"> 1</span>
@@ -657,7 +657,7 @@ export default class Edificacoes extends Component {
                 name="pavimentos-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 9)}
-                value="6"
+                value="6000"
                 id="2"
               />{" "}
               <span className="barlow-regular"> 2</span>
@@ -667,7 +667,7 @@ export default class Edificacoes extends Component {
                 name="pavimentos-rd"
                 type="radio"
                 onClick={e => this.mudarItem(e, 9)}
-                value="7"
+                value="7000"
                 id="3"
               />{" "}
               <span className="barlow-regular"> 3</span>

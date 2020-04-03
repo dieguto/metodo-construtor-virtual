@@ -288,7 +288,7 @@ export default class InfraEstrutura extends Component {
             <div className="col-padrao-celulas  regular">
               <input
                 onClick={e => this.mudarItem(e, 1)}
-                value="4"
+                value="4000"
                 type="radio"
                 name="climatizacao-rd"
                 id="central-clima"
@@ -298,7 +298,7 @@ export default class InfraEstrutura extends Component {
             <div className="col-padrao-celulas regular">
               <input
                 onClick={e => this.mudarItem(e, 1)}
-                value="5"
+                value="5000"
                 type="radio"
                 name="climatizacao-rd"
                 id="split-clima"
@@ -308,7 +308,7 @@ export default class InfraEstrutura extends Component {
             <div className="col-padrao-celulas regular">
               <input
                 onClick={e => this.mudarItem(e, 1)}
-                value="6"
+                value="6000"
                 type="radio"
                 name="climatizacao-rd"
                 id="misto-clima"
@@ -335,7 +335,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="eletrica-rd"
                 onClick={e => this.mudarItem(e, 2)}
-                value="4"
+                value="4000"
                 type="radio"
                 id="4000-A-eletrica"
               />
@@ -345,7 +345,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="eletrica-rd"
                 onClick={e => this.mudarItem(e, 2)}
-                value="5"
+                value="5000"
                 type="radio"
                 id="4000-B-eletrica"
               />
@@ -355,7 +355,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="eletrica-rd"
                 onClick={e => this.mudarItem(e, 2)}
-                value="6"
+                value="6000"
                 type="radio"
                 id="4000-C-eletrica"
               />{" "}
@@ -365,7 +365,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="eletrica-rd"
                 onClick={e => this.mudarItem(e, 2)}
-                value="7"
+                value="7000"
                 type="radio"
                 id="4000-FLEX-eletrica"
               />
@@ -375,7 +375,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="eletrica-rd"
                 onClick={e => this.mudarItem(e, 2)}
-                value="8"
+                value="8000"
                 type="radio"
                 id="5000-eletrica"
               />
@@ -398,7 +398,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="rede-rd"
                 onClick={e => this.mudarItem(e, 3)}
-                value="4"
+                value="4000"
                 type="radio"
                 id="cabeamento-rede"
               />
@@ -408,7 +408,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="rede-rd"
                 onClick={e => this.mudarItem(e, 3)}
-                value="5"
+                value="5000"
                 type="radio"
                 id="wi-fi-rede"
               />
@@ -434,7 +434,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="distribuica-rd"
                 onClick={e => this.mudarItem(e, 4)}
-                value="4"
+                value="4000"
                 type="radio"
                 id="4000-A-distribuicao"
               />{" "}
@@ -444,7 +444,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="distribuica-rd"
                 onClick={e => this.mudarItem(e, 4)}
-                value="5"
+                value="5000"
                 type="radio"
                 id="4000-B-distribuicao"
               />{" "}
@@ -454,7 +454,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="distribuica-rd"
                 onClick={e => this.mudarItem(e, 4)}
-                value="6"
+                value="6000"
                 type="radio"
                 id="4000-C-distribuicao"
               />{" "}
@@ -464,7 +464,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="distribuica-rd"
                 onClick={e => this.mudarItem(e, 4)}
-                value="7"
+                value="7000"
                 type="radio"
                 id="4000-FLEX-distribuicao"
               />{" "}
@@ -474,7 +474,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="distribuica-rd"
                 onClick={e => this.mudarItem(e, 4)}
-                value="8"
+                value="8000"
                 type="radio"
                 id="5000-distribuicao"
               />{" "}
@@ -498,7 +498,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="telefonia-rd"
                 onClick={e => this.mudarItem(e, 5)}
-                value="4"
+                value="4000"
                 type="radio"
                 id="4000-A-telefonia"
               />{" "}
@@ -508,7 +508,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="telefonia-rd"
                 onClick={e => this.mudarItem(e, 5)}
-                value="5"
+                value="5000"
                 type="radio"
                 id="4000-B-telefonia"
               />{" "}
@@ -518,7 +518,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="telefonia-rd"
                 onClick={e => this.mudarItem(e, 5)}
-                value="6"
+                value="6000"
                 type="radio"
                 id="4000-C-telefonia"
               />{" "}
@@ -528,7 +528,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="telefonia-rd"
                 onClick={e => this.mudarItem(e, 5)}
-                value="7"
+                value="7000"
                 type="radio"
                 id="4000-FLEX-telefonia"
               />{" "}
@@ -538,7 +538,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="telefonia-rd"
                 onClick={e => this.mudarItem(e, 5)}
-                value="8"
+                value="8000"
                 type="radio"
                 id="5000-telefonia"
               />{" "}
@@ -562,7 +562,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="iluminacao-rd"
                 onClick={e => this.mudarItem(e, 6)}
-                value="4"
+                value="4000"
                 type="radio"
                 id="4000-A-iluminacao"
               />{" "}
@@ -572,7 +572,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="iluminacao-rd"
                 onClick={e => this.mudarItem(e, 6)}
-                value="5"
+                value="5000"
                 type="radio"
                 id="4000-B-iluminacao"
               />{" "}
@@ -582,7 +582,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="iluminacao-rd"
                 onClick={e => this.mudarItem(e, 6)}
-                value="6"
+                value="6000"
                 type="radio"
                 id="4000-B-iluminacao"
               />{" "}
@@ -592,7 +592,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="iluminacao-rd"
                 onClick={e => this.mudarItem(e, 6)}
-                value="7"
+                value="7000"
                 type="radio"
                 id="4000-FLEX-iluminacao"
               />{" "}
@@ -602,7 +602,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="iluminacao-rd"
                 onClick={e => this.mudarItem(e, 6)}
-                value="8"
+                value="8000"
                 type="radio"
                 id="5000-iluminacao"
               />{" "}
@@ -628,7 +628,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="entrada-rd"
                 onClick={e => this.mudarItem(e, 7)}
-                value="4"
+                value="4000"
                 type="radio"
                 id="acrescimo-entrada"
               />{" "}
@@ -638,7 +638,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="entrada-rd"
                 onClick={e => this.mudarItem(e, 7)}
-                value="5"
+                value="5000"
                 type="radio"
                 id="substituicao-entrada"
               />{" "}
@@ -648,7 +648,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="entrada-rd"
                 onClick={e => this.mudarItem(e, 7)}
-                value="6"
+                value="6000"
                 type="radio"
                 id="unificacao-entrada"
               />{" "}
@@ -659,7 +659,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="entrada-rd"
                 onClick={e => this.mudarItem(e, 7)}
-                value="7"
+                value="7000"
                 type="radio"
                 id="desmembrar-entrada"
               />{" "}
@@ -683,7 +683,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="bombeiros-rd"
                 onClick={e => this.mudarItem(e, 8)}
-                value="4"
+                value="4000"
                 type="checkbox"
                 id="hidrante-bombeiros"
               />{" "}
@@ -693,7 +693,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="bombeiros-rd"
                 onClick={e => this.mudarItem(e, 8)}
-                value="5"
+                value="5000"
                 type="checkbox"
                 id="hidrante-bombeiros"
               />{" "}
@@ -703,7 +703,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="bombeiros-rd"
                 onClick={e => this.mudarItem(e, 8)}
-                value="6"
+                value="6000"
                 type="checkbox"
                 id="extintores-bombeiros"
               />{" "}
@@ -729,7 +729,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="hidraulica-rd"
                 onClick={e => this.mudarItem(e, 9)}
-                value="4"
+                value="4000"
                 type="radio"
                 id="unificacao-hidraulica"
               />{" "}
@@ -739,7 +739,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="hidraulica-rd"
                 onClick={e => this.mudarItem(e, 9)}
-                value="5"
+                value="5000"
                 type="radio"
                 id="desmebrar-hidraulica"
               />{" "}
@@ -749,7 +749,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="hidraulica-rd"
                 onClick={e => this.mudarItem(e, 9)}
-                value="6"
+                value="6000"
                 type="radio"
                 id="alimentacao-hidraulica"
               />{" "}
@@ -773,7 +773,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="acessibilidade-rd"
                 onClick={e => this.mudarItem(e, 10)}
-                value="4"
+                value="4000"
                 type="checkbox"
                 id="elevador-acessibilidade"
               />{" "}
@@ -783,7 +783,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="acessibilidade-rd"
                 onClick={e => this.mudarItem(e, 10)}
-                value="5"
+                value="5000"
                 type="checkbox"
                 id="plataforma-acessibilidade"
               />{" "}
@@ -793,7 +793,7 @@ export default class InfraEstrutura extends Component {
               <input
                 name="acessibilidade-rd"
                 onClick={e => this.mudarItem(e, 10)}
-                value="6"
+                value="6000"
                 type="checkbox"
                 id="rampa-acessibilidade"
               />{" "}
